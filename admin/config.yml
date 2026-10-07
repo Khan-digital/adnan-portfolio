@@ -25,12 +25,6 @@ collections:
         widget: image
         required: false
 
-      - name: gallery
-        label: Case Study Images
-        widget: image
-        multiple: true
-        required: false
-
       - name: role
         label: Role
         widget: string
