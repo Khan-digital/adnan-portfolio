@@ -14,33 +14,34 @@ collections:
         label: Projects
         file: content/projects.json
         fields:
-          - label: Projects
-            name: projects
+          - name: projects
+            label: Projects
             widget: list
+            root: true
             fields:
-              - label: Project Title
-                name: title
+              - name: title
+                label: Project Title
                 widget: string
 
-              - label: Short Description
-                name: description
+              - name: description
+                label: Short Description
                 widget: text
 
-              - label: Cover Image
-                name: image
+              - name: image
+                label: Cover Image
                 widget: image
                 required: false
 
-              - label: Role
-                name: role
+              - name: role
+                label: Role
                 widget: string
                 required: false
 
-              - label: Year
-                name: year
+              - name: year
+                label: Year
                 widget: string
                 required: false
 
-              - label: Case Study
-                name: body
+              - name: body
+                label: Case Study
                 widget: markdown
