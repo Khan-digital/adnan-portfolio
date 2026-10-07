@@ -32,7 +32,7 @@ collections:
                 widget: image
                 required: false
                 
-                - name: gallery
+                              - name: gallery
                 label: Case Study Images
                 widget: list
                 required: false
