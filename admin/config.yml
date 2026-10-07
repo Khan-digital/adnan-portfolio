@@ -14,9 +14,10 @@ collections:
         label: Projects
         file: content/projects.json
         fields:
-          - name: projects
+                    - name: projects
             label: Projects
             widget: list
+            root: true
             fields:
               - name: title
                 label: Project Title
