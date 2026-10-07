@@ -1,50 +1,8 @@
 [
-  {
-    "title": "AI Website Starter Kit",
-    "description": "A practical starter kit for turning an idea into a polished responsive website with AI-assisted planning, copy, structure and design.",
-    "type": "Template Kit",
-    "price": "Coming soon",
-    "status": "planned",
-    "url": ""
-  },
-  {
-    "title": "Figma Landing Page System",
-    "description": "A reusable landing-page system with sections, responsive layouts, typography and reusable components for fast client and personal projects.",
-    "type": "Figma Resource",
-    "price": "Coming soon",
-    "status": "planned",
-    "url": ""
-  },
-  {
-    "title": "Social Content Design Kit",
-    "description": "A flexible set of social-media layouts designed for creators and small businesses that need consistent content without starting from zero.",
-    "type": "Design Kit",
-    "price": "Coming soon",
-    "status": "planned",
-    "url": ""
-  },
-  {
-    "title": "Product Designer Portfolio Kit",
-    "description": "A portfolio structure for designers who want to present product thinking, case studies, UX/UI work and visual craft clearly.",
-    "type": "Portfolio Kit",
-    "price": "Coming soon",
-    "status": "planned",
-    "url": ""
-  },
-  {
-    "title": "AI Design Workflow Pack",
-    "description": "A practical workflow system for designers using AI for research synthesis, flow reviews, UI critique, microcopy, QA and portfolio storytelling without replacing design judgment.",
-    "type": "Workflow Pack",
-    "price": "Ready for storefront",
-    "status": "ready",
-    "url": "/products/ai-design-workflow-pack/"
-  },
-  {
-    "title": "Small Business Website Pack",
-    "description": "A collection of practical website structures and reusable sections for local businesses, freelancers and service providers.",
-    "type": "Website Kit",
-    "price": "Coming soon",
-    "status": "planned",
-    "url": ""
-  }
+  {"title":"AI Website Starter Kit","description":"A practical starter kit for turning an idea into a polished responsive website with AI-assisted planning, copy, structure and design.","type":"Template Kit","price":"Coming soon","status":"planned","url":""},
+  {"title":"Figma Landing Page System","description":"A reusable landing-page system with sections, responsive layouts, typography and reusable components for fast client and personal projects.","type":"Figma Resource","price":"Coming soon","status":"planned","url":""},
+  {"title":"Social Content Design Kit","description":"A lightweight content system with planning, caption and reusable content frameworks for creators and small businesses.","type":"Design Kit","price":"Ready for storefront","status":"ready","url":"/products/social-content-design-kit/"},
+  {"title":"Product Designer Portfolio Kit","description":"A practical portfolio structure for designers who want to present product thinking, case studies, UX/UI work and visual craft clearly.","type":"Portfolio Kit","price":"Ready for storefront","status":"ready","url":"/products/product-designer-portfolio-kit/"},
+  {"title":"AI Design Workflow Pack","description":"A practical workflow system for designers using AI for research synthesis, flow reviews, UI critique, microcopy, QA and portfolio storytelling without replacing design judgment.","type":"Workflow Pack","price":"Ready for storefront","status":"ready","url":"/products/ai-design-workflow-pack/"},
+  {"title":"Small Business Website Pack","description":"A collection of practical website structures and reusable sections for local businesses, freelancers and service providers.","type":"Website Kit","price":"Coming soon","status":"planned","url":""}
 ]
