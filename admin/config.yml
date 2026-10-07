@@ -9,41 +9,38 @@ public_folder: /images
 collections:
   - name: projects
     label: Projects
-    files:
-      - name: projects
-        label: Projects
-        file: content/projects.json
-        fields:
-          - name: projects
-            label: Projects
-            widget: list
-            root: true
-            fields:
-              - name: title
-                label: Project Title
-                widget: string
+    label_singular: Project
+    file: content/projects.json
+    fields:
+      - name: title
+        label: Project Title
+        widget: string
 
-              - name: description
-                label: Short Description
-                widget: text
+      - name: description
+        label: Short Description
+        widget: text
 
-              - name: image
-                label: Cover Image
-                widget: image
-                required: false
+      - name: image
+        label: Cover Image
+        widget: image
+        required: false
 
-             
+      - name: gallery
+        label: Case Study Images
+        widget: image
+        multiple: true
+        required: false
 
-              - name: role
-                label: Role
-                widget: string
-                required: false
+      - name: role
+        label: Role
+        widget: string
+        required: false
 
-              - name: year
-                label: Year
-                widget: string
-                required: false
+      - name: year
+        label: Year
+        widget: string
+        required: false
 
-              - name: body
-                label: Case Study
-                widget: markdown
+      - name: body
+        label: Case Study
+        widget: markdown
