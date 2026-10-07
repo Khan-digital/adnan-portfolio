@@ -295,20 +295,21 @@
 
   <!-- COVER IMAGE WILL BE CONNECTED HERE LATER -->
 
-  <div class="hero-image">
-    <div style="
-      min-height:420px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      color:#aaa;
-      text-align:center;
-      border:1px dashed #555;
-      border-radius:16px;
-    ">
-      HatDu product visual
-    </div>
-  </div>
+<div class="hero-image">
+  <img id="cover-image" src="" alt="HatDu product interface">
+</div>
+
+<script>
+fetch('/content/projects.json')
+  .then(response => response.json())
+  .then(data => {
+    const project = (data.projects || [])[0];
+
+    if (project && project.image) {
+      document.getElementById('cover-image').src = project.image;
+    }
+  });
+</script>
 
   <section class="section">
 
