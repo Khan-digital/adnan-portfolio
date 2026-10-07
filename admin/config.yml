@@ -13,7 +13,29 @@ collections:
     create: true
     slug: "{{slug}}"
     fields:
-      - { name: title, label: Title, widget: string }
-      - { name: description, label: Description, widget: text }
-      - { name: image, label: Cover Image, widget: image, required: false }
-      - { name: body, label: Case Study, widget: markdown }
+      - label: Project Title
+        name: title
+        widget: string
+
+      - label: Short Description
+        name: description
+        widget: text
+
+      - label: Cover Image
+        name: image
+        widget: image
+        required: false
+
+      - label: Role
+        name: role
+        widget: string
+        required: false
+
+      - label: Year
+        name: year
+        widget: string
+        required: false
+
+      - label: Case Study
+        name: body
+        widget: markdown
