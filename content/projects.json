@@ -1,12 +1,10 @@
-{
-  "projects": [
-    {
-      "title": "HatDu — Digital Request & Offer Platform",
-      "description": "Designing a trusted digital platform where verified requesters and providers can connect, manage requests and offers, and collaborate through flexible account roles and permissions.",
-      "image": "/images/home_Zeichenfläche 1 Kopie 3.jpg",
-      "role": "Product Designer · UX/UI · Digital Experience",
-      "year": "2022–2026",
-      "body": "Case study in progress."
-    }
-  ]
-}
+[
+  {
+    "title": "HatDu — Digital Request & Offer Platform",
+    "description": "Designing a trusted digital platform where verified requesters and providers can connect, manage requests and offers, and collaborate through flexible account roles and permissions.",
+    "image": "/images/home_Zeichenfläche 1 Kopie 3.jpg",
+    "role": "Product Designer · UX/UI · Digital Experience",
+    "year": "2022–2026",
+    "body": "Case study in progress."
+  }
+]
