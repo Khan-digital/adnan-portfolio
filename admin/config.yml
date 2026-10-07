@@ -31,15 +31,12 @@ collections:
                 label: Cover Image
                 widget: image
                 required: false
-                
-                              - name: gallery
+
+              - name: gallery
                 label: Case Study Images
-                widget: list
+                widget: image
+                multiple: true
                 required: false
-                field:
-                  name: image
-                  label: Image
-                  widget: image
 
               - name: role
                 label: Role
