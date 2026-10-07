@@ -1,0 +1,530 @@
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HatDu — Product Design Case Study · Adnan Khan</title>
+
+  <style>
+    :root{
+      --bg:#f7f7f5;
+      --text:#111;
+      --muted:#666;
+      --line:#ddd;
+      --card:#fff;
+      --accent:#111;
+    }
+
+    *{box-sizing:border-box}
+
+    html{scroll-behavior:smooth}
+
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      font-family:Arial,Helvetica,sans-serif;
+      line-height:1.6;
+    }
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    .wrap{
+      width:min(1180px,calc(100% - 40px));
+      margin:auto;
+    }
+
+    nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:28px 0;
+      border-bottom:1px solid var(--line);
+    }
+
+    .brand{
+      font-weight:800;
+      letter-spacing:-.03em;
+    }
+
+    .back{
+      font-size:14px;
+      color:var(--muted);
+    }
+
+    .hero{
+      padding:110px 0 80px;
+      max-width:950px;
+    }
+
+    .label{
+      font-size:12px;
+      font-weight:700;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:var(--muted);
+    }
+
+    h1{
+      font-size:clamp(48px,8vw,96px);
+      line-height:.95;
+      letter-spacing:-.065em;
+      margin:18px 0 30px;
+      max-width:1000px;
+    }
+
+    .hero p{
+      font-size:22px;
+      color:#444;
+      max-width:760px;
+      margin:0;
+    }
+
+    .meta{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+      margin:60px 0;
+      border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+      padding:25px 0;
+    }
+
+    .meta strong{
+      display:block;
+      margin-top:6px;
+      font-size:16px;
+    }
+
+    .hero-image{
+      margin:20px 0 110px;
+      background:#171717;
+      border-radius:28px;
+      padding:50px;
+      overflow:hidden;
+    }
+
+    .hero-image img{
+      width:100%;
+      display:block;
+      border-radius:16px;
+      box-shadow:0 25px 80px #0008;
+    }
+
+    .section{
+      padding:90px 0;
+      border-top:1px solid var(--line);
+    }
+
+    .section-grid{
+      display:grid;
+      grid-template-columns:280px 1fr;
+      gap:70px;
+    }
+
+    h2{
+      font-size:48px;
+      line-height:1;
+      letter-spacing:-.05em;
+      margin:0;
+    }
+
+    h3{
+      font-size:28px;
+      letter-spacing:-.03em;
+      margin:0 0 12px;
+    }
+
+    p{
+      color:#444;
+      font-size:18px;
+    }
+
+    .intro{
+      font-size:25px;
+      line-height:1.4;
+      color:#222;
+      margin-top:0;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:20px;
+      margin-top:45px;
+    }
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:30px;
+    }
+
+    .image-block{
+      margin-top:55px;
+      background:#171717;
+      border-radius:24px;
+      padding:35px;
+    }
+
+    .image-block img{
+      width:100%;
+      display:block;
+      border-radius:14px;
+    }
+
+    .quote{
+      font-size:34px;
+      line-height:1.25;
+      letter-spacing:-.035em;
+      color:#111;
+      border-left:3px solid #111;
+      padding-left:25px;
+      margin:40px 0;
+    }
+
+    footer{
+      padding:50px 0;
+      border-top:1px solid var(--line);
+      display:flex;
+      justify-content:space-between;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    @media(max-width:800px){
+      .wrap{
+        width:min(100% - 36px,1180px);
+      }
+
+      .hero{
+        padding:75px 0 55px;
+      }
+
+      .hero p{
+        font-size:19px;
+      }
+
+      .meta{
+        grid-template-columns:1fr;
+        gap:20px;
+      }
+
+      .hero-image{
+        padding:20px;
+        border-radius:20px;
+        margin-bottom:70px;
+      }
+
+      .section{
+        padding:65px 0;
+      }
+
+      .section-grid{
+        grid-template-columns:1fr;
+        gap:30px;
+      }
+
+      h2{
+        font-size:38px;
+      }
+
+      .grid{
+        grid-template-columns:1fr;
+      }
+
+      .image-block{
+        padding:18px;
+        border-radius:18px;
+      }
+
+      footer{
+        flex-direction:column;
+        gap:10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="wrap">
+
+  <nav>
+    <a class="brand" href="index.html">ADNAN KHAN</a>
+    <a class="back" href="index.html">← Back to selected work</a>
+  </nav>
+
+  <header class="hero">
+
+    <div class="label">Case Study · 01</div>
+
+    <h1>HatDu — Digital Request & Offer Platform</h1>
+
+    <p>
+      Designing a trusted digital platform where verified requesters and providers
+      can connect, manage requests and offers, and collaborate through flexible
+      account roles and permissions.
+    </p>
+
+    <div class="meta">
+
+      <div>
+        <div class="label">Role</div>
+        <strong>Product Designer · UX/UI · Digital Experience</strong>
+      </div>
+
+      <div>
+        <div class="label">Timeline</div>
+        <strong>2022–2026</strong>
+      </div>
+
+      <div>
+        <div class="label">Product</div>
+        <strong>Digital Request & Offer Platform</strong>
+      </div>
+
+    </div>
+
+  </header>
+
+  <!-- COVER IMAGE WILL BE CONNECTED HERE LATER -->
+
+  <div class="hero-image">
+    <div style="
+      min-height:420px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#aaa;
+      text-align:center;
+      border:1px dashed #555;
+      border-radius:16px;
+    ">
+      HatDu product visual
+    </div>
+  </div>
+
+  <section class="section">
+
+    <div class="section-grid">
+
+      <div>
+        <div class="label">01 / Context</div>
+      </div>
+
+      <div>
+
+        <h2>Designing for a product with real constraints.</h2>
+
+        <p class="intro">
+          HatDu connects people who need something with providers who can offer
+          it. The product combines requests, offers, identity verification,
+          account types and permission management into one digital experience.
+        </p>
+
+        <p>
+          My role has evolved across product design, UX/UI, visual design,
+          interaction, motion and product communication. The focus has always
+          been on making the platform clearer and easier to use while working
+          within real business and technical constraints.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="section">
+
+    <div class="section-grid">
+
+      <div>
+        <div class="label">02 / The challenge</div>
+      </div>
+
+      <div>
+
+        <h2>How do you make a complex system feel simple?</h2>
+
+        <p>
+          HatDu has multiple user types, workflows and levels of access.
+          Users need to understand what they can do, what information they
+          need to provide and what happens next.
+        </p>
+
+        <div class="grid">
+
+          <div class="card">
+            <div class="label">Trust</div>
+            <h3>Identity verification</h3>
+            <p>
+              Users need to be verified before they can participate in the
+              request and offer system.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="label">Accounts</div>
+            <h3>Private & company users</h3>
+            <p>
+              The product supports different account contexts without making
+              the experience unnecessarily complicated.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="label">Permissions</div>
+            <h3>Flexible access</h3>
+            <p>
+              Accounts can give other people access while maintaining control
+              over roles and permissions.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="label">Workflows</div>
+            <h3>Requests & offers</h3>
+            <p>
+              Users need clear paths through creating requests, receiving
+              offers and managing the resulting information.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="section">
+
+    <div class="section-grid">
+
+      <div>
+        <div class="label">03 / Product thinking</div>
+      </div>
+
+      <div>
+
+        <h2>Small UX decisions can change the whole product.</h2>
+
+        <p class="quote">
+          Good product design doesn't make complex systems look complicated.
+        </p>
+
+        <p>
+          One example was the account experience. I proposed allowing users
+          to work with requester and provider roles through one login rather
+          than requiring separate email identities.
+        </p>
+
+        <p>
+          I also designed a “Copy & Publish Request” flow so users could
+          reuse existing request information instead of rebuilding similar
+          requests from scratch.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="section">
+
+    <div class="section-grid">
+
+      <div>
+        <div class="label">04 / Interface design</div>
+      </div>
+
+      <div>
+
+        <h2>From structure to interface.</h2>
+
+        <p>
+          My work spans information hierarchy, responsive layouts, UI
+          components, interaction patterns, typography and visual consistency.
+        </p>
+
+        <!-- Additional approved HatDu images will be added here -->
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="section">
+
+    <div class="section-grid">
+
+      <div>
+        <div class="label">05 / Beyond the interface</div>
+      </div>
+
+      <div>
+
+        <h2>Product design doesn't stop at the screen.</h2>
+
+        <p>
+          Alongside product and UI work, I have created motion pieces,
+          product demonstrations, onboarding content, social communication
+          and educational material to help people understand how HatDu works.
+        </p>
+
+        <p>
+          These activities strengthened the connection between product
+          experience, communication and visual design.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="section">
+
+    <div class="section-grid">
+
+      <div>
+        <div class="label">06 / Reflection</div>
+      </div>
+
+      <div>
+
+        <h2>Designing inside a real product changes how you think.</h2>
+
+        <p>
+          Working on HatDu over several years has taught me to think beyond
+          individual screens — considering systems, users, business
+          requirements, iteration and the realities of shipping digital
+          products.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <footer>
+    <span>© 2026 Adnan Khan</span>
+    <a href="index.html">Back to portfolio →</a>
+  </footer>
+
+</div>
+
+</body>
+</html>
+```
