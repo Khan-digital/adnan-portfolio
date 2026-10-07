@@ -303,7 +303,7 @@
 fetch('/content/projects.json')
   .then(response => response.json())
   .then(data => {
-    const project = (data.projects || [])[0];
+    const project = (Array.isArray(data) ? data : [])[0];
 
     if (project && project.image) {
       document.getElementById('cover-image').src = project.image;
