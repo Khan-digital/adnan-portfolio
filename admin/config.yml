@@ -14,7 +14,7 @@ collections:
         label: Projects
         file: content/projects.json
         fields:
-                    - name: projects
+          - name: projects
             label: Projects
             widget: list
             root: true
@@ -30,6 +30,12 @@ collections:
               - name: image
                 label: Cover Image
                 widget: image
+                required: false
+
+              - name: gallery
+                label: Case Study Images
+                widget: image
+                multiple: true
                 required: false
 
               - name: role
