@@ -164,6 +164,18 @@
       padding:30px;
     }
 
+    .case-study-content{max-width:900px}
+    .case-study-content h1,
+    .case-study-content h2,
+    .case-study-content h3{margin-top:1.8em}
+    .case-study-content h1:first-child,
+    .case-study-content h2:first-child,
+    .case-study-content h3:first-child{margin-top:0}
+    .case-study-content img{width:100%;height:auto;display:block;margin:45px 0;border-radius:20px}
+    .case-study-content p,
+    .case-study-content li{color:#444;font-size:18px}
+    .case-study-content blockquote{font-size:30px;line-height:1.3;color:#111;border-left:3px solid #111;padding-left:25px;margin:40px 0}
+
     .image-block{
       margin-top:55px;
       background:#171717;
@@ -310,208 +322,17 @@ fetch('/content/projects.json')
   });
 </script>
 
-  <section class="section">
-
-    <div class="section-grid">
-
-      <div>
-        <div class="label">01 / Context</div>
-      </div>
-
-      <div>
-
-        <h2>Designing for a product with real constraints.</h2>
-
-        <p class="intro">
-          HatDu connects people who need something with providers who can offer
-          it. The product combines requests, offers, identity verification,
-          account types and permission management into one digital experience.
-        </p>
-
-        <p>
-          My role has evolved across product design, UX/UI, visual design,
-          interaction, motion and product communication. The focus has always
-          been on making the platform clearer and easier to use while working
-          within real business and technical constraints.
-        </p>
-
-      </div>
-
-    </div>
-
-  </section>
 
   <section class="section">
 
     <div class="section-grid">
 
       <div>
-        <div class="label">02 / The challenge</div>
+        <div class="label">Case study</div>
       </div>
 
-      <div>
-
-        <h2>How do you make a complex system feel simple?</h2>
-
-        <p>
-          HatDu has multiple user types, workflows and levels of access.
-          Users need to understand what they can do, what information they
-          need to provide and what happens next.
-        </p>
-
-        <div class="grid">
-
-          <div class="card">
-            <div class="label">Trust</div>
-            <h3>Identity verification</h3>
-            <p>
-              Users need to be verified before they can participate in the
-              request and offer system.
-            </p>
-          </div>
-
-          <div class="card">
-            <div class="label">Accounts</div>
-            <h3>Private & company users</h3>
-            <p>
-              The product supports different account contexts without making
-              the experience unnecessarily complicated.
-            </p>
-          </div>
-
-          <div class="card">
-            <div class="label">Permissions</div>
-            <h3>Flexible access</h3>
-            <p>
-              Accounts can give other people access while maintaining control
-              over roles and permissions.
-            </p>
-          </div>
-
-          <div class="card">
-            <div class="label">Workflows</div>
-            <h3>Requests & offers</h3>
-            <p>
-              Users need clear paths through creating requests, receiving
-              offers and managing the resulting information.
-            </p>
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <section class="section">
-
-    <div class="section-grid">
-
-      <div>
-        <div class="label">03 / Product thinking</div>
-      </div>
-
-      <div>
-
-        <h2>Small UX decisions can change the whole product.</h2>
-
-        <p class="quote">
-          Good product design doesn't make complex systems look complicated.
-        </p>
-
-        <p>
-          One example was the account experience. I proposed allowing users
-          to work with requester and provider roles through one login rather
-          than requiring separate email identities.
-        </p>
-
-        <p>
-          I also designed a “Copy & Publish Request” flow so users could
-          reuse existing request information instead of rebuilding similar
-          requests from scratch.
-        </p>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <section class="section">
-
-    <div class="section-grid">
-
-      <div>
-        <div class="label">04 / Interface design</div>
-      </div>
-
-      <div>
-
-        <h2>From structure to interface.</h2>
-
-        <p>
-          My work spans information hierarchy, responsive layouts, UI
-          components, interaction patterns, typography and visual consistency.
-        </p>
-
-        <!-- Additional approved HatDu images will be added here -->
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <section class="section">
-
-    <div class="section-grid">
-
-      <div>
-        <div class="label">05 / Beyond the interface</div>
-      </div>
-
-      <div>
-
-        <h2>Product design doesn't stop at the screen.</h2>
-
-        <p>
-          Alongside product and UI work, I have created motion pieces,
-          product demonstrations, onboarding content, social communication
-          and educational material to help people understand how HatDu works.
-        </p>
-
-        <p>
-          These activities strengthened the connection between product
-          experience, communication and visual design.
-        </p>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <section class="section">
-
-    <div class="section-grid">
-
-      <div>
-        <div class="label">06 / Reflection</div>
-      </div>
-
-      <div>
-
-        <h2>Designing inside a real product changes how you think.</h2>
-
-        <p>
-          Working on HatDu over several years has taught me to think beyond
-          individual screens — considering systems, users, business
-          requirements, iteration and the realities of shipping digital
-          products.
-        </p>
-
+      <div id="case-study-content" class="case-study-content">
+        <p>Loading case study…</p>
       </div>
 
     </div>
@@ -524,6 +345,103 @@ fetch('/content/projects.json')
   </footer>
 
 </div>
+
+
+<script>
+function formatInline(value){
+  return value
+    .replace(/!\[([^\]]*)\]\(([^\s)]+)(?:\s+["']([^"']*)["'])?\)/g,function(_,alt,src,title){
+      return '<img src="' + src + '" alt="' + alt + '"' + (title ? ' title="' + title + '"' : '') + '>';
+    })
+    .replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>')
+    .replace(/__([^_]+)__/g,'<strong>$1</strong>')
+    .replace(/\*([^*]+)\*/g,'<em>$1</em>')
+    .replace(/_([^_]+)_/g,'<em>$1</em>');
+}
+
+function renderMarkdown(markdown){
+  const lines = String(markdown || '').split('\n');
+  let html = '';
+  let paragraph = [];
+  let items = [];
+
+  function flushParagraph(){
+    if(!paragraph.length) return;
+    html += '<p>' + formatInline(paragraph.join(' ').trim()) + '</p>';
+    paragraph = [];
+  }
+
+  function flushList(){
+    if(!items.length) return;
+    html += '<ul>' + items.map(function(item){
+      return '<li>' + formatInline(item) + '</li>';
+    }).join('') + '</ul>';
+    items = [];
+  }
+
+  lines.forEach(function(line){
+    const t = line.trim();
+
+    if(!t){ flushParagraph(); flushList(); return; }
+
+    const heading = t.match(/^(#{1,6})\s+(.+)$/);
+    if(heading){
+      flushParagraph(); flushList();
+      const level = heading[1].length;
+      html += '<h' + level + '>' + formatInline(heading[2]) + '</h' + level + '>';
+      return;
+    }
+
+    const quote = t.match(/^>\s?(.*)$/);
+    if(quote){
+      flushParagraph(); flushList();
+      html += '<blockquote>' + formatInline(quote[1]) + '</blockquote>';
+      return;
+    }
+
+    const bullet = t.match(/^[-*]\s+(.+)$/);
+    if(bullet){
+      flushParagraph();
+      items.push(bullet[1]);
+      return;
+    }
+
+    flushList();
+    paragraph.push(t);
+  });
+
+  flushParagraph();
+  flushList();
+  return html;
+}
+
+fetch('/content/projects.json')
+  .then(function(response){ return response.json(); })
+  .then(function(data){
+    const project = Array.isArray(data) ? data[0] : null;
+    if(!project) throw new Error('No project found');
+
+    document.title = (project.title || 'Case Study') + ' · Adnan Khan';
+
+    const title = document.querySelector('.hero h1');
+    const description = document.querySelector('.hero > p');
+    const meta = document.querySelectorAll('.meta strong');
+
+    if(title) title.textContent = project.title || '';
+    if(description) description.textContent = project.description || '';
+    if(meta[0]) meta[0].textContent = project.role || '';
+    if(meta[1]) meta[1].textContent = project.year || '';
+
+    const cover = document.getElementById('cover-image');
+    if(cover && project.image) cover.src = project.image;
+
+    document.getElementById('case-study-content').innerHTML = renderMarkdown(project.body || '');
+  })
+  .catch(function(error){
+    document.getElementById('case-study-content').innerHTML = '<p>Unable to load the case study right now.</p>';
+    console.error(error);
+  });
+</script>
 
 </body>
 </html>
