@@ -9,33 +9,38 @@ public_folder: /images
 collections:
   - name: projects
     label: Projects
-    folder: content/projects
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - label: Project Title
-        name: title
-        widget: string
+    files:
+      - name: projects
+        label: Projects
+        file: content/projects.json
+        fields:
+          - label: Projects
+            name: projects
+            widget: list
+            fields:
+              - label: Project Title
+                name: title
+                widget: string
 
-      - label: Short Description
-        name: description
-        widget: text
+              - label: Short Description
+                name: description
+                widget: text
 
-      - label: Cover Image
-        name: image
-        widget: image
-        required: false
+              - label: Cover Image
+                name: image
+                widget: image
+                required: false
 
-      - label: Role
-        name: role
-        widget: string
-        required: false
+              - label: Role
+                name: role
+                widget: string
+                required: false
 
-      - label: Year
-        name: year
-        widget: string
-        required: false
+              - label: Year
+                name: year
+                widget: string
+                required: false
 
-      - label: Case Study
-        name: body
-        widget: markdown
+              - label: Case Study
+                name: body
+                widget: markdown
