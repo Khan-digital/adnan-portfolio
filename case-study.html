@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">\n  <meta name="robots" content="noindex, nofollow">
-  <meta name="description" content="HatDu product design case study by Adnan Khan — UX/UI, product thinking and digital experience.">\n  <meta property="og:title" content="HatDu — Product Design Case Study · Adnan Khan">\n  <meta property="og:description" content="A product design case study covering UX/UI, trust, account roles and digital experience.">
+  <meta name="description" content="Product design case study by Adnan Khan — UX/UI, product thinking and digital experience.">\n  <meta property="og:title" content="Product Design Case Study · Adnan Khan">\n  <meta property="og:description" content="A product design case study covering UX/UI, product thinking and digital product development.">
   <title>HatDu — Product Design Case Study · Adnan Khan</title>
 
   <style>
@@ -313,8 +313,8 @@
 
   <!-- COVER IMAGE WILL BE CONNECTED HERE LATER -->
 
-<div class="hero-image">
-  <img id="cover-image" src="" alt="Project interface">
+<div class="hero-image" id="hero-media">
+  <img id="cover-image" src="" alt="Project interface"><div id="carpool-visual" style="display:none"></div>
 </div>
 
 <script>
@@ -445,12 +445,13 @@ fetch('/content/projects.json')
     if(title) title.textContent = project.title || '';
     if(description) description.textContent = project.description || '';
     if(meta[0]) meta[0].textContent = project.role || '';
-    if(meta[1]) meta[1].textContent = project.year || '';\n    const productMeta = document.getElementById('meta-product');\n    if(productMeta) productMeta.textContent = project.product || 'Digital Request & Offer Platform';
+    if(meta[1]) meta[1].textContent = project.year || '';\n    const companyMeta = document.getElementById('meta-company');\n    if(companyMeta) companyMeta.textContent = project.company || '';
 
     const cover = document.getElementById('cover-image');
     if(cover){
-      if(project.image){ cover.src = project.image; }
       cover.alt = (project.title || 'Project') + ' interface';
+      if(project.image){ cover.src = project.image; cover.style.display = ''; }
+      else { cover.style.display = 'none'; }
       cover.parentElement.style.display = project.image ? '' : 'none';
     }
 
