@@ -224,7 +224,24 @@
     .evidence-item strong{display:block;color:#fff;font-size:17px;margin-bottom:4px}
     .evidence-item span{display:block;color:#aaa;font-size:13px}
     .evidence-note{margin-top:20px;font-size:13px!important;color:#888!important}
-    @media(max-width:800px){.case-study-content .case-snapshot{grid-template-columns:1fr}.case-study-content .case-callout{font-size:21px;padding:24px}.product-proof-head{flex-direction:column}.product-proof a{white-space:normal}.live-ui-grid{grid-template-columns:1fr}.live-ui-card .live-ui-screen{aspect-ratio:16/11}.evidence-list{grid-template-columns:1fr}}
+    .system-flow{margin:42px 0;padding:26px;border:1px solid var(--line);border-radius:22px;background:#fff}
+    .system-flow .label{margin-bottom:16px}
+    .flow-row{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;align-items:stretch}
+    .flow-step{padding:17px 13px;border:1px solid var(--line);border-radius:14px;background:#f8f8f6;position:relative}
+    .flow-step strong{display:block;font-size:15px;line-height:1.15;margin-bottom:5px}
+    .flow-step span{display:block;color:#777;font-size:11px;line-height:1.35}
+    .flow-step:not(:last-child):after{content:"→";position:absolute;right:-12px;top:50%;transform:translateY(-50%);z-index:2;color:#777;background:#fff;padding:0 2px}
+    .case-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:38px 0}
+    .case-metric{padding:22px;border:1px solid var(--line);border-radius:16px;background:#fff}
+    .case-metric strong{display:block;font-size:25px;letter-spacing:-.04em;margin-top:5px}
+    .case-metric span{display:block;color:#666;font-size:13px}
+    .technical-proof{margin:42px 0;padding:28px;border-radius:22px;background:#111;color:#fff}
+    .technical-proof .label{color:#999}
+    .technical-proof h3{color:#fff;margin:7px 0 12px}
+    .technical-proof p{color:#bbb;margin:0 0 20px}
+    .tech-tags{display:flex;flex-wrap:wrap;gap:8px}
+    .tech-tag{padding:8px 11px;border:1px solid #333;border-radius:999px;color:#ddd;font-size:12px}
+    @media(max-width:800px){.case-study-content .case-snapshot{grid-template-columns:1fr}.case-study-content .case-callout{font-size:21px;padding:24px}.product-proof-head{flex-direction:column}.product-proof a{white-space:normal}.live-ui-grid{grid-template-columns:1fr}.live-ui-card .live-ui-screen{aspect-ratio:16/11}.evidence-list{grid-template-columns:1fr}.flow-row{grid-template-columns:1fr}.flow-step:not(:last-child):after{content:"↓";right:auto;left:50%;top:auto;bottom:-16px;transform:translateX(-50%)}.case-metrics{grid-template-columns:1fr}}
 
 
     .image-block{
@@ -555,7 +572,17 @@ fetch('/content/projects.json')
       const problem = headings.find(function(h){ return h.textContent.trim() === 'The problem'; });
       if(problem){ problem.insertAdjacentHTML('afterend','<div class="case-callout">The design question: <strong>Can an existing journey become a useful shared journey?</strong></div>'); }
       const matching = headings.find(function(h){ return h.textContent.trim() === 'GPS-based matching'; });
-      if(matching){ matching.insertAdjacentHTML('afterend','<div class="case-pill-row"><span class="case-pill">Route overlap</span><span class="case-pill">Direction</span><span class="case-pill">Time</span><span class="case-pill">Day</span><span class="case-pill">Pickup / drop-off</span><span class="case-pill">Available seats</span></div>'); }
+      if(matching){
+        matching.insertAdjacentHTML('afterend','<div class="case-pill-row"><span class="case-pill">Route overlap</span><span class="case-pill">Direction</span><span class="case-pill">Time</span><span class="case-pill">Day</span><span class="case-pill">Pickup / drop-off</span><span class="case-pill">Available seats</span></div><div class="system-flow"><div class="label">Product system</div><div class="flow-row"><div class="flow-step"><strong>Journey input</strong><span>Start · via · destination · time</span></div><div class="flow-step"><strong>Route data</strong><span>GPS coordinates + route geometry</span></div><div class="flow-step"><strong>Compatibility</strong><span>Overlap · direction · day · time</span></div><div class="flow-step"><strong>Match</strong><span>Practical journey candidates</span></div><div class="flow-step"><strong>Admin + report</strong><span>IDs · status · Excel export</span></div></div></div>');
+      }
+      const ux = headings.find(function(h){ return h.textContent.trim() === 'User experience'; });
+      if(ux){
+        ux.insertAdjacentHTML('afterend','<div class="case-metrics"><div class="case-metric"><div class="label">Input</div><strong>Structured journey</strong><span>Enough information to make matching meaningful.</span></div><div class="case-metric"><div class="label">Interaction</div><strong>Visual route</strong><span>Start → Via → Destination made visible.</span></div><div class="case-metric"><div class="label">Output</div><strong>Practical match</strong><span>Compatibility beyond simple geographic overlap.</span></div></div>');
+      }
+      const technical = headings.find(function(h){ return h.textContent.trim() === 'Technical implementation'; });
+      if(technical){
+        technical.insertAdjacentHTML('afterend','<div class="technical-proof"><div class="label">Technical + product scope</div><h3>Designed the experience and the system around it.</h3><p>The project combines interface design with mapping, structured data, matching logic, administration and reporting. AI was used to accelerate implementation while product behaviour and requirements remained designer-defined.</p><div class="tech-tags"><span class="tech-tag">Responsive UI</span><span class="tech-tag">JavaScript</span><span class="tech-tag">Leaflet</span><span class="tech-tag">OpenStreetMap</span><span class="tech-tag">OSRM</span><span class="tech-tag">WordPress</span><span class="tech-tag">GPS data</span><span class="tech-tag">Excel reporting</span></div></div>');
+      }
     }
   })
   .catch(function(error){
