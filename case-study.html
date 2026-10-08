@@ -235,6 +235,16 @@
     .case-metric{padding:22px;border:1px solid var(--line);border-radius:16px;background:#fff}
     .case-metric strong{display:block;font-size:25px;letter-spacing:-.04em;margin-top:5px}
     .case-metric span{display:block;color:#666;font-size:13px}
+    .visual-evidence{margin:52px 0;padding:30px;border:1px solid var(--line);border-radius:24px;background:#f7f7f4}
+    .visual-evidence h3{margin:7px 0 10px;font-size:28px;letter-spacing:-.03em}
+    .visual-evidence>p{max-width:720px;color:#666;margin:0 0 26px}
+    .evidence-panels{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .evidence-panel{padding:14px;border:1px solid var(--line);border-radius:18px;background:#fff}
+    .evidence-panel>strong{display:block;margin:14px 3px 4px;font-size:14px}.evidence-panel>span{display:block;margin:0 3px;color:#777;font-size:12px;line-height:1.45}
+    .evidence-ui{height:235px;border-radius:13px;border:1px solid #ddd;background:#f4f4f1;padding:15px;position:relative;overflow:hidden;font-size:10px}
+    .ui-dot{display:inline-block;width:5px;height:5px;border-radius:50%;background:#999;margin-right:3px}.ui-title{font-size:17px;font-weight:700;margin:18px 0 14px}.ui-field{background:#fff;border:1px solid #ddd;border-radius:8px;padding:9px;margin:7px 0;color:#777}.ui-field b{float:right;color:#222}.ui-line{height:1px;background:#ddd;margin:14px 0}.ui-button{background:#111;color:#fff;padding:9px;border-radius:8px;text-align:center}
+    .map-ui{background:#e9e9e4}.map-grid{position:absolute;inset:0;background:repeating-linear-gradient(25deg,transparent 0 24px,#ddd 25px,#ddd 26px,transparent 27px 50px);opacity:.6}.route{position:absolute;height:5px;border-radius:10px;background:#111;transform-origin:left center}.route-a{width:205px;left:35px;top:142px;transform:rotate(-24deg)}.route-b{width:165px;left:110px;top:91px;transform:rotate(34deg)}.map-pin{position:absolute;border:2px solid #111;background:#fff;border-radius:50%;width:25px;height:25px;text-align:center;padding-top:4px;font-weight:700}.pin-a{left:28px;top:142px}.pin-b{left:106px;top:104px}.pin-c{right:35px;top:168px}.map-legend{position:absolute;left:12px;bottom:10px;background:#fff;padding:7px 9px;border-radius:8px;font-weight:700}.match-ui{background:#171717;color:#fff}.match-score{font-size:12px;letter-spacing:.12em;margin-bottom:16px;color:#bbb}.match-card{display:flex;justify-content:space-between;padding:11px;border:1px solid #333;border-radius:8px;margin:7px 0}.match-card span{color:#ddd}
+    @media(max-width:800px){.evidence-panels{grid-template-columns:1fr}.visual-evidence h3{font-size:23px}}
     .technical-proof{margin:42px 0;padding:28px;border-radius:22px;background:#111;color:#fff}
     .technical-proof .label{color:#999}
     .technical-proof h3{color:#fff;margin:7px 0 12px}
@@ -582,6 +592,13 @@ fetch('/content/projects.json')
       const technical = headings.find(function(h){ return h.textContent.trim() === 'Technical implementation'; });
       if(technical){
         technical.insertAdjacentHTML('afterend','<div class="technical-proof"><div class="label">Technical + product scope</div><h3>Designed the experience and the system around it.</h3><p>The project combines interface design with mapping, structured data, matching logic, administration and reporting. AI was used to accelerate implementation while product behaviour and requirements remained designer-defined.</p><div class="tech-tags"><span class="tech-tag">Responsive UI</span><span class="tech-tag">JavaScript</span><span class="tech-tag">Leaflet</span><span class="tech-tag">OpenStreetMap</span><span class="tech-tag">OSRM</span><span class="tech-tag">WordPress</span><span class="tech-tag">GPS data</span><span class="tech-tag">Excel reporting</span></div></div>');
+      }
+      if(project.caseStudy === 'carpooling'){
+        const evidence = document.createElement('div');
+        evidence.className = 'visual-evidence';
+        evidence.innerHTML = '<div class="label">Visual product evidence</div><h3>From journey input to a matchable route.</h3><p>These visual panels are built from the product structure described in the case study — showing the interaction model without inventing screenshots or claiming visuals that are not publicly available.</p><div class="evidence-panels"><div class="evidence-panel"><div class="evidence-ui"><span class="ui-dot"></span><span class="ui-dot"></span><span class="ui-dot"></span><div class="ui-title">01 · Journey</div><div class="ui-field">Start <b>Borgloh</b></div><div class="ui-field">Via <b>Osnabrück</b></div><div class="ui-field">Destination <b>Ebbendorf</b></div><div class="ui-line"></div><div class="ui-button">Continue →</div></div><strong>Structured journey input</strong><span>Collect only the information the matching system needs.</span></div><div class="evidence-panel"><div class="evidence-ui map-ui"><div class="map-grid"></div><div class="route route-a"></div><div class="route route-b"></div><div class="map-pin pin-a">A</div><div class="map-pin pin-b">B</div><div class="map-pin pin-c">C</div><div class="map-legend">Start → Via → Destination</div></div><strong>Route visualisation</strong><span>Turn location input into a route users can understand.</span></div><div class="evidence-panel"><div class="evidence-ui match-ui"><div class="match-score">MATCH</div><div class="match-card"><b>Route overlap</b><span>High</span></div><div class="match-card"><b>Direction</b><span>Compatible</span></div><div class="match-card"><b>Time</b><span>08:00</span></div><div class="match-card"><b>Seats</b><span>2 available</span></div></div><strong>Compatibility</strong><span>Evaluate practical fit, not just geographic proximity.</span></div></div>';
+        const summary = document.querySelector('.case-study-content');
+        if(summary) summary.appendChild(evidence);
       }
     }
   })
