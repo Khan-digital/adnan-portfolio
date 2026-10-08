@@ -280,7 +280,7 @@
 
   <header class="hero">
 
-    <div class="label">Case Study · 01</div>
+    <div class="label" id="case-label">Case Study</div>
 
     <h1>HatDu — Digital Request & Offer Platform</h1>
 
@@ -303,8 +303,8 @@
       </div>
 
       <div>
-        <div class="label">Product</div>
-        <strong id="meta-product">Digital Request & Offer Platform</strong>
+        <div class="label">Company</div>
+        <strong id="meta-company">STG Media Marketing</strong>
       </div>
 
     </div>
@@ -314,14 +314,17 @@
   <!-- COVER IMAGE WILL BE CONNECTED HERE LATER -->
 
 <div class="hero-image">
-  <img id="cover-image" src="" alt="HatDu product interface">
+  <img id="cover-image" src="" alt="Project interface">
 </div>
 
 <script>
 fetch('/content/projects.json')
   .then(response => response.json())
   .then(data => {
-    const project = (Array.isArray(data) ? data : [])[0];
+    const params = new URLSearchParams(window.location.search);
+    const slug = params.get('project') || 'hatdu';
+    const projects = Array.isArray(data) ? data : [];
+    const project = projects.find(function(item){ return item.caseStudy === slug; }) || projects[0];
 
     if (project && project.image) {
       document.getElementById('cover-image').src = project.image;
@@ -346,7 +349,7 @@ fetch('/content/projects.json')
 
   </section>
 
-  <section class="next-project"><div class="label">Next</div><h2>More work coming soon.</h2><p>The portfolio will grow with additional product and digital design work.</p><a href="index.html#contact">Get in touch →</a></section>
+  <section class="next-project"><div class="label">Selected work</div><h2>More product work.</h2><p>Explore the other project in my professional design work, or get in touch to discuss a product-design opportunity.</p><a href="index.html#work">View selected work →</a></section>
 
   <footer>
     <span>© 2026 Adnan Khan</span>
@@ -427,7 +430,10 @@ function renderMarkdown(markdown){
 fetch('/content/projects.json')
   .then(function(response){ return response.json(); })
   .then(function(data){
-    const project = Array.isArray(data) ? data[0] : null;
+    const params = new URLSearchParams(window.location.search);
+    const slug = params.get('project') || 'hatdu';
+    const projects = Array.isArray(data) ? data : [];
+    const project = projects.find(function(item){ return item.caseStudy === slug; }) || projects[0];
     if(!project) throw new Error('No project found');
 
     document.title = (project.title || 'Case Study') + ' · Adnan Khan';
