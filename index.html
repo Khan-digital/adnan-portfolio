@@ -204,4 +204,63 @@ document.querySelectorAll('.signal,.tile,.step,.tag,.product-card').forEach(el=>
  const root=document.getElementById('project-list');
  if(root){new MutationObserver(enhance).observe(root,{childList:true});enhance()}
 })();
-</script></body></html>
+</script>
+<style id="scroll-bloom-css">
+/* SCROLL BLOOM — the progress indicator becomes a small living system */
+.scroll-bloom{position:fixed;left:22px;top:50%;transform:translateY(-50%);width:46px;height:230px;z-index:80;display:flex;justify-content:center;pointer-events:none}
+.scroll-bloom .track{position:absolute;top:0;bottom:0;width:1px;background:rgba(23,23,23,.13)}
+.scroll-bloom .growth{position:absolute;top:0;width:2px;height:100%;background:var(--ink);transform-origin:top;transform:scaleY(0);border-radius:99px}
+.scroll-bloom svg{position:absolute;inset:0;width:46px;height:230px;overflow:visible}
+.scroll-bloom .trail{fill:none;stroke:var(--ink);stroke-width:1.4;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1}
+.scroll-bloom .seed{fill:var(--accent);stroke:var(--ink);stroke-width:1.2;transform-box:fill-box;transform-origin:center}
+.scroll-bloom .bloom{opacity:0;transform:scale(.25);transform-origin:center;transition:opacity .35s ease,transform .55s cubic-bezier(.2,.9,.2,1)}
+.scroll-bloom .petal{fill:var(--accent);stroke:var(--ink);stroke-width:1}
+.scroll-bloom .core{fill:var(--ink)}
+.scroll-bloom .orbit{fill:none;stroke:var(--ink);stroke-width:.8;opacity:.35}
+.scroll-bloom.complete .bloom{opacity:1;transform:scale(1)}
+.scroll-bloom.complete .seed{animation:bloomPulse 1.8s ease-in-out infinite}
+.scroll-bloom.complete .bloom .petal:nth-child(2){transform-origin:30px 180px;animation:bloomSway 2.4s ease-in-out infinite}
+.scroll-bloom.complete .bloom .petal:nth-child(3){transform-origin:30px 180px;animation:bloomSway 2.7s ease-in-out -.5s infinite}
+.scroll-bloom .caption{position:absolute;left:14px;top:calc(100% + 8px);font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:#777;white-space:nowrap;opacity:.7}
+@keyframes bloomPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
+@keyframes bloomSway{0%,100%{transform:rotate(0)}50%{transform:rotate(7deg)}}
+@media(max-width:800px){.scroll-bloom{left:8px;transform:translateY(-50%) scale(.82);transform-origin:left center}.scroll-bloom .caption{display:none}}
+@media(prefers-reduced-motion:reduce){.scroll-bloom.complete .seed,.scroll-bloom.complete .bloom .petal{animation:none}.scroll-bloom .bloom{transition:none}}
+</style>
+<div class="scroll-bloom" id="scroll-bloom" aria-hidden="true">
+  <div class="track"></div><div class="growth"></div>
+  <svg viewBox="0 0 46 230" role="presentation">
+    <path class="trail" d="M23 5 C9 38 37 55 23 86 C9 117 37 136 23 165 C17 177 20 184 23 188"/>
+    <g class="bloom">
+      <ellipse class="petal" cx="16" cy="171" rx="7" ry="15" transform="rotate(-34 16 171)"/>
+      <ellipse class="petal" cx="37" cy="170" rx="7" ry="15" transform="rotate(34 37 170)"/>
+      <ellipse class="petal" cx="23" cy="160" rx="7" ry="15"/>
+      <circle class="core" cx="23" cy="180" r="4"/>
+      <ellipse class="orbit" cx="23" cy="180" rx="16" ry="7"/>
+    </g>
+    <circle class="seed" cx="23" cy="5" r="4"/>
+  </svg>
+  <span class="caption">scroll to grow</span>
+</div>
+<script id="scroll-bloom-js">
+(()=>{
+ const bloom=document.getElementById('scroll-bloom');
+ if(!bloom)return;
+ const trail=bloom.querySelector('.trail'), seed=bloom.querySelector('.seed'), growth=bloom.querySelector('.growth');
+ const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+ const update=()=>{
+   const max=Math.max(1,document.documentElement.scrollHeight-innerHeight);
+   const p=Math.min(1,Math.max(0,scrollY/max));
+   trail.style.strokeDashoffset=String(1-p);
+   seed.setAttribute('cy',String(5+(183*p)));
+   seed.style.transform='rotate('+(p*180)+'deg) scale('+(1+p*.55)+')';
+   growth.style.transform='scaleY('+p+')';
+   bloom.classList.toggle('complete',p>.965);
+ };
+ let ticking=false;
+ addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(()=>{update();ticking=false});ticking=true}},{passive:true});
+ addEventListener('resize',update,{passive:true});
+ update();
+})();
+</script>
+</body></html>
