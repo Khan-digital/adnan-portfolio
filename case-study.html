@@ -448,7 +448,11 @@ fetch('/content/projects.json')
     if(meta[1]) meta[1].textContent = project.year || '';\n    const productMeta = document.getElementById('meta-product');\n    if(productMeta) productMeta.textContent = project.product || 'Digital Request & Offer Platform';
 
     const cover = document.getElementById('cover-image');
-    if(cover && project.image) cover.src = project.image;
+    if(cover){
+      if(project.image){ cover.src = project.image; }
+      cover.alt = (project.title || 'Project') + ' interface';
+      cover.parentElement.style.display = project.image ? '' : 'none';
+    }
 
     document.getElementById('case-study-content').innerHTML = renderMarkdown(project.body || '');
   })
