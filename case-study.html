@@ -396,7 +396,7 @@ nav .back{padding:8px 12px;border-radius:999px;background:var(--ink);color:#fff}
 
     <div class="label" id="case-label">Case Study</div>
 
-    <h1>HatDu — Digital Request & Offer Platform</h1>
+    <h1 id="case-title">Case Study</h1>
 
     <p>
       Designing a trusted digital platform where verified requesters and providers
@@ -408,12 +408,12 @@ nav .back{padding:8px 12px;border-radius:999px;background:var(--ink);color:#fff}
 
       <div>
         <div class="label">Role</div>
-        <strong>Product Designer · UX/UI · Digital Experience</strong>
+        <strong id="meta-role">Product Designer</strong>
       </div>
 
       <div>
         <div class="label">Timeline</div>
-        <strong>2022–2026</strong>
+        <strong id="meta-year">—</strong>
       </div>
 
       <div>
@@ -561,6 +561,8 @@ fetch('/content/projects.json')
     if(description) description.textContent = project.description || '';
     if(meta[0]) meta[0].textContent = project.role || '';
     if(meta[1]) meta[1].textContent = project.year || '';
+    const roleMeta=document.getElementById('meta-role'); if(roleMeta) roleMeta.textContent=project.role || '';
+    const yearMeta=document.getElementById('meta-year'); if(yearMeta) yearMeta.textContent=project.year || '';
     const companyMeta = document.getElementById('meta-company');
     if(companyMeta) companyMeta.textContent = project.company || '';
 
@@ -613,31 +615,10 @@ fetch('/content/projects.json')
     }
 
     if(project.caseStudy === 'carpooling'){
-      const first = headings[0];
-      if(first){
-        first.insertAdjacentHTML('beforebegin','<div class="case-snapshot"><div><div class="label">Product</div><strong>Mobility</strong></div><div><div class="label">Core system</div><strong>Route matching</strong></div><div><div class="label">My scope</div><strong>End to end</strong></div></div>');
-      }
-      const problem = headings.find(function(h){ return h.textContent.trim() === 'The problem'; });
-      if(problem){ problem.insertAdjacentHTML('afterend','<div class="case-callout">The design question: <strong>Can an existing journey become a useful shared journey?</strong></div>'); }
-      const matching = headings.find(function(h){ return h.textContent.trim() === 'GPS-based matching'; });
-      if(matching){
-        matching.insertAdjacentHTML('afterend','<div class="case-pill-row"><span class="case-pill">Route overlap</span><span class="case-pill">Direction</span><span class="case-pill">Time</span><span class="case-pill">Day</span><span class="case-pill">Pickup / drop-off</span><span class="case-pill">Available seats</span></div><div class="system-flow"><div class="label">Product system</div><div class="flow-row"><div class="flow-step"><strong>Journey input</strong><span>Start · via · destination · time</span></div><div class="flow-step"><strong>Route data</strong><span>GPS coordinates + route geometry</span></div><div class="flow-step"><strong>Compatibility</strong><span>Overlap · direction · day · time</span></div><div class="flow-step"><strong>Match</strong><span>Practical journey candidates</span></div><div class="flow-step"><strong>Admin + report</strong><span>IDs · status · Excel export</span></div></div></div>');
-      }
-      const ux = headings.find(function(h){ return h.textContent.trim() === 'User experience'; });
-      if(ux){
-        ux.insertAdjacentHTML('afterend','<div class="case-metrics"><div class="case-metric"><div class="label">Input</div><strong>Structured journey</strong><span>Enough information to make matching meaningful.</span></div><div class="case-metric"><div class="label">Interaction</div><strong>Visual route</strong><span>Start → Via → Destination made visible.</span></div><div class="case-metric"><div class="label">Output</div><strong>Practical match</strong><span>Compatibility beyond simple geographic overlap.</span></div></div>');
-      }
-      const technical = headings.find(function(h){ return h.textContent.trim() === 'Technical implementation'; });
-      if(technical){
-        technical.insertAdjacentHTML('afterend','<div class="technical-proof"><div class="label">Technical + product scope</div><h3>Designed the experience and the system around it.</h3><p>The project combines interface design with mapping, structured data, matching logic, administration and reporting. AI was used to accelerate implementation while product behaviour and requirements remained designer-defined.</p><div class="tech-tags"><span class="tech-tag">Responsive UI</span><span class="tech-tag">JavaScript</span><span class="tech-tag">Leaflet</span><span class="tech-tag">OpenStreetMap</span><span class="tech-tag">OSRM</span><span class="tech-tag">WordPress</span><span class="tech-tag">GPS data</span><span class="tech-tag">Excel reporting</span></div></div>');
-      }
-      if(project.caseStudy === 'carpooling'){
-        const evidence = document.createElement('div');
-        evidence.className = 'visual-evidence';
-        evidence.innerHTML = '<div class="label">Visual product evidence</div><h3>From journey input to a matchable route.</h3><p>These visual panels are built from the product structure described in the case study — showing the interaction model without inventing screenshots or claiming visuals that are not publicly available.</p><div class="evidence-panels"><div class="evidence-panel"><div class="evidence-ui"><span class="ui-dot"></span><span class="ui-dot"></span><span class="ui-dot"></span><div class="ui-title">01 · Journey</div><div class="ui-field">Start <b>Borgloh</b></div><div class="ui-field">Via <b>Osnabrück</b></div><div class="ui-field">Destination <b>Ebbendorf</b></div><div class="ui-line"></div><div class="ui-button">Continue →</div></div><strong>Structured journey input</strong><span>Collect only the information the matching system needs.</span></div><div class="evidence-panel"><div class="evidence-ui map-ui"><div class="map-grid"></div><div class="route route-a"></div><div class="route route-b"></div><div class="map-pin pin-a">A</div><div class="map-pin pin-b">B</div><div class="map-pin pin-c">C</div><div class="map-legend">Start → Via → Destination</div></div><strong>Route visualisation</strong><span>Turn location input into a route users can understand.</span></div><div class="evidence-panel"><div class="evidence-ui match-ui"><div class="match-score">MATCH</div><div class="match-card"><b>Route overlap</b><span>High</span></div><div class="match-card"><b>Direction</b><span>Compatible</span></div><div class="match-card"><b>Time</b><span>08:00</span></div><div class="match-card"><b>Seats</b><span>2 available</span></div></div><strong>Compatibility</strong><span>Evaluate practical fit, not just geographic proximity.</span></div></div>';
-        const summary = document.querySelector('.case-study-content');
-        if(summary) summary.appendChild(evidence);
-      }
+      const heroMedia=document.getElementById('hero-media');
+      if(heroMedia){heroMedia.innerHTML='<div class="carpool-hero-world"><div class="carpool-hero-kicker">02 / MOBILITY WORLD</div><div class="carpool-hero-title">Share the journey.<br><span>Not another car.</span></div><div class="carpool-hero-route"><span>Start</span><i></i><span>Via</span><i></i><span>Destination</span></div><a href="'+project.liveUrl+'" target="_blank" rel="noopener" class="carpool-hero-link">Open the real journey experience ↗</a></div>';}
+      const carpoolStyle=document.createElement('style'); carpoolStyle.textContent='.carpool-hero-world{min-height:520px;background:#171717;color:#fff;border-radius:42px;padding:58px;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 30px 90px rgba(23,23,23,.18)}.carpool-hero-world:before{content:"";position:absolute;width:480px;height:480px;border:1px solid rgba(223,255,0,.25);border-radius:50%;right:-120px;top:-130px}.carpool-hero-world:after{content:"";position:absolute;width:12px;height:12px;border-radius:50%;background:#dfff00;right:105px;top:100px;box-shadow:0 0 0 7px rgba(223,255,0,.12)}.carpool-hero-kicker{font-size:11px;letter-spacing:.18em;color:#dfff00;font-weight:800}.carpool-hero-title{font-size:clamp(48px,7vw,94px);font-weight:800;line-height:.9;letter-spacing:-.07em;position:relative;z-index:1}.carpool-hero-title span{color:#dfff00}.carpool-hero-route{display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#bbb;position:relative;z-index:1}.carpool-hero-route i{width:70px;height:1px;background:linear-gradient(90deg,#dfff00,rgba(223,255,0,.1));display:block}.carpool-hero-link{position:relative;z-index:1;align-self:flex-start;color:#171717;background:#dfff00;padding:13px 17px;border-radius:999px;font-size:12px;font-weight:800;text-decoration:none}.carpool-hero-link:hover{transform:translateY(-2px)}@media(max-width:800px){.carpool-hero-world{min-height:420px;padding:32px;border-radius:30px}.carpool-hero-route i{width:28px}}'; document.head.appendChild(carpoolStyle);
+      const first=document.querySelector('.case-study-content h2'); if(first){first.insertAdjacentHTML('beforebegin','<div class="case-callout"><strong>Carpooling Mobility Product</strong> — a route-based journey experience connecting drivers and passengers through structured journey data, mapping and practical matching.</div>');}
     }
   })
   .catch(function(error){
