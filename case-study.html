@@ -180,6 +180,18 @@
     .case-study-content p,
     .case-study-content li{color:#444;font-size:18px}
     .case-study-content blockquote{font-size:30px;line-height:1.3;color:#111;border-left:3px solid #111;padding-left:25px;margin:40px 0}
+    .case-study-content h2{margin-top:70px}
+    .case-study-content h3{margin-top:42px}
+    .case-study-content .case-kicker{font-size:12px;text-transform:uppercase;letter-spacing:.14em;color:#777;font-weight:700;margin:0 0 12px}
+    .case-study-content .case-callout{margin:42px 0;padding:30px 34px;border-radius:20px;background:#111;color:#fff;font-size:25px;line-height:1.35;letter-spacing:-.02em}
+    .case-study-content .case-callout strong{color:var(--accent)}
+    .case-study-content .case-pill-row{display:flex;flex-wrap:wrap;gap:9px;margin:24px 0 8px}
+    .case-study-content .case-pill{display:inline-block;padding:8px 12px;border:1px solid var(--line);border-radius:999px;font-size:12px;color:#555;background:#fff}
+    .case-study-content .case-snapshot{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:38px 0}
+    .case-study-content .case-snapshot div{padding:22px;border:1px solid var(--line);border-radius:16px;background:#fff}
+    .case-study-content .case-snapshot strong{display:block;font-size:26px;letter-spacing:-.04em;margin-top:6px}
+    @media(max-width:800px){.case-study-content .case-snapshot{grid-template-columns:1fr}.case-study-content .case-callout{font-size:21px;padding:24px}}
+
 
     .image-block{
       margin-top:55px;
@@ -461,7 +473,26 @@ fetch('/content/projects.json')
       cover.parentElement.style.display = project.image ? '' : 'none';
     }
 
-    document.getElementById('case-study-content').innerHTML = renderMarkdown(project.body || '');
+    const content = document.getElementById('case-study-content');
+    content.innerHTML = renderMarkdown(project.body || '');
+
+    // Add a stronger product-design framing layer without changing the source case-study copy.
+    const intro = content.querySelector('p');
+    if(intro){
+      intro.classList.add('intro');
+    }
+
+    const headings = Array.from(content.querySelectorAll('h2'));
+    if(project.caseStudy === 'carpooling'){
+      const first = headings[0];
+      if(first){
+        first.insertAdjacentHTML('beforebegin','<div class="case-snapshot"><div><div class="label">Product</div><strong>Mobility</strong></div><div><div class="label">Core system</div><strong>Route matching</strong></div><div><div class="label">My scope</div><strong>End to end</strong></div></div>');
+      }
+      const problem = headings.find(function(h){ return h.textContent.trim() === 'The problem'; });
+      if(problem){ problem.insertAdjacentHTML('afterend','<div class="case-callout">The design question: <strong>Can an existing journey become a useful shared journey?</strong></div>'); }
+      const matching = headings.find(function(h){ return h.textContent.trim() === 'GPS-based matching'; });
+      if(matching){ matching.insertAdjacentHTML('afterend','<div class="case-pill-row"><span class="case-pill">Route overlap</span><span class="case-pill">Direction</span><span class="case-pill">Time</span><span class="case-pill">Day</span><span class="case-pill">Pickup / drop-off</span><span class="case-pill">Available seats</span></div>'); }
+    }
   })
   .catch(function(error){
     document.getElementById('case-study-content').innerHTML = '<p>Unable to load the case study right now.</p>';
