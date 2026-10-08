@@ -498,6 +498,17 @@ fetch('/content/projects.json')
     }
 
     const headings = Array.from(content.querySelectorAll('h2'));
+    if(project.caseStudy === 'hatdu'){
+      const first = headings[0];
+      if(first){
+        first.insertAdjacentHTML('beforebegin','<div class="case-snapshot"><div><div class="label">Product</div><strong>Marketplace</strong></div><div><div class="label">Core system</div><strong>Requests + offers</strong></div><div><div class="label">My scope</div><strong>Product + UX/UI</strong></div></div>');
+      }
+      const challenge = headings.find(function(h){ return h.textContent.trim() === 'The design challenge'; });
+      if(challenge){ challenge.insertAdjacentHTML('afterend','<div class="case-callout">The design question: <strong>How do you make a complex product feel simple without hiding the system behind it?</strong></div>'); }
+      const roles = headings.find(function(h){ return h.textContent.trim() === 'A product decision: one account, multiple roles'; });
+      if(roles){ roles.insertAdjacentHTML('afterend','<div class="case-pill-row"><span class="case-pill">Requester</span><span class="case-pill">Provider</span><span class="case-pill">Roles</span><span class="case-pill">Permissions</span><span class="case-pill">Verification</span><span class="case-pill">Reusable requests</span></div>'); }
+    }
+
     if(project.caseStudy === 'carpooling'){
       const first = headings[0];
       if(first){
