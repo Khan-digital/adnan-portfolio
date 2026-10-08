@@ -206,58 +206,88 @@ document.querySelectorAll('.signal,.tile,.step,.tag,.product-card').forEach(el=>
 })();
 </script>
 <style id="scroll-bloom-css">
-/* SCROLL BLOOM — the progress indicator becomes a small living system */
-.scroll-bloom{position:fixed;left:22px;top:50%;transform:translateY(-50%);width:46px;height:230px;z-index:80;display:flex;justify-content:center;pointer-events:none}
-.scroll-bloom .track{position:absolute;top:0;bottom:0;width:1px;background:rgba(23,23,23,.13)}
-.scroll-bloom .growth{position:absolute;top:0;width:2px;height:100%;background:var(--ink);transform-origin:top;transform:scaleY(0);border-radius:99px}
-.scroll-bloom svg{position:absolute;inset:0;width:46px;height:230px;overflow:visible}
-.scroll-bloom .trail{fill:none;stroke:var(--ink);stroke-width:1.4;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1}
-.scroll-bloom .seed{fill:var(--accent);stroke:var(--ink);stroke-width:1.2;transform-box:fill-box;transform-origin:center}
-.scroll-bloom .bloom{opacity:0;transform:scale(.25);transform-origin:center;transition:opacity .35s ease,transform .55s cubic-bezier(.2,.9,.2,1)}
-.scroll-bloom .petal{fill:var(--accent);stroke:var(--ink);stroke-width:1}
-.scroll-bloom .core{fill:var(--ink)}
-.scroll-bloom .orbit{fill:none;stroke:var(--ink);stroke-width:.8;opacity:.35}
-.scroll-bloom.complete .bloom{opacity:1;transform:scale(1)}
-.scroll-bloom.complete .seed{animation:bloomPulse 1.8s ease-in-out infinite}
-.scroll-bloom.complete .bloom .petal:nth-child(2){transform-origin:30px 180px;animation:bloomSway 2.4s ease-in-out infinite}
-.scroll-bloom.complete .bloom .petal:nth-child(3){transform-origin:30px 180px;animation:bloomSway 2.7s ease-in-out -.5s infinite}
-.scroll-bloom .caption{position:absolute;left:14px;top:calc(100% + 8px);font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:#777;white-space:nowrap;opacity:.7}
-@keyframes bloomPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
-@keyframes bloomSway{0%,100%{transform:rotate(0)}50%{transform:rotate(7deg)}}
-@media(max-width:800px){.scroll-bloom{left:8px;transform:translateY(-50%) scale(.82);transform-origin:left center}.scroll-bloom .caption{display:none}}
-@media(prefers-reduced-motion:reduce){.scroll-bloom.complete .seed,.scroll-bloom.complete .bloom .petal{animation:none}.scroll-bloom .bloom{transition:none}}
+/* SCROLL CREATURE — the progress control becomes a playful living guide */
+.scroll-bloom{position:fixed;left:16px;top:50%;transform:translateY(-50%);width:58px;height:270px;z-index:80;pointer-events:auto;touch-action:none;user-select:none}
+.scroll-bloom .track{position:absolute;left:29px;top:8px;bottom:8px;width:3px;background:rgba(23,23,23,.10);border-radius:99px}
+.scroll-bloom .growth{position:absolute;left:29px;top:8px;width:3px;height:calc(100% - 16px);background:var(--ink);transform-origin:top;transform:scaleY(0);border-radius:99px}
+.scroll-bloom svg{position:absolute;inset:0;width:58px;height:270px;overflow:visible}
+.scroll-bloom .trail{fill:none;stroke:var(--ink);stroke-width:1.7;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;opacity:.22}
+.scroll-bloom .body{fill:none;stroke:var(--ink);stroke-width:7;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1}
+.scroll-bloom .belly{fill:none;stroke:var(--bg);stroke-width:2.2;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1}
+.scroll-bloom .head{fill:var(--ink);stroke:var(--ink);stroke-width:1;transform-box:fill-box;transform-origin:center;transition:transform .12s linear}
+.scroll-bloom .eye{fill:var(--bg)}
+.scroll-bloom .pupil{fill:var(--ink)}
+.scroll-bloom .tongue{fill:none;stroke:#d04a4a;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;opacity:0}
+.scroll-bloom .tongue,.scroll-bloom .eye,.scroll-bloom .pupil{transition:opacity .2s ease}
+.scroll-bloom .completion{position:absolute;left:50%;bottom:-24px;transform:translateX(-50%);font-size:8px;letter-spacing:.13em;text-transform:uppercase;color:#777;white-space:nowrap;opacity:.7}
+.scroll-bloom.complete .head{animation:snakeHappy .7s ease-in-out 1}
+.scroll-bloom.complete .tongue{opacity:1;animation:tongueFlick 1.4s ease-in-out infinite}
+.scroll-bloom.complete .eye{opacity:1}
+@keyframes snakeHappy{0%,100%{transform:rotate(0) scale(1)}35%{transform:rotate(-10deg) scale(1.12)}70%{transform:rotate(8deg) scale(1.08)}}
+@keyframes tongueFlick{0%,72%,100%{stroke-dasharray:1;stroke-dashoffset:1}78%,88%{stroke-dasharray:.45 .55;stroke-dashoffset:0}}
+@media(max-width:800px){.scroll-bloom{left:2px;transform:translateY(-50%) scale(.8);transform-origin:left center}}
+@media(prefers-reduced-motion:reduce){.scroll-bloom.complete .head,.scroll-bloom.complete .tongue{animation:none}}
 </style>
-<div class="scroll-bloom" id="scroll-bloom" aria-hidden="true">
+<div class="scroll-bloom" id="scroll-bloom" tabindex="0" role="slider" aria-label="Page progress. Drag the snake up or down to scroll." aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
   <div class="track"></div><div class="growth"></div>
-  <svg viewBox="0 0 46 230" role="presentation">
-    <path class="trail" d="M23 5 C9 38 37 55 23 86 C9 117 37 136 23 165 C17 177 20 184 23 188"/>
-    <g class="bloom">
-      <ellipse class="petal" cx="16" cy="171" rx="7" ry="15" transform="rotate(-34 16 171)"/>
-      <ellipse class="petal" cx="37" cy="170" rx="7" ry="15" transform="rotate(34 37 170)"/>
-      <ellipse class="petal" cx="23" cy="160" rx="7" ry="15"/>
-      <circle class="core" cx="23" cy="180" r="4"/>
-      <ellipse class="orbit" cx="23" cy="180" rx="16" ry="7"/>
+  <svg viewBox="0 0 58 270" role="img" aria-label="A snake grows as you scroll">
+    <path class="trail" d="M29 8 C14 38 44 60 29 91 C14 121 44 143 29 174 C14 205 42 228 29 260"/>
+    <path class="body" d="M29 8 C14 38 44 60 29 91 C14 121 44 143 29 174 C14 205 42 228 29 260"/>
+    <path class="belly" d="M29 8 C14 38 44 60 29 91 C14 121 44 143 29 174 C14 205 42 228 29 260"/>
+    <g class="head-group">
+      <ellipse class="head" cx="29" cy="8" rx="8" ry="6"/>
+      <circle class="eye" cx="25.5" cy="6" r="2.1"/>
+      <circle class="eye" cx="32.5" cy="6" r="2.1"/>
+      <circle class="pupil" cx="25.5" cy="6" r=".9"/>
+      <circle class="pupil" cx="32.5" cy="6" r=".9"/>
+      <path class="tongue" d="M29 13 L29 19 M29 17 L26.5 15 M29 17 L31.5 15"/>
     </g>
-    <circle class="seed" cx="23" cy="5" r="4"/>
   </svg>
-  <span class="caption">scroll to grow</span>
+  <span class="completion">drag me</span>
 </div>
 <script id="scroll-bloom-js">
 (()=>{
- const bloom=document.getElementById('scroll-bloom');
- if(!bloom)return;
- const trail=bloom.querySelector('.trail'), seed=bloom.querySelector('.seed'), growth=bloom.querySelector('.growth');
+ const control=document.getElementById('scroll-bloom');
+ if(!control)return;
+ const svg=control.querySelector('svg'), body=control.querySelector('.body'), belly=control.querySelector('.belly'), trail=control.querySelector('.trail'), head=control.querySelector('.head');
  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
- const update=()=>{
-   const max=Math.max(1,document.documentElement.scrollHeight-innerHeight);
-   const p=Math.min(1,Math.max(0,scrollY/max));
-   trail.style.strokeDashoffset=String(1-p);
-   seed.setAttribute('cy',String(5+(183*p)));
-   seed.style.transform='rotate('+(p*180)+'deg) scale('+(1+p*.55)+')';
-   growth.style.transform='scaleY('+p+')';
-   bloom.classList.toggle('complete',p>.965);
+ let dragging=false, ticking=false;
+ const clamp=(v,a,b)=>Math.min(b,Math.max(a,v));
+ const maxScroll=()=>Math.max(1,document.documentElement.scrollHeight-innerHeight);
+ const pathLength=body.getTotalLength();
+ [body,belly,trail].forEach(p=>{p.style.strokeDasharray=pathLength;p.style.strokeDashoffset=pathLength});
+ const setProgress=p=>{
+   p=clamp(p,0,1);
+   const dash=pathLength*(1-p);
+   body.style.strokeDashoffset=dash;
+   belly.style.strokeDashoffset=dash;
+   trail.style.strokeDashoffset=dash;
+   const y=8+252*p;
+   head.setAttribute('cy',y);
+   control.style.setProperty('--snake-progress',p);
+   control.setAttribute('aria-valuenow',String(Math.round(p*100)));
+   control.classList.toggle('complete',p>.985);
  };
- let ticking=false;
+ const update=()=>{setProgress(scrollY/maxScroll())};
+ const scrollFromPointer=e=>{
+   const r=svg.getBoundingClientRect();
+   const p=clamp((e.clientY-r.top)/r.height,0,1);
+   scrollTo({top:p*maxScroll(),behavior:reduce?'auto':'instant'});
+ };
+ control.addEventListener('pointerdown',e=>{
+   dragging=true;control.setPointerCapture(e.pointerId);scrollFromPointer(e);e.preventDefault();
+ });
+ control.addEventListener('pointermove',e=>{if(dragging)scrollFromPointer(e)});
+ control.addEventListener('pointerup',e=>{dragging=false;control.releasePointerCapture(e.pointerId)});
+ control.addEventListener('pointercancel',()=>{dragging=false});
+ control.addEventListener('click',e=>{if(!dragging)scrollFromPointer(e)});
+ control.addEventListener('keydown',e=>{
+   const step=.06;
+   if(e.key==='ArrowDown'||e.key==='ArrowRight'){scrollBy({top:innerHeight*step,behavior:'smooth'});e.preventDefault()}
+   if(e.key==='ArrowUp'||e.key==='ArrowLeft'){scrollBy({top:-innerHeight*step,behavior:'smooth'});e.preventDefault()}
+   if(e.key==='Home'){scrollTo({top:0,behavior:'smooth'});e.preventDefault()}
+   if(e.key==='End'){scrollTo({top:maxScroll(),behavior:'smooth'});e.preventDefault()}
+ });
  addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(()=>{update();ticking=false});ticking=true}},{passive:true});
  addEventListener('resize',update,{passive:true});
  update();
