@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="index, follow">
   <meta name="description" content="Product design case study by Adnan Khan — UX/UI, product thinking and digital experience.">
+  <link id="case-canonical" rel="canonical" href="https://adnan-portfolio-4tz.pages.dev/case-study.html">
   <meta property="og:title" content="Product Design Case Study · Adnan Khan">
   <meta property="og:description" content="A product design case study covering UX/UI, product thinking and digital product development."><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Adnan Khan — Product Design Case Study"><meta name="twitter:description" content="Product design case study covering UX/UI, product thinking and digital product development.">
   <title>HatDu — Product Design Case Study · Adnan Khan</title>
@@ -434,6 +435,19 @@ nav .back{padding:8px 12px;border-radius:999px;background:var(--ink);color:#fff}
 <script>
 (function(){
   const params = new URLSearchParams(window.location.search);
+    const requestedSlug = String(params.get('project') || 'hatdu').toLowerCase();
+    const seoDefaults = {
+      hatdu: {title:'HatDu — Product Design Case Study · Adnan Khan', description:'A real digital request-and-offer marketplace case study by Adnan Khan covering product design, UX/UI, roles, permissions and product communication.'},
+      carpooling: {title:'Carpooling Mobility Product — Product Design Case Study · Adnan Khan', description:'A route-based carpooling product case study by Adnan Khan covering UX/UI, mapping, matching logic, administration and data design.'}
+    };
+    const seo = seoDefaults[requestedSlug] || seoDefaults.hatdu;
+    document.title = seo.title;
+    const seoDesc = document.querySelector('meta[name="description"]'); if(seoDesc) seoDesc.setAttribute('content', seo.description);
+    const ogTitle = document.querySelector('meta[property="og:title"]'); if(ogTitle) ogTitle.setAttribute('content', seo.title);
+    const ogDesc = document.querySelector('meta[property="og:description"]'); if(ogDesc) ogDesc.setAttribute('content', seo.description);
+    const twTitle = document.querySelector('meta[name="twitter:title"]'); if(twTitle) twTitle.setAttribute('content', seo.title);
+    const twDesc = document.querySelector('meta[name="twitter:description"]'); if(twDesc) twDesc.setAttribute('content', seo.description);
+    const canonical = document.getElementById('case-canonical'); if(canonical) canonical.setAttribute('href', 'https://adnan-portfolio-4tz.pages.dev/case-study.html?project=' + encodeURIComponent(requestedSlug));
 if(String(params.get('project')||'').toLowerCase()==='carpooling'){document.body.classList.add('carpooling-case');}
   const slug = String(params.get('project') || 'hatdu').toLowerCase();
   const title = document.getElementById('case-title');
