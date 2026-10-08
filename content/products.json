@@ -1,8 +1,146 @@
 [
-  {"title":"AI Website Starter Kit","description":"A practical starter kit for turning an idea into a polished responsive website with AI-assisted planning, copy, structure and design.","type":"Template Kit","price":"Coming soon","status":"planned","url":""},
-  {"title":"Figma Landing Page System","description":"A reusable landing-page system with sections, responsive layouts, typography and reusable components for fast client and personal projects.","type":"Figma Resource","price":"Coming soon","status":"planned","url":""},
-  {"title":"Social Content Design Kit","description":"A lightweight content system with planning, caption and reusable content frameworks for creators and small businesses.","type":"Design Kit","price":"Ready for storefront","status":"ready","url":"/products/social-content-design-kit/"},
-  {"title":"Product Designer Portfolio Kit","description":"A practical portfolio structure for designers who want to present product thinking, case studies, UX/UI work and visual craft clearly.","type":"Portfolio Kit","price":"Ready for storefront","status":"ready","url":"/products/product-designer-portfolio-kit/"},
-  {"title":"AI Design Workflow Pack","description":"A practical workflow system for designers using AI for research synthesis, flow reviews, UI critique, microcopy, QA and portfolio storytelling without replacing design judgment.","type":"Workflow Pack","price":"Ready for storefront","status":"ready","url":"/products/ai-design-workflow-pack/"},
-  {"title":"Small Business Website Pack","description":"A collection of practical website structures and reusable sections for local businesses, freelancers and service providers.","type":"Website Kit","price":"Coming soon","status":"planned","url":""}
+  {
+    "title": "AI Website Starter Kit",
+    "description": "A practical system for planning and designing responsive websites with AI-assisted research, structure, copy and UI workflows.",
+    "type": "Website Kit",
+    "price": "Coming soon",
+    "status": "planned",
+    "url": ""
+  },
+  {
+    "title": "Figma Landing Page System",
+    "description": "Reusable responsive sections, layouts, typography and components for landing pages, launches and client projects.",
+    "type": "Figma Resource",
+    "price": "Coming soon",
+    "status": "planned",
+    "url": ""
+  },
+  {
+    "title": "SaaS Dashboard UI Kit",
+    "description": "A scalable Figma UI foundation for dashboards, analytics, settings, tables, forms and account experiences.",
+    "type": "UI Kit",
+    "price": "Coming soon",
+    "status": "planned",
+    "url": ""
+  },
+  {
+    "title": "Mobile App UI Starter Kit",
+    "description": "Reusable mobile screens and components for onboarding, navigation, profiles, lists, forms and core app flows.",
+    "type": "UI Kit",
+    "price": "Coming soon",
+    "status": "planned",
+    "url": ""
+  },
+  {
+    "title": "Product Designer Portfolio Kit",
+    "description": "A practical portfolio structure for presenting product thinking, case studies, UX/UI work and visual craft clearly.",
+    "type": "Portfolio Kit",
+    "price": "Coming soon",
+    "status": "planned",
+    "url": ""
+  },
+  {
+    "title": "AI Design Workflow Pack",
+    "description": "A practical workflow for using AI for research synthesis, UX critique, microcopy, QA and portfolio storytelling without replacing design judgment.",
+    "type": "Workflow Pack",
+    "price": "Coming soon",
+    "status": "planned",
+    "url": ""
+  },
+  {
+    "title": "Social Content Design Kit",
+    "description": "Reusable social layouts and content frameworks for small businesses, creators and service brands.",
+    "type": "Design Kit",
+    "price": "Coming soon",
+    "status": "planned",
+    "url": ""
+  },
+  {
+    "title": "Small Business Website Pack",
+    "description": "Ready-to-customize website structures and reusable sections for local businesses, freelancers and service providers.",
+    "type": "Website Kit",
+    "price": "Customizable",
+    "status": "custom",
+    "url": "https://mail.google.com/mail/?view=cm&fs=1&to=1digital1designer@gmail.com&su=Small%20Business%20Website%20Customization"
+  },
+  {
+    "title": "Startup Launch Pack",
+    "description": "A coordinated set of landing-page, presentation and social assets for launching a new product or startup.",
+    "type": "Launch Kit",
+    "price": "Coming soon",
+    "status": "planned",
+    "url": ""
+  },
+  {
+    "title": "Figma Design System Starter",
+    "description": "A clean foundation of tokens, typography, buttons, inputs, cards, navigation and reusable components for product teams.",
+    "type": "Design System",
+    "price": "Coming soon",
+    "status": "planned",
+    "url": ""
+  },
+  {
+    "title": "UX Research & Workshop Templates",
+    "description": "Practical templates for problem framing, user flows, journey mapping, prioritization and design workshops.",
+    "type": "UX Toolkit",
+    "price": "Coming soon",
+    "status": "planned",
+    "url": ""
+  },
+  {
+    "title": "Presentation & Pitch Deck Kit",
+    "description": "A polished presentation system for product pitches, business proposals, case studies and client presentations.",
+    "type": "Presentation Kit",
+    "price": "Coming soon",
+    "status": "planned",
+    "url": ""
+  },
+  {
+    "title": "Brand Social Media Pack",
+    "description": "A customizable visual system for consistent Instagram, LinkedIn and other social content across a small brand.",
+    "type": "Social Kit",
+    "price": "Customizable",
+    "status": "custom",
+    "url": "https://mail.google.com/mail/?view=cm&fs=1&to=1digital1designer@gmail.com&su=Social%20Media%20Design%20Customization"
+  },
+  {
+    "title": "Portfolio Website Customization",
+    "description": "Turn an existing portfolio template into a polished personal site with your content, visual direction and responsive layout.",
+    "type": "Custom Design",
+    "price": "Made to order",
+    "status": "custom",
+    "url": "https://mail.google.com/mail/?view=cm&fs=1&to=1digital1designer@gmail.com&su=Portfolio%20Website%20Customization"
+  },
+  {
+    "title": "Landing Page Custom Design",
+    "description": "A conversion-focused landing page designed around your product, service, audience and brand.",
+    "type": "Custom Design",
+    "price": "Made to order",
+    "status": "custom",
+    "url": "https://mail.google.com/mail/?view=cm&fs=1&to=1digital1designer@gmail.com&su=Landing%20Page%20Design"
+  },
+  {
+    "title": "UX/UI Screen Design",
+    "description": "Custom UX/UI design for web or mobile screens, from wireframes and flows to polished high-fidelity interfaces.",
+    "type": "Custom Design",
+    "price": "Made to order",
+    "status": "custom",
+    "url": "https://mail.google.com/mail/?view=cm&fs=1&to=1digital1designer@gmail.com&su=UX%2FUI%20Design%20Request"
+  },
+  {
+    "title": "Design Audit & UX Improvement",
+    "description": "A focused review of an existing website or product with practical recommendations for usability, hierarchy and interface quality.",
+    "type": "UX Service",
+    "price": "Made to order",
+    "status": "custom",
+    "url": "https://mail.google.com/mail/?view=cm&fs=1&to=1digital1designer@gmail.com&su=UX%20Design%20Audit"
+  },
+  {
+    "title": "Custom Design Request",
+    "description": "Need something different? Tell me what you are building and I can design a tailored digital solution around your goals.",
+    "type": "Custom Request",
+    "price": "By request",
+    "status": "custom",
+    "url": "https://mail.google.com/mail/?view=cm&fs=1&to=1digital1designer@gmail.com&su=Custom%20Design%20Request"
+  }
 ]
