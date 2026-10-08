@@ -146,7 +146,7 @@ document.querySelectorAll('.signal,.tile,.step,.tag,.product-card').forEach(el=>
 .project:last-child:after{display:none}
 .project .visual{position:relative;min-height:610px!important;border-radius:42px!important;padding:75px!important;background:#1b1b19!important;overflow:hidden;box-shadow:0 30px 80px rgba(23,23,23,.15);transition:transform .5s cubic-bezier(.2,.8,.2,1),box-shadow .5s ease}
 .project .visual:before{content:"";position:absolute;width:330px;height:330px;border:1px solid rgba(255,255,255,.12);border-radius:50%;left:-90px;top:-110px}
-.project .visual:after{content:"ENTER WORLD  ↗";position:absolute;right:28px;top:25px;color:#aaa;font-size:10px;letter-spacing:.15em}
+.project .visual:after{content:"";position:absolute;right:28px;top:25px;color:#aaa;font-size:10px;letter-spacing:.15em}
 .project:hover .visual{transform:translateY(-9px) rotate(-.4deg);box-shadow:0 42px 100px rgba(23,23,23,.22)}
 .project .mock{position:relative;z-index:2;width:min(920px,94%);transform:rotate(-1.3deg) translateY(18px);transition:transform .55s cubic-bezier(.2,.8,.2,1),box-shadow .55s ease;box-shadow:0 35px 90px rgba(0,0,0,.35);border-radius:24px}
 .project:nth-child(2) .mock{transform:rotate(1.4deg) translateY(18px)}
@@ -163,7 +163,7 @@ document.querySelectorAll('.signal,.tile,.step,.tag,.product-card').forEach(el=>
 .world-number{position:absolute;left:34px;top:30px;color:var(--accent);font-size:12px;font-weight:800;letter-spacing:.12em;z-index:3}
 .world-orbit{position:absolute;right:7%;bottom:8%;width:180px;height:180px;border:1px solid rgba(223,255,0,.25);border-radius:50%;z-index:1}
 .world-orbit:after{content:"";position:absolute;width:10px;height:10px;border-radius:50%;background:var(--accent);right:12px;top:28px;box-shadow:0 0 0 5px rgba(223,255,0,.12)}
-.world-hint{display:inline-block;margin-top:10px;font-size:11px;color:#777;letter-spacing:.08em;text-transform:uppercase}
+.world-enter{position:absolute;right:28px;top:20px;z-index:5;display:inline-flex;align-items:center;gap:8px;padding:9px 12px;border:1px solid rgba(255,255,255,.2);border-radius:999px;color:#fff;background:rgba(23,23,23,.42);font-size:10px;letter-spacing:.15em;text-transform:uppercase;backdrop-filter:blur(10px);transition:background .2s ease,color .2s ease,transform .2s ease}.world-enter:hover{background:var(--accent);color:#111;transform:translateY(-2px)}.world-hint{display:inline-block;margin-top:10px;font-size:11px;color:#777;letter-spacing:.08em;text-transform:uppercase}
 @media(max-width:800px){
  #work:after{display:none}.project-list{gap:65px}.project:after{height:65px}
  .project .visual{min-height:390px!important;padding:28px!important;border-radius:30px!important}
@@ -183,8 +183,8 @@ document.querySelectorAll('.signal,.tile,.step,.tag,.product-card').forEach(el=>
    const num=document.createElement('span');num.className='world-number';num.textContent=String(i+1).padStart(2,'0')+' / WORLD';
    const orbit=document.createElement('span');orbit.className='world-orbit';
    const label=document.createElement('span');label.className='world-label';label.textContent=i===0?'Marketplace world':'Mobility world';
-   visual.append(num,orbit,label);
    const link=card.querySelector('.case-link[href^="case-study"]');
+   if(link){const enter=document.createElement('a');enter.className='world-enter';enter.href=link.href;enter.textContent='Enter world ↗';enter.setAttribute('aria-label','Enter '+(card.querySelector('h3')?.textContent||'project')+' world');visual.append(num,orbit,label,enter);}else{visual.append(num,orbit,label);}
    if(link){link.textContent='Enter the case study';link.setAttribute('aria-label','Enter '+(card.querySelector('h3')?.textContent||'project')+' case study');}
    const info=card.querySelector('.info');
    if(info&&!info.querySelector('.world-hint')){const h=document.createElement('div');h.className='world-hint';h.textContent='Choose this world →';info.appendChild(h)}
