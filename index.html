@@ -230,7 +230,7 @@ document.querySelectorAll('.signal,.tile,.step,.tag,.product-card').forEach(el=>
 </style>
 <div class="scroll-bloom" id="scroll-bloom" tabindex="0" role="slider" aria-label="Page progress. Drag the snake up or down to scroll." aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
   <div class="track"></div><div class="growth"></div>
-  <svg viewBox="0 0 58 270" role="img" aria-label="A snake grows as you scroll">
+  <svg viewBox="0 0 58 270" role="img" aria-label="A snake grows as you scroll"><defs><linearGradient id="snakeGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#dfff00"/><stop offset="48%" stop-color="#ff7aa2"/><stop offset="100%" stop-color="#8ea7ff"/></linearGradient></defs>
     <path class="trail" d="M29 8 C14 38 44 60 29 91 C14 121 44 143 29 174 C14 205 42 228 29 260"/>
     <path class="body" d="M29 8 C14 38 44 60 29 91 C14 121 44 143 29 174 C14 205 42 228 29 260"/>
     <path class="belly" d="M29 8 C14 38 44 60 29 91 C14 121 44 143 29 174 C14 205 42 228 29 260"/>
@@ -268,7 +268,18 @@ document.querySelectorAll('.signal,.tile,.step,.tag,.product-card').forEach(el=>
    control.setAttribute('aria-valuenow',String(Math.round(p*100)));
    control.classList.toggle('complete',p>.985);
  };
- const update=()=>{setProgress(scrollY/maxScroll())};
+ const finale=document.getElementById('scroll-finale');
+ const update=()=>{
+   const p=scrollY/maxScroll();
+   setProgress(p);
+   const done=p>.985;
+   if(finale){
+     finale.classList.toggle('show',done);
+     finale.setAttribute('aria-hidden',String(!done));
+   }
+   document.documentElement.style.setProperty('--scroll-hue',String(Math.round(p*300)));
+ };
+
  const scrollFromPointer=e=>{
    const r=svg.getBoundingClientRect();
    const p=clamp((e.clientY-r.top)/r.height,0,1);
@@ -293,4 +304,42 @@ document.querySelectorAll('.signal,.tile,.step,.tag,.product-card').forEach(el=>
  update();
 })();
 </script>
+<style id="scroll-finale-css">
+/* SCROLL FINALE — the journey ends in a full-screen living color field */
+.scroll-finale{position:fixed;inset:0;z-index:70;pointer-events:none;opacity:0;visibility:hidden;transition:opacity .7s ease,visibility .7s ease;background:
+ radial-gradient(circle at 50% 48%,rgba(223,255,0,.20),transparent 18%),
+ radial-gradient(circle at 20% 25%,rgba(255,99,132,.18),transparent 26%),
+ radial-gradient(circle at 82% 20%,rgba(100,150,255,.18),transparent 25%),
+ linear-gradient(125deg,rgba(247,216,120,.10),rgba(127,255,212,.10),rgba(181,145,255,.12));}
+.scroll-finale.show{opacity:1;visibility:visible}
+.scroll-finale:before,.scroll-finale:after{content:"";position:absolute;left:50%;top:50%;border:1px solid rgba(23,23,23,.18);border-radius:50%;transform:translate(-50%,-50%) scale(.25);opacity:0}
+.scroll-finale.show:before{width:72vmin;height:72vmin;animation:finaleRing 1.5s cubic-bezier(.16,1,.3,1) forwards}
+.scroll-finale.show:after{width:42vmin;height:42vmin;animation:finaleRing 1.2s .12s cubic-bezier(.16,1,.3,1) forwards}
+.finale-core{position:absolute;left:50%;top:50%;width:min(330px,62vw);aspect-ratio:1;transform:translate(-50%,-50%) scale(.2);border-radius:43% 57% 58% 42%;background:conic-gradient(from 180deg,#dfff00,#ff7aa2,#8ea7ff,#73e6c0,#dfff00);filter:saturate(1.05);box-shadow:0 30px 120px rgba(23,23,23,.18);animation:none}
+.scroll-finale.show .finale-core{animation:finaleCore 1.15s cubic-bezier(.16,1,.3,1) forwards,finaleFloat 5s 1.15s ease-in-out infinite}
+.finale-core:after{content:"";position:absolute;inset:16%;border-radius:50%;background:var(--bg);box-shadow:inset 0 0 50px rgba(255,255,255,.5)}
+.finale-message{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) translateY(35px);width:min(620px,82vw);text-align:center;opacity:0;color:var(--ink)}
+.scroll-finale.show .finale-message{animation:finaleText .8s .45s cubic-bezier(.16,1,.3,1) forwards}
+.finale-message .label{color:#4f4a43;font-weight:800}
+.finale-message h2{font-size:clamp(42px,7vw,88px);margin:12px 0 12px;letter-spacing:-.075em}
+.finale-message p{margin:0 auto;color:#555;max-width:470px;font-size:17px}
+.finale-spark{position:absolute;width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 6px rgba(223,255,0,.14);opacity:0}
+.scroll-finale.show .finale-spark{animation:sparkPop .9s cubic-bezier(.16,1,.3,1) forwards}
+.finale-spark:nth-child(1){left:24%;top:31%;animation-delay:.25s}.finale-spark:nth-child(2){right:22%;top:37%;background:#ff7aa2;animation-delay:.38s}.finale-spark:nth-child(3){left:29%;bottom:27%;background:#8ea7ff;animation-delay:.5s}.finale-spark:nth-child(4){right:27%;bottom:25%;background:#73e6c0;animation-delay:.62s}
+@keyframes finaleRing{0%{transform:translate(-50%,-50%) scale(.25);opacity:0}45%{opacity:.8}100%{transform:translate(-50%,-50%) scale(1);opacity:0}}
+@keyframes finaleCore{0%{transform:translate(-50%,-50%) scale(.2) rotate(-35deg)}75%{transform:translate(-50%,-50%) scale(1.06) rotate(5deg)}100%{transform:translate(-50%,-50%) scale(1) rotate(0)}}
+@keyframes finaleFloat{0%,100%{border-radius:43% 57% 58% 42%;transform:translate(-50%,-50%) rotate(0) scale(1)}50%{border-radius:58% 42% 44% 56%;transform:translate(-50%,-53%) rotate(7deg) scale(1.04)}}
+@keyframes finaleText{to{opacity:1;transform:translate(-50%,-50%) translateY(0)}}
+@keyframes sparkPop{0%{opacity:0;transform:scale(.2) translateY(18px)}55%{opacity:1;transform:scale(1.4) translateY(0)}100%{opacity:.85;transform:scale(1) translateY(0)}}
+.scroll-bloom.complete{filter:drop-shadow(0 0 9px rgba(223,255,0,.28))}
+.scroll-bloom.complete .body{stroke:url(#snakeGradient)}
+.scroll-bloom.complete .head{fill:url(#snakeGradient);stroke:#171717}
+@media(max-width:800px){.finale-message p{font-size:15px}.finale-core{width:54vw}}
+@media(prefers-reduced-motion:reduce){.scroll-finale,.scroll-finale.show .finale-core,.scroll-finale.show .finale-message,.scroll-finale.show .finale-spark{animation:none;transition:none}.scroll-finale.show{opacity:1}.scroll-finale.show .finale-core{transform:translate(-50%,-50%) scale(1)}.scroll-finale.show .finale-message{opacity:1;transform:translate(-50%,-50%)}}
+</style>
+<div class="scroll-finale" id="scroll-finale" aria-hidden="true">
+  <div class="finale-core"></div>
+  <span class="finale-spark"></span><span class="finale-spark"></span><span class="finale-spark"></span><span class="finale-spark"></span>
+  <div class="finale-message"><div class="label">10 / Journey complete</div><h2>You made it to the end.</h2><p>The page is finished — but the work is only getting more interesting.</p></div>
+</div>
 </body></html>
