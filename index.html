@@ -206,103 +206,71 @@ document.querySelectorAll('.signal,.tile,.step,.tag,.product-card').forEach(el=>
 })();
 </script>
 <style id="scroll-bloom-css">
-/* SCROLL CREATURE — the progress control becomes a playful living guide */
-.scroll-bloom{position:fixed;left:16px;top:50%;transform:translateY(-50%);width:58px;height:270px;z-index:80;pointer-events:auto;touch-action:none;user-select:none}
-.scroll-bloom .track{position:absolute;left:29px;top:8px;bottom:8px;width:3px;background:rgba(23,23,23,.10);border-radius:99px}
-.scroll-bloom .growth{position:absolute;left:29px;top:8px;width:3px;height:calc(100% - 16px);background:var(--ink);transform-origin:top;transform:scaleY(0);border-radius:99px}
-.scroll-bloom svg{position:absolute;inset:0;width:58px;height:270px;overflow:visible}
-.scroll-bloom .trail{fill:none;stroke:var(--ink);stroke-width:1.7;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;opacity:.22}
-.scroll-bloom .body{fill:none;stroke:var(--ink);stroke-width:7;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1}
-.scroll-bloom .belly{fill:none;stroke:var(--bg);stroke-width:2.2;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1}
-.scroll-bloom .head{fill:var(--ink);stroke:var(--ink);stroke-width:1;transform-box:fill-box;transform-origin:center;transition:transform .12s linear}
-.scroll-bloom .eye{fill:var(--bg)}
-.scroll-bloom .pupil{fill:var(--ink)}
-.scroll-bloom .tongue{fill:none;stroke:#d04a4a;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;opacity:0}
-.scroll-bloom .tongue,.scroll-bloom .eye,.scroll-bloom .pupil{transition:opacity .2s ease}
-.scroll-bloom .completion{position:absolute;left:50%;bottom:-24px;transform:translateX(-50%);font-size:8px;letter-spacing:.13em;text-transform:uppercase;color:#777;white-space:nowrap;opacity:.7}
-.scroll-bloom.complete .head{animation:snakeHappy .7s ease-in-out 1}
-.scroll-bloom.complete .tongue{opacity:1;animation:tongueFlick 1.4s ease-in-out infinite}
-.scroll-bloom.complete .eye{opacity:1}
-@keyframes snakeHappy{0%,100%{transform:rotate(0) scale(1)}35%{transform:rotate(-10deg) scale(1.12)}70%{transform:rotate(8deg) scale(1.08)}}
-@keyframes tongueFlick{0%,72%,100%{stroke-dasharray:1;stroke-dashoffset:1}78%,88%{stroke-dasharray:.45 .55;stroke-dashoffset:0}}
-@media(max-width:800px){.scroll-bloom{left:2px;transform:translateY(-50%) scale(.8);transform-origin:left center}}
-@media(prefers-reduced-motion:reduce){.scroll-bloom.complete .head,.scroll-bloom.complete .tongue{animation:none}}
+/* SCROLL DRAGON — the portfolio creature grows with the journey */
+.scroll-bloom{position:fixed;left:10px;top:50%;transform:translateY(-50%);width:78px;height:330px;z-index:80;pointer-events:auto;touch-action:none;user-select:none;cursor:grab}
+.scroll-bloom:active{cursor:grabbing}
+.scroll-bloom .track{position:absolute;left:38px;top:8px;bottom:8px;width:2px;background:rgba(23,23,23,.10);border-radius:99px}
+.scroll-bloom .growth{position:absolute;left:38px;top:8px;width:2px;height:calc(100% - 16px);background:var(--ink);transform-origin:top;transform:scaleY(0);border-radius:99px}
+.scroll-bloom svg{position:absolute;inset:0;width:78px;height:330px;overflow:visible}
+.scroll-bloom .trail{fill:none;stroke:#8b867c;stroke-width:1.5;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;opacity:.18}
+.scroll-bloom .body{fill:none;stroke:#171717;stroke-width:9;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1}
+.scroll-bloom .belly{fill:none;stroke:#dfff00;stroke-width:2.3;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1}
+.scroll-bloom .wing{fill:#dfff00;stroke:#171717;stroke-width:1.5;transform-box:fill-box;transform-origin:center;opacity:0}
+.scroll-bloom .wing.w2{fill:#9fa7ff}
+.scroll-bloom .horn{fill:#171717;opacity:0}
+.scroll-bloom .eye{fill:#f2eee6;opacity:0}
+.scroll-bloom .pupil{fill:#171717;opacity:0}
+.scroll-bloom .tongue{fill:none;stroke:#ff4f78;stroke-width:1.7;stroke-linecap:round;opacity:0}
+.scroll-bloom .spark{fill:#dfff00;opacity:0}
+.scroll-bloom .completion{position:absolute;left:50%;bottom:-27px;transform:translateX(-50%);font-size:8px;letter-spacing:.13em;text-transform:uppercase;color:#777;white-space:nowrap}
+.scroll-bloom.complete .wing{opacity:1;animation:dragonWing .85s cubic-bezier(.16,1,.3,1) both}
+.scroll-bloom.complete .wing.w2{animation-delay:.08s}
+.scroll-bloom.complete .horn,.scroll-bloom.complete .eye,.scroll-bloom.complete .pupil,.scroll-bloom.complete .tongue,.scroll-bloom.complete .spark{opacity:1}
+.scroll-bloom.complete .head{animation:dragonHover 1.8s ease-in-out infinite}
+.scroll-bloom.complete .wing{transform:scaleY(1)}
+.scroll-bloom.complete .spark{animation:sparkPulse 1.1s ease-in-out infinite}
+@keyframes dragonWing{0%{transform:scaleY(.08) rotate(18deg);opacity:0}55%{transform:scaleY(1.12) rotate(-5deg);opacity:1}100%{transform:scaleY(1) rotate(0);opacity:1}}
+@keyframes dragonHover{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-5px) rotate(-2deg)}}
+@keyframes sparkPulse{0%,100%{transform:scale(.75);opacity:.55}50%{transform:scale(1.2);opacity:1}}
+@media(max-width:800px){.scroll-bloom{left:0;transform:translateY(-50%) scale(.72);transform-origin:left center}}
+@media(prefers-reduced-motion:reduce){.scroll-bloom.complete .wing,.scroll-bloom.complete .head,.scroll-bloom.complete .spark{animation:none}}
 </style>
-<div class="scroll-bloom" id="scroll-bloom" tabindex="0" role="slider" aria-label="Page progress. Drag the snake up or down to scroll." aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+<div class="scroll-bloom" id="scroll-bloom" tabindex="0" role="slider" aria-label="Page progress. Drag the dragon up or down to scroll." aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
   <div class="track"></div><div class="growth"></div>
-  <svg viewBox="0 0 58 270" role="img" aria-label="A snake grows as you scroll"><defs><linearGradient id="snakeGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#dfff00"/><stop offset="48%" stop-color="#ff7aa2"/><stop offset="100%" stop-color="#8ea7ff"/></linearGradient></defs>
-    <path class="trail" d="M29 8 C14 38 44 60 29 91 C14 121 44 143 29 174 C14 205 42 228 29 260"/>
-    <path class="body" d="M29 8 C14 38 44 60 29 91 C14 121 44 143 29 174 C14 205 42 228 29 260"/>
-    <path class="belly" d="M29 8 C14 38 44 60 29 91 C14 121 44 143 29 174 C14 205 42 228 29 260"/>
-    <g class="head-group">
-      <ellipse class="head" cx="29" cy="8" rx="8" ry="6"/>
-      <circle class="eye" cx="25.5" cy="6" r="2.1"/>
-      <circle class="eye" cx="32.5" cy="6" r="2.1"/>
-      <circle class="pupil" cx="25.5" cy="6" r=".9"/>
-      <circle class="pupil" cx="32.5" cy="6" r=".9"/>
-      <path class="tongue" d="M29 13 L29 19 M29 17 L26.5 15 M29 17 L31.5 15"/>
+  <svg viewBox="0 0 78 330" role="img" aria-label="A dragon grows from tail to head as you scroll">
+    <path class="trail" d="M39 8 C14 42 65 70 39 104 C13 138 66 166 39 200 C14 234 64 266 39 302"/>
+    <path class="body" d="M39 8 C14 42 65 70 39 104 C13 138 66 166 39 200 C14 234 64 266 39 302"/>
+    <path class="belly" d="M39 8 C14 42 65 70 39 104 C13 138 66 166 39 200 C14 234 64 266 39 302"/>
+    <g class="dragon-head">
+      <path class="wing w1" d="M39 9 C18 -1 4 7 0 28 C16 22 29 25 39 34 Z"/>
+      <path class="wing w2" d="M39 9 C60 -1 74 7 78 28 C62 22 49 25 39 34 Z"/>
+      <path class="horn" d="M31 5 L25 -5 L35 2 Z M47 5 L53 -5 L43 2 Z"/>
+      <ellipse class="head" cx="39" cy="8" rx="10" ry="7"/>
+      <circle class="eye" cx="35" cy="6" r="2.2"/><circle class="eye" cx="43" cy="6" r="2.2"/>
+      <circle class="pupil" cx="35" cy="6" r=".9"/><circle class="pupil" cx="43" cy="6" r=".9"/>
+      <path class="tongue" d="M39 14 L39 21"/>
+      <path class="spark" d="M39 -8 L42 -2 L48 -1 L43 3 L44 9 L39 5 L34 9 L35 3 L30 -1 L36 -2 Z"/>
     </g>
   </svg>
   <span class="completion">drag me</span>
 </div>
 <script id="scroll-bloom-js">
-(()=>{
- const control=document.getElementById('scroll-bloom');
- if(!control)return;
- const svg=control.querySelector('svg'), body=control.querySelector('.body'), belly=control.querySelector('.belly'), trail=control.querySelector('.trail'), head=control.querySelector('.head');
- const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
- let dragging=false, ticking=false;
- const clamp=(v,a,b)=>Math.min(b,Math.max(a,v));
- const maxScroll=()=>Math.max(1,document.documentElement.scrollHeight-innerHeight);
- const pathLength=body.getTotalLength();
- [body,belly,trail].forEach(p=>{p.style.strokeDasharray=pathLength;p.style.strokeDashoffset=pathLength});
- const setProgress=p=>{
-   p=clamp(p,0,1);
-   const dash=pathLength*(1-p);
-   body.style.strokeDashoffset=dash;
-   belly.style.strokeDashoffset=dash;
-   trail.style.strokeDashoffset=dash;
-   const y=8+252*p;
-   head.setAttribute('cy',y);
-   control.style.setProperty('--snake-progress',p);
-   control.setAttribute('aria-valuenow',String(Math.round(p*100)));
-   control.classList.toggle('complete',p>.985);
- };
- const finale=document.getElementById('scroll-finale');
- const update=()=>{
-   const p=scrollY/maxScroll();
-   setProgress(p);
-   const done=p>.985;
-   if(finale){
-     finale.classList.toggle('show',done);
-     finale.setAttribute('aria-hidden',String(!done));
-   }
-   document.documentElement.style.setProperty('--scroll-hue',String(Math.round(p*300)));
- };
-
- const scrollFromPointer=e=>{
-   const r=svg.getBoundingClientRect();
-   const p=clamp((e.clientY-r.top)/r.height,0,1);
-   scrollTo({top:p*maxScroll(),behavior:reduce?'auto':'instant'});
- };
- control.addEventListener('pointerdown',e=>{
-   dragging=true;control.setPointerCapture(e.pointerId);scrollFromPointer(e);e.preventDefault();
- });
- control.addEventListener('pointermove',e=>{if(dragging)scrollFromPointer(e)});
- control.addEventListener('pointerup',e=>{dragging=false;control.releasePointerCapture(e.pointerId)});
- control.addEventListener('pointercancel',()=>{dragging=false});
- control.addEventListener('click',e=>{if(!dragging)scrollFromPointer(e)});
- control.addEventListener('keydown',e=>{
-   const step=.06;
-   if(e.key==='ArrowDown'||e.key==='ArrowRight'){scrollBy({top:innerHeight*step,behavior:'smooth'});e.preventDefault()}
-   if(e.key==='ArrowUp'||e.key==='ArrowLeft'){scrollBy({top:-innerHeight*step,behavior:'smooth'});e.preventDefault()}
-   if(e.key==='Home'){scrollTo({top:0,behavior:'smooth'});e.preventDefault()}
-   if(e.key==='End'){scrollTo({top:maxScroll(),behavior:'smooth'});e.preventDefault()}
- });
- addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(()=>{update();ticking=false});ticking=true}},{passive:true});
- addEventListener('resize',update,{passive:true});
- update();
-})();
+(()=>{const control=document.getElementById('scroll-bloom');if(!control)return;
+const svg=control.querySelector('svg'),body=control.querySelector('.body'),belly=control.querySelector('.belly'),trail=control.querySelector('.trail'),head=control.querySelector('.head');
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;let dragging=false,ticking=false;
+const clamp=(v,a,b)=>Math.min(b,Math.max(a,v)),maxScroll=()=>Math.max(1,document.documentElement.scrollHeight-innerHeight),pathLength=body.getTotalLength();
+[body,belly,trail].forEach(p=>{p.style.strokeDasharray=pathLength;p.style.strokeDashoffset=pathLength});
+const setProgress=p=>{p=clamp(p,0,1);const dash=pathLength*(1-p);body.style.strokeDashoffset=dash;belly.style.strokeDashoffset=dash;trail.style.strokeDashoffset=dash;
+const y=8+294*p;head.setAttribute('cy',y);control.setAttribute('aria-valuenow',String(Math.round(p*100)));control.classList.toggle('complete',p>.985)};
+const update=()=>{const p=scrollY/maxScroll();setProgress(p);const finale=document.getElementById('scroll-finale');const done=p>.985;if(finale){finale.classList.toggle('show',done);finale.setAttribute('aria-hidden',String(!done))}};
+const scrollFromPointer=e=>{const r=svg.getBoundingClientRect();const p=clamp((e.clientY-r.top)/r.height,0,1);scrollTo({top:p*maxScroll(),behavior:'auto'})};
+control.addEventListener('pointerdown',e=>{dragging=true;control.setPointerCapture(e.pointerId);scrollFromPointer(e);e.preventDefault()});
+control.addEventListener('pointermove',e=>{if(dragging)scrollFromPointer(e)});
+control.addEventListener('pointerup',e=>{dragging=false;try{control.releasePointerCapture(e.pointerId)}catch(_){}});
+control.addEventListener('pointercancel',()=>{dragging=false});
+control.addEventListener('click',e=>{if(!dragging)scrollFromPointer(e)});
+control.addEventListener('keydown',e=>{const step=.06;if(e.key==='ArrowDown'||e.key==='ArrowRight'){scrollBy({top:innerHeight*step,behavior:'smooth'});e.preventDefault()}if(e.key==='ArrowUp'||e.key==='ArrowLeft'){scrollBy({top:-innerHeight*step,behavior:'smooth'});e.preventDefault()}if(e.key==='Home'){scrollTo({top:0,behavior:'smooth'});e.preventDefault()}if(e.key==='End'){scrollTo({top:maxScroll(),behavior:'smooth'});e.preventDefault()}});
+addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(()=>{update();ticking=false});ticking=true}},{passive:true});addEventListener('resize',update,{passive:true});update()})();
 </script>
 <style id="scroll-finale-css">
 /* ENDGAME — finishing the scroll unlocks a kinetic design universe */
