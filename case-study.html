@@ -438,7 +438,7 @@ fetch('/content/projects.json')
     const params = new URLSearchParams(window.location.search);
     const slug = params.get('project') || 'hatdu';
     const projects = Array.isArray(data) ? data : [];
-    const project = projects.find(function(item){ return item.caseStudy === slug; }) || projects[0];
+    const project = projects.find(function(item){ return String(item.caseStudy || '').toLowerCase() === String(slug || '').toLowerCase(); });
 
     if (project && project.image) {
       document.getElementById('cover-image').src = project.image;
@@ -548,7 +548,7 @@ fetch('/content/projects.json')
     const params = new URLSearchParams(window.location.search);
     const slug = params.get('project') || 'hatdu';
     const projects = Array.isArray(data) ? data : [];
-    const project = projects.find(function(item){ return item.caseStudy === slug; }) || projects[0];
+    const project = projects.find(function(item){ return String(item.caseStudy || '').toLowerCase() === String(slug || '').toLowerCase(); });
     if(!project) throw new Error('No project found');
 
     document.title = (project.title || 'Case Study') + ' · Adnan Khan';
