@@ -1,11 +1,12 @@
 [
   {
-    "title": "Figma Landing Page System",
-    "description": "A production-ready Figma system for responsive landing pages, with reusable sections, components, typography and conversion-focused layouts.",
+    "title": "Conversion Landing System",
+    "description": "A focused Figma system for building responsive, conversion-focused landing pages with reusable sections, components and complete page recipes for SaaS, services, products and local businesses.",
     "type": "Figma Resource",
     "price": "Coming soon",
     "status": "planned",
-    "priority": "1"
+    "priority": "1",
+    "stage": "Build first"
   },
   {
     "title": "Figma Design System Starter",
@@ -13,7 +14,8 @@
     "type": "Design System",
     "price": "Coming soon",
     "status": "planned",
-    "priority": "2"
+    "priority": "2",
+    "stage": "After Product 1"
   },
   {
     "title": "Small Business Website Pack",
@@ -21,7 +23,8 @@
     "type": "Website Kit",
     "price": "Coming soon",
     "status": "planned",
-    "priority": "3"
+    "priority": "3",
+    "stage": "After Product 2"
   },
   {
     "title": "Product Designer Portfolio Kit",
@@ -29,7 +32,8 @@
     "type": "Portfolio Kit",
     "price": "Coming soon",
     "status": "planned",
-    "priority": "4"
+    "priority": "4",
+    "stage": "Later"
   },
   {
     "title": "AI Design Workflow Pack",
@@ -37,7 +41,8 @@
     "type": "Workflow Pack",
     "price": "Coming soon",
     "status": "planned",
-    "priority": "5"
+    "priority": "5",
+    "stage": "Later"
   },
   {
     "title": "Social Content Design Kit",
@@ -45,6 +50,7 @@
     "type": "Design Kit",
     "price": "Coming soon",
     "status": "planned",
-    "priority": "6"
+    "priority": "6",
+    "stage": "Later"
   }
 ]
