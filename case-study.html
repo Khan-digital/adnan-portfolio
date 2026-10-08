@@ -206,7 +206,16 @@
     .product-proof a:hover{background:var(--accent);color:#111}
     .video-frame{position:relative;aspect-ratio:16/9;border-radius:16px;overflow:hidden;background:#111}
     .video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-    @media(max-width:800px){.case-study-content .case-snapshot{grid-template-columns:1fr}.case-study-content .case-callout{font-size:21px;padding:24px}.product-proof-head{flex-direction:column}.product-proof a{white-space:normal}}
+    .live-ui-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:42px 0}
+    .live-ui-card{border:1px solid var(--line);border-radius:22px;overflow:hidden;background:#fff}
+    .live-ui-card .live-ui-screen{aspect-ratio:16/10;background:#171717;position:relative}
+    .live-ui-card iframe{width:100%;height:100%;border:0;display:block;background:#fff}
+    .live-ui-info{padding:18px 20px}
+    .live-ui-info .label{font-size:10px}
+    .live-ui-info h3{font-size:21px;margin:5px 0}
+    .live-ui-info p{font-size:14px;margin:0 0 12px;color:#666}
+    .live-ui-info a{font-size:12px;font-weight:700;text-decoration:underline}
+    @media(max-width:800px){.case-study-content .case-snapshot{grid-template-columns:1fr}.case-study-content .case-callout{font-size:21px;padding:24px}.product-proof-head{flex-direction:column}.product-proof a{white-space:normal}.live-ui-grid{grid-template-columns:1fr}.live-ui-card .live-ui-screen{aspect-ratio:16/11}}
 
 
     .image-block{
@@ -513,6 +522,11 @@ fetch('/content/projects.json')
       }
       const challenge = headings.find(function(h){ return h.textContent.trim() === 'The design challenge'; });
       if(challenge){ challenge.insertAdjacentHTML('afterend','<div class="case-callout">The design question: <strong>How do you make a complex product feel simple without hiding the system behind it?</strong></div>'); }
+
+      const productHeading = headings.find(function(h){ return h.textContent.trim() === 'The product'; });
+      if(productHeading){
+        productHeading.insertAdjacentHTML('afterend','<div class="live-ui-grid"><article class="live-ui-card"><div class="live-ui-screen"><iframe src="https://www.hatdu.de/" title="Live hatDu marketplace interface" loading="lazy"></iframe></div><div class="live-ui-info"><div class="label">Live interface</div><h3>Marketplace experience</h3><p>The real product: requests, offers, trustability and delivery information.</p><a href="https://www.hatdu.de/" target="_blank" rel="noopener">Open live product ↗</a></div></article><article class="live-ui-card"><div class="live-ui-screen"><iframe src="https://www.hatdu.de/home/request/request20260606-085737" title="Live hatDu request detail interface" loading="lazy"></iframe></div><div class="live-ui-info"><div class="label">Live interface</div><h3>Request detail experience</h3><p>A real request page showing the structured information users work with.</p><a href="https://www.hatdu.de/home/request/request20260606-085737" target="_blank" rel="noopener">Open request ↗</a></div></article></div>');
+      }
 
       const communication = headings.find(function(h){ return h.textContent.trim() === 'Product communication'; });
       if(communication){
