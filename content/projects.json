@@ -14,7 +14,10 @@
       "Responsive Web",
       "Product Communication"
     ],
-    "caseStudy": "hatdu"
+    "caseStudy": "hatdu",
+    "liveUrl": "https://www.hatdu.de/",
+    "liveLabel": "Explore live product",
+    "liveNote": "Open the live platform and experience the request-and-offer workflow."
   },
   {
     "title": "Carpooling Mobility Product",
@@ -30,6 +33,9 @@
       "Mapping",
       "Data & Matching"
     ],
-    "caseStudy": "carpooling"
+    "caseStudy": "carpooling",
+    "liveUrl": "https://stg-media-marketing.com/umfrage-zur-mitfahrmoeglichkeit/",
+    "liveLabel": "Explore working product",
+    "liveNote": "Open the live journey-entry experience and see the mobility concept in action."
   }
 ]
