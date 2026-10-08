@@ -490,7 +490,7 @@ function formatInline(value){
 }
 
 function renderMarkdown(markdown){
-  const lines = String(markdown || '').split('\\n');
+  const lines = String(markdown || '').split('\n');
   let html = '';
   let paragraph = [];
   let items = [];
