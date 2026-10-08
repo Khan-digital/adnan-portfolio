@@ -136,4 +136,61 @@ sections.forEach(s=>obs.observe(s));
 </script><script id="playful-ui-js">
 (()=>{let lastY=scrollY;const reveal=()=>{document.querySelectorAll('.section,.project,.tile,.step,.product-card,.about-card,.cta').forEach(el=>{const r=el.getBoundingClientRect();if(r.top<innerHeight*.88)el.classList.add('seen')})};addEventListener('scroll',reveal,{passive:true});reveal();
 document.querySelectorAll('.signal,.tile,.step,.tag,.product-card').forEach(el=>el.addEventListener('pointermove',e=>{const r=el.getBoundingClientRect();el.style.setProperty('--mx',((e.clientX-r.left)/r.width*100)+'%');el.style.setProperty('--my',((e.clientY-r.top)/r.height*100)+'%')}));})();
+</script><style id="project-world-home">
+/* PROJECT WORLDS — the homepage becomes the map */
+#work{position:relative}
+#work:after{content:"";position:absolute;right:2%;top:230px;width:260px;height:260px;border:1px dashed rgba(23,23,23,.15);border-radius:47% 53% 60% 40%;pointer-events:none;transform:rotate(18deg)}
+.project-list{position:relative;gap:90px;padding-top:25px}
+.project{border:0!important;background:transparent!important;overflow:visible!important;box-shadow:none!important;transform:none!important}
+.project:after{content:"";position:absolute;left:50%;top:100%;width:1px;height:90px;background:repeating-linear-gradient(to bottom,#171717 0 5px,transparent 5px 11px);opacity:.22}
+.project:last-child:after{display:none}
+.project .visual{position:relative;min-height:610px!important;border-radius:42px!important;padding:75px!important;background:#1b1b19!important;overflow:hidden;box-shadow:0 30px 80px rgba(23,23,23,.15);transition:transform .5s cubic-bezier(.2,.8,.2,1),box-shadow .5s ease}
+.project .visual:before{content:"";position:absolute;width:330px;height:330px;border:1px solid rgba(255,255,255,.12);border-radius:50%;left:-90px;top:-110px}
+.project .visual:after{content:"ENTER WORLD  ↗";position:absolute;right:28px;top:25px;color:#aaa;font-size:10px;letter-spacing:.15em}
+.project:hover .visual{transform:translateY(-9px) rotate(-.4deg);box-shadow:0 42px 100px rgba(23,23,23,.22)}
+.project .mock{position:relative;z-index:2;width:min(920px,94%);transform:rotate(-1.3deg) translateY(18px);transition:transform .55s cubic-bezier(.2,.8,.2,1),box-shadow .55s ease;box-shadow:0 35px 90px rgba(0,0,0,.35);border-radius:24px}
+.project:nth-child(2) .mock{transform:rotate(1.4deg) translateY(18px)}
+.project:hover .mock{transform:rotate(0) translateY(-2px) scale(1.025);box-shadow:0 45px 110px rgba(0,0,0,.42)}
+.project .info{position:relative;z-index:4;margin:-85px 5% 0;padding:38px 42px!important;border-radius:30px;background:rgba(251,250,247,.94)!important;border:1px solid rgba(23,23,23,.1);box-shadow:0 22px 60px rgba(23,23,23,.13);backdrop-filter:blur(18px);transition:transform .4s ease}
+.project:hover .info{transform:translateY(-8px)}
+.project .info h3{font-size:clamp(34px,4.5vw,62px);line-height:.92}
+.project .info .case-link{display:inline-flex;align-items:center;gap:9px;padding:11px 15px;border-radius:999px;background:#171717;color:#fff;text-decoration:none;transition:background .2s ease,transform .2s ease}
+.project .info .case-link:hover{background:var(--accent);color:#111;transform:translateX(4px)}
+.project .tags{gap:7px}
+.project .tag{background:#fff;border-color:#d4cec4;transition:transform .2s ease,background .2s ease}
+.project .tag:hover{background:var(--accent);transform:translateY(-3px)}
+.world-label{position:absolute!important;left:34px!important;bottom:28px!important;z-index:3;color:#fff!important;font-size:11px!important;letter-spacing:.16em!important;text-transform:uppercase}
+.world-number{position:absolute;left:34px;top:30px;color:var(--accent);font-size:12px;font-weight:800;letter-spacing:.12em;z-index:3}
+.world-orbit{position:absolute;right:7%;bottom:8%;width:180px;height:180px;border:1px solid rgba(223,255,0,.25);border-radius:50%;z-index:1}
+.world-orbit:after{content:"";position:absolute;width:10px;height:10px;border-radius:50%;background:var(--accent);right:12px;top:28px;box-shadow:0 0 0 5px rgba(223,255,0,.12)}
+.world-hint{display:inline-block;margin-top:10px;font-size:11px;color:#777;letter-spacing:.08em;text-transform:uppercase}
+@media(max-width:800px){
+ #work:after{display:none}.project-list{gap:65px}.project:after{height:65px}
+ .project .visual{min-height:390px!important;padding:28px!important;border-radius:30px!important}
+ .project .mock{width:100%;transform:none!important}.project:hover .mock{transform:translateY(-4px) scale(1.01)!important}
+ .project .info{margin:-45px 4% 0;padding:28px 24px!important;border-radius:25px}
+ .project .info h3{font-size:38px}.world-orbit{width:110px;height:110px}.world-label{left:22px!important;bottom:20px!important}.world-number{left:22px;top:20px}
+}
+@media(prefers-reduced-motion:reduce){.project .visual,.project .mock,.project .info{transition:none}.project:hover .visual,.project:hover .mock,.project:hover .info{transform:none}}
+</style>
+<script id="project-worlds-js">
+(()=>{
+ const enhance=()=>{
+  document.querySelectorAll('#project-list .project').forEach((card,i)=>{
+   const visual=card.querySelector('.visual');
+   if(!visual||visual.dataset.worldReady)return;
+   visual.dataset.worldReady='1';
+   const num=document.createElement('span');num.className='world-number';num.textContent=String(i+1).padStart(2,'0')+' / WORLD';
+   const orbit=document.createElement('span');orbit.className='world-orbit';
+   const label=document.createElement('span');label.className='world-label';label.textContent=i===0?'Marketplace world':'Mobility world';
+   visual.append(num,orbit,label);
+   const link=card.querySelector('.case-link[href^="case-study"]');
+   if(link){link.textContent='Enter the case study';link.setAttribute('aria-label','Enter '+(card.querySelector('h3')?.textContent||'project')+' case study');}
+   const info=card.querySelector('.info');
+   if(info&&!info.querySelector('.world-hint')){const h=document.createElement('div');h.className='world-hint';h.textContent='Choose this world →';info.appendChild(h)}
+  });
+ };
+ const root=document.getElementById('project-list');
+ if(root){new MutationObserver(enhance).observe(root,{childList:true});enhance()}
+})();
 </script></body></html>
