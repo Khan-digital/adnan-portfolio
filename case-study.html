@@ -215,7 +215,16 @@
     .live-ui-info h3{font-size:21px;margin:5px 0}
     .live-ui-info p{font-size:14px;margin:0 0 12px;color:#666}
     .live-ui-info a{font-size:12px;font-weight:700;text-decoration:underline}
-    @media(max-width:800px){.case-study-content .case-snapshot{grid-template-columns:1fr}.case-study-content .case-callout{font-size:21px;padding:24px}.product-proof-head{flex-direction:column}.product-proof a{white-space:normal}.live-ui-grid{grid-template-columns:1fr}.live-ui-card .live-ui-screen{aspect-ratio:16/11}}
+    .design-evidence{margin:42px 0;padding:30px;border-radius:24px;background:#111;color:#fff}
+    .design-evidence .label{color:#999}
+    .design-evidence h3{margin:7px 0 10px;font-size:28px;color:#fff}
+    .design-evidence p{color:#bbb;margin:0 0 18px;font-size:16px}
+    .evidence-list{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}
+    .evidence-item{padding:18px;border:1px solid #333;border-radius:16px;background:#191919}
+    .evidence-item strong{display:block;color:#fff;font-size:17px;margin-bottom:4px}
+    .evidence-item span{display:block;color:#aaa;font-size:13px}
+    .evidence-note{margin-top:20px;font-size:13px!important;color:#888!important}
+    @media(max-width:800px){.case-study-content .case-snapshot{grid-template-columns:1fr}.case-study-content .case-callout{font-size:21px;padding:24px}.product-proof-head{flex-direction:column}.product-proof a{white-space:normal}.live-ui-grid{grid-template-columns:1fr}.live-ui-card .live-ui-screen{aspect-ratio:16/11}.evidence-list{grid-template-columns:1fr}}
 
 
     .image-block{
@@ -533,7 +542,9 @@ fetch('/content/projects.json')
         communication.insertAdjacentHTML('afterend','<div class="product-proof"><div class="product-proof-head"><div><div class="label">Product proof</div><h3>See how the product is explained in motion.</h3><p>HatDu publishes an official product explainer directly on the live platform. I use product demos, motion and visual communication to make the system easier to understand.</p></div><a href="https://www.youtube.com/watch?v=G-oVRRxped4" target="_blank" rel="noopener">Open on YouTube ↗</a></div><div class="video-frame"><iframe src="https://www.youtube.com/embed/G-oVRRxped4?rel=0" title="hatDu product explainer" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></div>');
       }
       const roles = headings.find(function(h){ return h.textContent.trim() === 'A product decision: one account, multiple roles'; });
-      if(roles){ roles.insertAdjacentHTML('afterend','<div class="case-pill-row"><span class="case-pill">Requester</span><span class="case-pill">Provider</span><span class="case-pill">Roles</span><span class="case-pill">Permissions</span><span class="case-pill">Verification</span><span class="case-pill">Reusable requests</span></div>'); }
+      if(roles){
+        roles.insertAdjacentHTML('afterend','<div class="case-pill-row"><span class="case-pill">Requester</span><span class="case-pill">Provider</span><span class="case-pill">Roles</span><span class="case-pill">Permissions</span><span class="case-pill">Verification</span><span class="case-pill">Reusable requests</span></div><div class="design-evidence"><div class="label">Design evidence</div><h3>Two decisions that show how I think as a product designer.</h3><p>These are not decorative UI changes. They are product-logic decisions: reducing account friction and reducing repeated work.</p><div class="evidence-list"><div class="evidence-item"><strong>01 · One account, multiple roles</strong><span>Requester ↔ Provider without forcing separate login identities.</span></div><div class="evidence-item"><strong>02 · Copy & Publish Request</strong><span>Reuse an existing request, edit what changed, then publish again.</span></div></div><p class="evidence-note">The original product logic and interface work were created in my professional role at STG Media Marketing. Detailed internal screens can be added here later when they are cleared for public portfolio use.</p></div>');
+      }
     }
 
     if(project.caseStudy === 'carpooling'){
