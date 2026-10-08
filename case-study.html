@@ -245,7 +245,7 @@
     .ui-dot{display:inline-block;width:5px;height:5px;border-radius:50%;background:#999;margin-right:3px}.ui-title{font-size:17px;font-weight:700;margin:18px 0 14px}.ui-field{background:#fff;border:1px solid #ddd;border-radius:8px;padding:9px;margin:7px 0;color:#777}.ui-field b{float:right;color:#222}.ui-line{height:1px;background:#ddd;margin:14px 0}.ui-button{background:#111;color:#fff;padding:9px;border-radius:8px;text-align:center}
     .map-ui{background:#e9e9e4}.map-grid{position:absolute;inset:0;background:repeating-linear-gradient(25deg,transparent 0 24px,#ddd 25px,#ddd 26px,transparent 27px 50px);opacity:.6}.route{position:absolute;height:5px;border-radius:10px;background:#111;transform-origin:left center}.route-a{width:205px;left:35px;top:142px;transform:rotate(-24deg)}.route-b{width:165px;left:110px;top:91px;transform:rotate(34deg)}.map-pin{position:absolute;border:2px solid #111;background:#fff;border-radius:50%;width:25px;height:25px;text-align:center;padding-top:4px;font-weight:700}.pin-a{left:28px;top:142px}.pin-b{left:106px;top:104px}.pin-c{right:35px;top:168px}.map-legend{position:absolute;left:12px;bottom:10px;background:#fff;padding:7px 9px;border-radius:8px;font-weight:700}.match-ui{background:#171717;color:#fff}.match-score{font-size:12px;letter-spacing:.12em;margin-bottom:16px;color:#bbb}.match-card{display:flex;justify-content:space-between;padding:11px;border:1px solid #333;border-radius:8px;margin:7px 0}.match-card span{color:#ddd}
     @media(max-width:800px){.evidence-panels{grid-template-columns:1fr}.visual-evidence h3{font-size:23px}}
-    .technical-proof{margin:42px 0;padding:28px;border-radius:22px;background:#111;color:#fff}
+    .carpool-live-proof{margin-top:48px}.carpool-live-proof .video-frame{min-height:520px;background:#171717}.carpool-live-proof iframe{background:#fff}@media(max-width:800px){.carpool-live-proof .video-frame{min-height:620px}}\n    .technical-proof{margin:42px 0;padding:28px;border-radius:22px;background:#111;color:#fff}
     .technical-proof .label{color:#999}
     .technical-proof h3{color:#fff;margin:7px 0 12px}
     .technical-proof p{color:#bbb;margin:0 0 20px}
@@ -432,18 +432,22 @@ nav .back{padding:8px 12px;border-radius:999px;background:var(--ink);color:#fff}
 </div>
 
 <script>
-fetch('/content/projects.json')
-  .then(response => response.json())
-  .then(data => {
-    const params = new URLSearchParams(window.location.search);
-    const slug = params.get('project') || 'hatdu';
-    const projects = Array.isArray(data) ? data : [];
-    const project = projects.find(function(item){ return String(item.caseStudy || '').toLowerCase() === String(slug || '').toLowerCase(); });
-
-    if (project && project.image) {
-      document.getElementById('cover-image').src = project.image;
-    }
-  });
+(function(){
+  const params = new URLSearchParams(window.location.search);
+  const slug = String(params.get('project') || 'hatdu').toLowerCase();
+  const title = document.getElementById('case-title');
+  const description = document.querySelector('.hero > p');
+  const role = document.getElementById('meta-role');
+  const year = document.getElementById('meta-year');
+  const company = document.getElementById('meta-company');
+  if(slug === 'carpooling'){
+    title.textContent = 'Carpooling Mobility Product';
+    description.textContent = 'A route-based carpooling product connecting drivers and passengers through structured journeys, interactive mapping and practical matching.';
+    role.textContent = 'Product Designer · UX/UI · Web App · Mapping · Data';
+    year.textContent = '2026';
+    company.textContent = 'STG Media Marketing';
+  }
+})();
 </script>
 
 
@@ -542,8 +546,11 @@ function renderMarkdown(markdown){
   return html;
 }
 
-fetch('/content/projects.json')
-  .then(function(response){ return response.json(); })
+fetch('/content/projects.json?v=20261008', {cache:'no-store'})
+  .then(function(response){
+    if(!response.ok) throw new Error('projects.json returned '+response.status);
+    return response.json();
+  })
   .then(function(data){
     const params = new URLSearchParams(window.location.search);
     const slug = params.get('project') || 'hatdu';
@@ -619,11 +626,38 @@ fetch('/content/projects.json')
       if(heroMedia){heroMedia.innerHTML='<div class="carpool-hero-world"><div class="carpool-hero-kicker">02 / MOBILITY WORLD</div><div class="carpool-hero-title">Share the journey.<br><span>Not another car.</span></div><div class="carpool-hero-route"><span>Start</span><i></i><span>Via</span><i></i><span>Destination</span></div><a href="'+project.liveUrl+'" target="_blank" rel="noopener" class="carpool-hero-link">Open the real journey experience ↗</a></div>';}
       const carpoolStyle=document.createElement('style'); carpoolStyle.textContent='.carpool-hero-world{min-height:520px;background:#171717;color:#fff;border-radius:42px;padding:58px;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 30px 90px rgba(23,23,23,.18)}.carpool-hero-world:before{content:"";position:absolute;width:480px;height:480px;border:1px solid rgba(223,255,0,.25);border-radius:50%;right:-120px;top:-130px}.carpool-hero-world:after{content:"";position:absolute;width:12px;height:12px;border-radius:50%;background:#dfff00;right:105px;top:100px;box-shadow:0 0 0 7px rgba(223,255,0,.12)}.carpool-hero-kicker{font-size:11px;letter-spacing:.18em;color:#dfff00;font-weight:800}.carpool-hero-title{font-size:clamp(48px,7vw,94px);font-weight:800;line-height:.9;letter-spacing:-.07em;position:relative;z-index:1}.carpool-hero-title span{color:#dfff00}.carpool-hero-route{display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#bbb;position:relative;z-index:1}.carpool-hero-route i{width:70px;height:1px;background:linear-gradient(90deg,#dfff00,rgba(223,255,0,.1));display:block}.carpool-hero-link{position:relative;z-index:1;align-self:flex-start;color:#171717;background:#dfff00;padding:13px 17px;border-radius:999px;font-size:12px;font-weight:800;text-decoration:none}.carpool-hero-link:hover{transform:translateY(-2px)}@media(max-width:800px){.carpool-hero-world{min-height:420px;padding:32px;border-radius:30px}.carpool-hero-route i{width:28px}}'; document.head.appendChild(carpoolStyle);
       const first=document.querySelector('.case-study-content h2'); if(first){first.insertAdjacentHTML('beforebegin','<div class="case-callout"><strong>Carpooling Mobility Product</strong> — a route-based journey experience connecting drivers and passengers through structured journey data, mapping and practical matching.</div>');}
+      const mappingHeading=document.querySelector('.case-study-content h2:nth-of-type(3)');
+      const liveProof=document.createElement('div');
+      liveProof.className='product-proof carpool-live-proof';
+      liveProof.innerHTML='<div class="product-proof-head"><div><div class="label">REAL PRODUCT · STG MEDIA MARKETING</div><h3>See the working journey-entry experience.</h3><p>This is the real mobility product, not a portfolio mockup. Open it directly if your browser blocks the embedded view.</p></div><a href="'+project.liveUrl+'" target="_blank" rel="noopener">Open working product ↗</a></div><div class="video-frame"><iframe src="'+project.liveUrl+'" title="Real Carpooling Mobility Product — STG Media Marketing" loading="lazy"></iframe></div>';
+      const liveTarget=Array.from(document.querySelectorAll('.case-study-content h2')).find(function(h){return h.textContent.trim()==='Interactive route mapping';});
+      if(liveTarget) liveTarget.parentNode.insertBefore(liveProof,liveTarget); else content.appendChild(liveProof);
     }
   })
   .catch(function(error){
-    document.getElementById('case-study-content').innerHTML = '<p>Unable to load the case study right now.</p>';
-    console.error(error);
+    const params = new URLSearchParams(window.location.search);
+    const slug = String(params.get('project') || 'hatdu').toLowerCase();
+    const content = document.getElementById('case-study-content');
+    if(slug === 'carpooling'){
+      const fallback = [
+        '<p class="intro">A digital carpooling concept designed to make everyday journeys more flexible by connecting people already travelling in similar directions.</p>',
+        '<div class="case-callout"><strong>Carpooling Mobility Product</strong> — route-based journey entry, interactive mapping, GPS-aware matching, administration and structured reporting.</div>',
+        '<h2>The problem</h2><p>Public transport does not always match people’s actual routes, schedules or daily needs. At the same time, many private cars travel the same roads with empty seats. The product explores a simple question: <strong>instead of creating another journey, can an existing journey be shared?</strong></p>',
+        '<h2>The user experience</h2><p>I designed the journey-entry experience around collecting enough structured information for meaningful matching while keeping the process understandable. The flow captures role, start, destination, via points, dates, times, frequency, days, available seats, child-seat information, preferences, cost contribution and privacy confirmation.</p>',
+        '<h2>Interactive route mapping</h2><p>The product uses Leaflet, Leaflet Routing Machine, OpenStreetMap/Nominatim and OSRM to turn Start → Via → Destination input into visual routes and structured geographic data.</p>',
+        '<h2>GPS-based matching</h2><p>The matching concept considers route overlap alongside direction, travel days, travel times, available seats and journey characteristics. The goal is practical compatibility rather than simply matching people who selected the same area.</p>',
+        '<h2>Administration & data</h2><p>I developed an administration area for reviewing submitted journeys, including permanent journey IDs, journey details, route information, matching information and GPS data. Structured Excel reporting turns submissions into data that can be analysed and presented to organisations or potential partners.</p>',
+        '<h2>Product iteration</h2><p>Testing with real journey submissions revealed that high GPS overlap alone does not necessarily mean two journeys are practically compatible. Different destinations, departure times and pickup requirements can still make a match unsuitable. This led to a broader model combining <strong>route overlap + direction + time + day + pickup/drop-off compatibility</strong>.</p>',
+        '<h2>Technical implementation</h2><p>The prototype combines responsive HTML/CSS/JavaScript interfaces, interactive mapping, a custom WordPress-based solution, structured journey data, matching logic, administration, permanent IDs and Excel export.</p>',
+        '<h2>AI-assisted development</h2><p>I used AI as a development accelerator while defining the product behaviour, UX, requirements and system logic myself. The project became an iterative cycle of <strong>idea → user problem → UX → prototype → real submissions → data → matching → testing → refinement</strong>.</p>',
+        '<h2>What the project demonstrates</h2><p><strong>UX/UI Design · Interaction Design · Mapping · Data Design · Matching Logic · Administration · Reporting · Product Thinking · AI-assisted development</strong></p>'
+      ].join('');
+      content.innerHTML = fallback;
+      console.error(error);
+    } else {
+      content.innerHTML = '<p class="intro">This case study could not be loaded. Please refresh once; the portfolio keeps the selected project URL intact.</p>';
+      console.error(error);
+    }
   });
 </script>
 
