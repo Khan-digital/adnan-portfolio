@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://adnan-portfolio-4tz.pages.dev/</loc></url>
-  <url><loc>https://adnan-portfolio-4tz.pages.dev/case-study.html</loc></url>
+  <url><loc>https://adnan-portfolio-4tz.pages.dev/case-study.html?project=hatdu</loc></url>
+  <url><loc>https://adnan-portfolio-4tz.pages.dev/case-study.html?project=carpooling</loc></url>
   <url><loc>https://adnan-portfolio-4tz.pages.dev/products/ai-design-workflow-pack/</loc></url>
   <url><loc>https://adnan-portfolio-4tz.pages.dev/products/product-designer-portfolio-kit/</loc></url>
   <url><loc>https://adnan-portfolio-4tz.pages.dev/products/social-content-design-kit/</loc></url>
