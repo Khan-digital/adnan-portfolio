@@ -50,7 +50,11 @@ fetch('/content/products.json')
     if (!grid || !Array.isArray(products)) return;
     grid.innerHTML = products.map(product => {
       const ready = product.status === 'ready' && product.url;
-      return '<article class="product-card"><div class="label">'+(product.type || 'Digital product')+'</div><h3>'+product.title+'</h3><p>'+product.description+'</p><div class="product-meta"><span>'+product.price+'</span><span class="product-status '+(ready ? 'ready' : 'planned')+'">'+(ready ? 'Available' : 'In development')+'</span></div>'+(ready ? '<a class="product-btn" href="'+product.url+'" target="_blank" rel="noopener">Get the product →</a>' : '')+'</article>';
+      const custom = product.status === 'custom' && product.url;
+      const statusClass = ready ? 'ready' : (custom ? 'custom' : 'planned');
+      const statusText = ready ? 'Available' : (custom ? 'Custom order' : 'In development');
+      const action = ready ? '<a class="product-btn" href="'+product.url+'" target="_blank" rel="noopener">Get the product →</a>' : (custom ? '<a class="product-btn" href="'+product.url+'" target="_blank" rel="noopener">Request customization →</a>' : '');
+      return '<article class="product-card"><div class="label">'+(product.type || 'Digital product')+'</div><h3>'+product.title+'</h3><p>'+product.description+'</p><div class="product-meta"><span>'+product.price+'</span><span class="product-status '+statusClass+'">'+statusText+'</span></div>'+action+'</article>';
     }).join('');
   })
   .catch(error => console.log('Products could not be loaded:', error));
