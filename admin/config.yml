@@ -11,6 +11,8 @@ collections:
     label: Projects
     label_singular: Project
     file: content/projects.json
+    identifier_field: title
+    format: json
     fields:
       - name: title
         label: Project Title
@@ -35,6 +37,101 @@ collections:
         widget: string
         required: false
 
+      - name: company
+        label: Company / Context
+        widget: string
+        required: false
+
+      - name: caseStudy
+        label: Case Study Route Key
+        widget: string
+        hint: Use hatdu or carpooling for the existing case studies.
+        required: false
+
       - name: body
         label: Case Study
         widget: markdown
+
+      - name: tags
+        label: Project Tags
+        widget: list
+        field:
+          name: tag
+          label: Tag
+          widget: string
+        required: false
+
+      - name: gallery
+        label: Image Gallery
+        widget: list
+        field:
+          name: image
+          label: Image
+          widget: image
+        required: false
+
+      - name: liveUrl
+        label: Live Product URL
+        widget: string
+        required: false
+
+      - name: liveLabel
+        label: Live Product Link Label
+        widget: string
+        required: false
+
+      - name: liveNote
+        label: Live Product Note
+        widget: text
+        required: false
+
+  - name: products
+    label: Digital Products
+    label_singular: Digital Product
+    file: content/products.json
+    identifier_field: title
+    format: json
+    fields:
+      - name: title
+        label: Product Title
+        widget: string
+
+      - name: description
+        label: Description
+        widget: text
+
+      - name: type
+        label: Product Type
+        widget: string
+
+      - name: price
+        label: Displayed Price / Status
+        widget: string
+
+      - name: status
+        label: Availability Status
+        widget: select
+        options:
+          - planned
+          - custom
+          - ready
+
+      - name: url
+        label: Purchase or Request URL
+        widget: string
+        required: false
+
+      - name: previewUrl
+        label: Interactive Preview URL
+        widget: string
+        required: false
+
+      - name: priority
+        label: Display Priority
+        widget: string
+        required: false
+
+      - name: stage
+        label: Development Stage
+        widget: string
+        required: false
