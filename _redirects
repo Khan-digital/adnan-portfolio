@@ -1,0 +1,3 @@
+# Temporary redirects while business products are inactive
+/products / 302
+/products/* / 302
