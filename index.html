@@ -458,11 +458,11 @@ addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(()=>{update();
   const primary=contact.querySelector('a.btn[href*="mail.google.com"]');
   const email='1digital1designer@gmail.com';
   const data=[
-   {label:'Job opportunity',subject:'Product Designer opportunity — Adnan Khan',copy:'A focused note about a Product Designer, Digital Product Designer or UX/UI role.'},
-   {label:'Project collaboration',subject:'Project collaboration — Adnan Khan',copy:'A conversation about a digital product, UX/UI challenge or visual-design project.'},
-   {label:'General hello',subject:'Hello from your portfolio — Adnan Khan',copy:'A simple introduction or question about my work.'}
+   {label:'Job opportunity',subject:'Product Designer opportunity — Adnan Khan',body:'Hi Adnan,\n\nI came across your portfolio and would like to connect about a potential Product Designer opportunity.\n\nRole / team:\nCompany:\nA few details about the opportunity:\n\nBest,\n[Your name]',copy:'For recruiters and hiring teams interested in a Product Designer, Digital Product Designer or UX/UI role.'},
+   {label:'Project collaboration',subject:'Project collaboration — Adnan Khan',body:'Hi Adnan,\n\nI came across your portfolio and would like to discuss a possible collaboration.\n\nProject / goal:\nTimeline:\nBest way to connect:\n\nBest,\n[Your name]',copy:'For a conversation about a digital product, UX/UI challenge or visual-design project.'},
+   {label:'General hello',subject:'Hello from your portfolio — Adnan Khan',body:'Hi Adnan,\n\nI came across your portfolio and wanted to get in touch.\n\nBest,\n[Your name]',copy:'For a simple introduction or a question about the work.'}
   ];
-  const setMail=item=>{if(primary){primary.href='https://mail.google.com/mail/?view=cm&fs=1&to='+email+'&su='+encodeURIComponent(item.subject);primary.textContent='Compose '+item.label.toLowerCase()+' email →';primary.target='_blank';primary.rel='noopener noreferrer';}};
+  const setMail=item=>{if(primary){primary.href='https://mail.google.com/mail/?view=cm&fs=1&to='+encodeURIComponent(email)+'&su='+encodeURIComponent(item.subject)+'&body='+encodeURIComponent(item.body);primary.textContent=item.label==='Job opportunity'?'Email about a job opportunity →':'Email about '+item.label.toLowerCase()+' →';primary.target='_blank';primary.rel='noopener noreferrer';primary.setAttribute('aria-label',primary.textContent);}};
   const panel=make('div','interaction-panel');panel.id='contact-launch';
   panel.append(make('div','interaction-kicker','Start a conversation'),make('h3','','What brings you here?'),make('p','','Choose a reason and I’ll prepare a relevant email subject for you.'));
   const result=make('div','interaction-result');const resultTitle=make('strong','');const resultCopy=make('p','');result.append(resultTitle,resultCopy);
