@@ -441,7 +441,7 @@ addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(()=>{update();
   steps.forEach((step,i)=>{step.addEventListener('click',()=>activate(i));step.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();activate(i)}})});
   activate(0);
  }
- const about=document.querySelector('#about .about');
+ const about=document.querySelector('#about .about-card')||document.querySelector('#about .about');
  if(about&&!document.getElementById('designer-evolution')){
   const panel=make('div','interaction-panel');panel.id='designer-evolution';
   panel.append(make('div','interaction-kicker','My design evolution'),make('h3','','One foundation, applied to product problems.'),make('p','','Explore how my visual-design background connects to the product-design work I am focusing on now.'));
