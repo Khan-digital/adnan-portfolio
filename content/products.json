@@ -33,7 +33,8 @@
     "price": "Coming soon",
     "status": "planned",
     "priority": "4",
-    "stage": "Later"
+    "stage": "Later",
+    "previewUrl": "/products/product-designer-portfolio-kit/"
   },
   {
     "title": "AI Design Workflow Pack",
@@ -42,7 +43,8 @@
     "price": "Coming soon",
     "status": "planned",
     "priority": "5",
-    "stage": "Later"
+    "stage": "Later",
+    "previewUrl": "/products/ai-design-workflow-pack/"
   },
   {
     "title": "Social Content Design Kit",
@@ -51,6 +53,7 @@
     "price": "Coming soon",
     "status": "planned",
     "priority": "6",
-    "stage": "Later"
+    "stage": "Later",
+    "previewUrl": "/products/social-content-design-kit/"
   }
 ]
