@@ -144,6 +144,46 @@ footer{padding:70px 0}
 #approach .step:hover,#approach .approach-step:hover{transform:translateX(5px);border-color:#a8c400}
 @media(prefers-reduced-motion:reduce){#services .service-card,#services .card,[id*="service"] .card,#products .product-card,#products .product-tile,#approach .step,#approach .approach-step{transition:none}}
 </style>
+<style id="mobile-hero-contrast-fix">
+/* Mobile readability: give the hero its own light canvas and keep the dragon clear of the headline. */
+.hero h1{color:#171717;text-wrap:balance}
+.hero h1 .accent,.hero h1 span{color:#171717}
+.scroll-bloom{filter:drop-shadow(0 2px 2px rgba(242,238,230,.95));}
+.scroll-bloom .body{stroke:#171717;stroke-width:15}
+.scroll-bloom .belly{stroke:#c5e600;stroke-width:4}
+.scroll-bloom .wing{stroke:#171717;stroke-width:2}
+.scroll-bloom .eye{fill:#fff;stroke:#171717;stroke-width:2}
+.scroll-bloom .pupil{fill:#171717}
+.scroll-bloom .horn{fill:#171717;stroke:#c5e600;stroke-width:2}
+.scroll-bloom .completion{color:#393830;background:rgba(242,238,230,.92);padding:3px 6px;border-radius:6px}
+@media(max-width:800px){
+  .hero{position:relative;isolation:isolate;padding-top:124px;padding-bottom:58px;min-height:auto;overflow:visible}
+  .hero h1{position:relative;z-index:2;font-size:clamp(42px,11.5vw,64px);line-height:.98;letter-spacing:-.055em;max-width:100%;padding-right:2px;margin-top:24px}
+  .hero p{position:relative;z-index:2;color:#333!important;font-size:17px;line-height:1.5;max-width:34rem;margin:24px 0}
+  .hero:before{right:-18%;top:12%;width:260px;height:260px;opacity:.52;z-index:-1}
+  .hero:after{right:2%;top:17%;width:110px;height:110px;z-index:-1}
+  .hero-symbol{right:-12%;top:8%;width:138px;height:138px;opacity:.2;z-index:0}
+  .hero .btn{position:relative;z-index:3}
+  .scroll-bloom{left:2px;top:auto;bottom:10px;transform:none;width:58px;height:220px;z-index:85;opacity:.96;filter:drop-shadow(0 2px 3px rgba(242,238,230,.95))}
+  .scroll-bloom svg{width:58px;height:220px}
+  .scroll-bloom .track,.scroll-bloom .growth{left:24px}
+  .scroll-bloom .body{stroke-width:16}
+  .scroll-bloom .belly{stroke-width:4}
+  .scroll-bloom .completion{font-size:7px;bottom:-18px;left:29px;white-space:nowrap}
+  #site-scroll-progress{left:7px;top:42%;gap:6px;opacity:.8}
+  #site-scroll-progress .scroll-line{height:90px}
+  .hero .eyebrow,.hero .label{position:relative;z-index:2;color:#5a554d}
+}
+@media(max-width:390px){
+  .hero h1{font-size:clamp(38px,10.8vw,46px);line-height:1.02}
+  .hero{padding-top:116px}
+  .scroll-bloom{width:50px;height:190px}
+  .scroll-bloom svg{width:50px;height:190px}
+  .scroll-bloom .track,.scroll-bloom .growth{left:21px}
+  .scroll-bloom .completion{left:25px;font-size:6px}
+}
+@media(prefers-reduced-motion:reduce){.scroll-bloom,.hero-symbol{filter:none}}
+</style>
 </head><body><div id="site-scroll-progress" aria-hidden="true"><span class="scroll-dot"></span><div class="scroll-line"><span class="scroll-fill"></span></div><span class="scroll-count">00%</span></div>
 <script id="site-scroll-progress-js">
 (()=>{const fill=document.querySelector('#site-scroll-progress .scroll-fill'),count=document.querySelector('#site-scroll-progress .scroll-count');const update=()=>{const max=document.documentElement.scrollHeight-innerHeight;const p=max?Math.min(1,Math.max(0,scrollY/max)):0;if(fill)fill.style.height=(p*100)+'%';if(count)count.textContent=Math.round(p*100)+'%'};addEventListener('scroll',update,{passive:true});addEventListener('resize',update);update()})();
