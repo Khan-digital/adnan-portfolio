@@ -457,9 +457,18 @@ addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(()=>{update();
  if(contact){
   const primary=contact.querySelector('a.btn[href*="mail.google.com"]');
   const email='1digital1designer@gmail.com';
-  const subject='Portfolio enquiry — Adnan Khan';
-  const gmail='https://mail.google.com/mail/?view=cm&fs=1&to='+email+'&su='+encodeURIComponent(subject);
-  if(primary){primary.href=gmail;primary.target='_blank';primary.rel='noopener noreferrer';}
+  const data=[
+   {label:'Job opportunity',subject:'Product Designer opportunity — Adnan Khan',copy:'A focused note about a Product Designer, Digital Product Designer or UX/UI role.'},
+   {label:'Project collaboration',subject:'Project collaboration — Adnan Khan',copy:'A conversation about a digital product, UX/UI challenge or visual-design project.'},
+   {label:'General hello',subject:'Hello from your portfolio — Adnan Khan',copy:'A simple introduction or question about my work.'}
+  ];
+  const setMail=item=>{if(primary){primary.href='https://mail.google.com/mail/?view=cm&fs=1&to='+email+'&su='+encodeURIComponent(item.subject);primary.textContent='Compose '+item.label.toLowerCase()+' email →';primary.target='_blank';primary.rel='noopener noreferrer';}};
+  const panel=make('div','interaction-panel');panel.id='contact-launch';
+  panel.append(make('div','interaction-kicker','Start a conversation'),make('h3','','What brings you here?'),make('p','','Choose a reason and I’ll prepare a relevant email subject for you.'));
+  const result=make('div','interaction-result');const resultTitle=make('strong','');const resultCopy=make('p','');result.append(resultTitle,resultCopy);
+  choices(panel,data,item=>{setMail(item);resultTitle.textContent=item.subject;resultCopy.textContent=item.copy});
+  setMail(data[0]);resultTitle.textContent=data[0].subject;resultCopy.textContent=data[0].copy;
+  panel.appendChild(result);contact.appendChild(panel);
   document.querySelectorAll('footer a[href*="mail.google.com"]').forEach(a=>{a.href='mailto:'+email;a.removeAttribute('target');a.removeAttribute('rel')});
  }
 })();
