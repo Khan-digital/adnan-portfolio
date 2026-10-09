@@ -6,3 +6,6 @@
 
 /content/projects.json
   Cache-Control: no-store, no-cache, must-revalidate, max-age=0
+
+/products/*
+  X-Robots-Tag: noindex, nofollow
