@@ -343,7 +343,7 @@
         gap:10px;
       }
     }
-  </style>
+  \n    .external-preview-placeholder{width:100%;min-height:220px;padding:28px;display:flex;align-items:center;justify-content:center;text-align:center;background:linear-gradient(135deg,#171717,#292929);color:#f5f5f0;font-size:15px;line-height:1.6;border-radius:14px}\n</style>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <style id="product-world-case-study">
 :root{--lime:#dfff00;--ink:#171717;--paper:#f2eee6;--cream:#fbfaf7;--warm:#e5ddcf}
@@ -501,7 +501,7 @@ if(String(params.get('project')||'').toLowerCase()==='carpooling'){document.body
 
   <footer>
     <span>© 2026 Adnan Khan</span>
-    <a href="index.html">Back to portfolio →</a>
+    <span><a href="index.html">Back to portfolio →</a> · <a href="/privacy-policy.html">Privacy</a></span>
   </footer>
 
 </div>
@@ -638,7 +638,7 @@ fetch('/content/projects.json?v=20261008', {cache:'no-store'})
 
       const productHeading = headings.find(function(h){ return h.textContent.trim() === 'The product'; });
       if(productHeading){
-        productHeading.insertAdjacentHTML('afterend','<div class="live-ui-grid"><article class="live-ui-card"><div class="live-ui-screen"><iframe src="https://www.hatdu.de/" title="Live hatDu marketplace interface" loading="lazy"></iframe></div><div class="live-ui-info"><div class="label">Live interface</div><h3>Marketplace experience</h3><p>The real product: requests, offers, trustability and delivery information.</p><a href="https://www.hatdu.de/" target="_blank" rel="noopener">Open live product ↗</a></div></article><article class="live-ui-card"><div class="live-ui-screen"><iframe src="https://www.hatdu.de/home/request/request20260606-085737" title="Live hatDu request detail interface" loading="lazy"></iframe></div><div class="live-ui-info"><div class="label">Live interface</div><h3>Request detail experience</h3><p>A real request page showing the structured information users work with.</p><a href="https://www.hatdu.de/home/request/request20260606-085737" target="_blank" rel="noopener">Open request ↗</a></div></article></div>');
+        productHeading.insertAdjacentHTML('afterend','<div class="live-ui-grid"><article class="live-ui-card"><div class="live-ui-screen"><div class="external-preview-placeholder">External preview is not loaded automatically. Use “Open live product” to visit hatDu.</div></div><div class="live-ui-info"><div class="label">Live interface</div><h3>Marketplace experience</h3><p>The real product: requests, offers, trustability and delivery information.</p><a href="https://www.hatdu.de/" target="_blank" rel="noopener">Open live product ↗</a></div></article><article class="live-ui-card"><div class="live-ui-screen"><div class="external-preview-placeholder">External preview is not loaded automatically. Use “Open request” to visit hatDu.</div></div><div class="live-ui-info"><div class="label">Live interface</div><h3>Request detail experience</h3><p>A real request page showing the structured information users work with.</p><a href="https://www.hatdu.de/home/request/request20260606-085737" target="_blank" rel="noopener">Open request ↗</a></div></article></div>');
       }
 
       const socialLinks=document.createElement('aside');
@@ -650,7 +650,7 @@ fetch('/content/projects.json?v=20261008', {cache:'no-store'})
       const communication = headings.find(function(h){ return h.textContent.trim() === 'Product communication'; });
       if(communication) communication.insertAdjacentElement('afterend',socialLinks);
       if(communication){
-        communication.insertAdjacentHTML('afterend','<div class="product-proof"><div class="product-proof-head"><div><div class="label">Product proof</div><h3>See how the product is explained in motion.</h3><p>HatDu publishes an official product explainer directly on the live platform. I use product demos, motion and visual communication to make the system easier to understand.</p></div><a href="https://www.youtube.com/watch?v=G-oVRRxped4" target="_blank" rel="noopener">Open on YouTube ↗</a></div><div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/G-oVRRxped4?rel=0" title="hatDu product explainer" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></div>');
+        communication.insertAdjacentHTML('afterend','<div class="product-proof"><div class="product-proof-head"><div><div class="label">Product proof</div><h3>See how the product is explained in motion.</h3><p>HatDu publishes an official product explainer directly on the live platform. I use product demos, motion and visual communication to make the system easier to understand.</p></div><a href="https://www.youtube.com/watch?v=G-oVRRxped4" target="_blank" rel="noopener">Open on YouTube ↗</a></div><div class="video-frame"><div class="external-preview-placeholder">The video is not loaded automatically. Choose “Open on YouTube” to view it there.</div></div></div>');
       }
       const roles = headings.find(function(h){ return h.textContent.trim() === 'A product decision: one account, multiple roles'; });
       if(roles){
@@ -666,7 +666,7 @@ fetch('/content/projects.json?v=20261008', {cache:'no-store'})
       const mappingHeading=document.querySelector('.case-study-content h2:nth-of-type(3)');
       const liveProof=document.createElement('div');
       liveProof.className='product-proof carpool-live-proof';
-      liveProof.innerHTML='<div class="product-proof-head"><div><div class="label">REAL PRODUCT · STG MEDIA MARKETING</div><h3>See the working journey-entry experience.</h3><p>This is the real mobility product, not a portfolio mockup. Open it directly if your browser blocks the embedded view.</p></div><a href="'+project.liveUrl+'" target="_blank" rel="noopener">Open working product ↗</a></div><div class="video-frame"><iframe src="'+project.liveUrl+'" title="Real Carpooling Mobility Product — STG Media Marketing" loading="lazy"></iframe></div>';
+      liveProof.innerHTML='<div class="product-proof-head"><div><div class="label">REAL PRODUCT · STG MEDIA MARKETING</div><h3>See the working journey-entry experience.</h3><p>This is the real mobility product, not a portfolio mockup. Open it directly if your browser blocks the embedded view.</p></div><a href="'+project.liveUrl+'" target="_blank" rel="noopener">Open working product ↗</a></div><div class="video-frame"><div class="external-preview-placeholder">The external prototype is not loaded automatically. Use “Open working product” to view it.</div></div>';
       const liveTarget=Array.from(document.querySelectorAll('.case-study-content h2')).find(function(h){return h.textContent.trim()==='Interactive route mapping';});
       if(liveTarget) liveTarget.parentNode.insertBefore(liveProof,liveTarget); else content.appendChild(liveProof);
     }
