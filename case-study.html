@@ -209,8 +209,46 @@
     .video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
     .live-ui-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:42px 0}
     .live-ui-card{border:1px solid var(--line);border-radius:22px;overflow:hidden;background:#fff}
-    .live-ui-card .live-ui-screen{aspect-ratio:16/10;background:#171717;position:relative}
+    .live-ui-card .live-ui-screen{aspect-ratio:16/10;background:#f1f0e9;position:relative;overflow:hidden;color:#171717;padding:12px}
+    .preview-browser{height:22px;display:flex;align-items:center;gap:5px;padding:0 5px;color:#777}
+    .preview-browser>span{width:5px;height:5px;border-radius:50%;background:#b8b8b0}
+    .preview-browser small{margin-left:8px;font-size:8px;letter-spacing:.02em;color:#777}
+    .preview-app,.preview-detail-app{height:calc(100% - 22px);background:#fff;border:1px solid #e5e3dc;border-radius:8px;overflow:hidden}
+    .preview-nav{height:28px;padding:0 12px;display:flex;align-items:center;gap:14px;border-bottom:1px solid #eee;font-size:7px;color:#777}
+    .preview-nav strong{font-size:12px;letter-spacing:-.05em;color:#171717;margin-right:auto}
+    .preview-nav b{background:#171717;color:white;padding:5px 8px;border-radius:12px;font-size:7px}
+    .preview-hero{background:#f4f3ed;padding:12px 14px 10px}
+    .preview-hero>small,.preview-status{font-size:6px;letter-spacing:.13em;font-weight:800;color:#76766c}
+    .preview-hero h4{font-size:clamp(16px,2.4vw,27px);line-height:.95;letter-spacing:-.06em;margin:7px 0 5px;color:#171717}
+    .preview-hero p{font-size:8px;margin:0 0 8px;color:#666}
+    .preview-search{height:24px;background:white;border:1px solid #e4e2d9;border-radius:5px;padding:0 8px;display:flex;align-items:center;justify-content:space-between;font-size:8px;color:#777}
+    .preview-search b{background:#dfff00;border-radius:4px;padding:3px 6px;color:#111}
+    .preview-list{padding:9px 12px}
+    .preview-list-head{display:flex;align-items:center;justify-content:space-between;font-size:8px;margin-bottom:6px}
+    .preview-list-head span{color:#777;font-size:7px}
+    .preview-request{display:flex;align-items:center;gap:8px;padding:7px 0;border-top:1px solid #eee}
+    .preview-request>div{display:flex;flex-direction:column;gap:3px;flex:1;min-width:0}
+    .preview-request strong{font-size:8px;color:#222}
+    .preview-request small{font-size:6px;color:#888}
+    .preview-request>b{font-size:10px;color:#777}
+    .preview-icon{font-style:normal;display:grid;place-items:center;width:25px;height:25px;border-radius:6px;font-size:10px;font-weight:800}
+    .preview-icon.mint{background:#dff1e6;color:#387451}.preview-icon.peach{background:#fae5d9;color:#a85f3c}
+    .preview-crumb{font-size:7px;color:#888;padding:9px 12px;border-bottom:1px solid #eee}
+    .preview-detail-layout{display:grid;grid-template-columns:1.6fr 1fr;gap:10px;padding:10px 12px}
+    .preview-detail-main h4{font-size:clamp(13px,2vw,21px);letter-spacing:-.05em;line-height:1;margin:5px 0;color:#171717}
+    .preview-detail-copy{font-size:7px;line-height:1.45;color:#777;margin:0 0 9px}
+    .preview-detail-box{padding:7px;border:1px solid #eee;border-radius:5px;margin-top:6px}
+    .preview-detail-box>small,.preview-detail-side>small{display:block;font-size:6px;letter-spacing:.1em;color:#888;margin-bottom:4px}
+    .preview-detail-box>strong{font-size:8px;color:#333}
+    .preview-skeleton{height:4px;width:72%;background:#e9e8e2;border-radius:4px;margin-top:5px}
+    .preview-skeleton.wide{width:95%}
+    .preview-detail-button{display:inline-block;background:#171717;color:white;border-radius:4px;padding:6px 8px;margin-top:7px;font-size:7px}
+    .preview-detail-side{background:#f7f6f1;border:1px solid #eeece4;border-radius:6px;padding:9px;align-self:start}
+    .preview-detail-side>strong{font-size:9px;color:#222}
+    .preview-detail-side hr{border:0;border-top:1px solid #e4e2d9;margin:8px 0}
+    .preview-detail-side .preview-open{display:block;color:#3e7b52;font-size:7px}
     .live-ui-card iframe{width:100%;height:100%;border:0;display:block;background:#fff}
+    @media(max-width:800px){.live-ui-grid{grid-template-columns:1fr}.preview-hero h4{font-size:24px}.preview-detail-main h4{font-size:20px}}
     .live-ui-info{padding:18px 20px}
     .live-ui-info .label{font-size:10px}
     .live-ui-info h3{font-size:21px;margin:5px 0}
@@ -638,7 +676,7 @@ fetch('/content/projects.json?v=20261008', {cache:'no-store'})
 
       const productHeading = headings.find(function(h){ return h.textContent.trim() === 'The product'; });
       if(productHeading){
-        productHeading.insertAdjacentHTML('afterend','<div class="live-ui-grid"><article class="live-ui-card"><div class="live-ui-screen"><div class="external-preview-placeholder">External preview is not loaded automatically. Use “Open live product” to visit hatDu.</div></div><div class="live-ui-info"><div class="label">Live interface</div><h3>Marketplace experience</h3><p>The real product: requests, offers, trustability and delivery information.</p><a href="https://www.hatdu.de/" target="_blank" rel="noopener">Open live product ↗</a></div></article><article class="live-ui-card"><div class="live-ui-screen"><div class="external-preview-placeholder">External preview is not loaded automatically. Use “Open request” to visit hatDu.</div></div><div class="live-ui-info"><div class="label">Live interface</div><h3>Request detail experience</h3><p>A real request page showing the structured information users work with.</p><a href="https://www.hatdu.de/home/request/request20260606-085737" target="_blank" rel="noopener">Open request ↗</a></div></article></div>');
+        productHeading.insertAdjacentHTML('afterend','<div class="live-ui-grid"><article class="live-ui-card"><div class="live-ui-screen preview-marketplace" aria-label="Illustrative marketplace interface preview"><div class="preview-browser"><span></span><span></span><span></span><small>hatdu.de</small></div><div class="preview-app"><div class="preview-nav"><strong>hatDu</strong><span>Requests</span><span>How it works</span><b>Sign in</b></div><div class="preview-hero"><small>REQUESTS & OFFERS</small><h4>What do you<br>need help with?</h4><p>Find the right offer for your request.</p><div class="preview-search">Search requests <b>→</b></div></div><div class="preview-list"><div class="preview-list-head"><strong>Recent requests</strong><span>View all →</span></div><div class="preview-request"><i class="preview-icon mint">H</i><div><strong>Garden maintenance</strong><small>Osnabrück · Posted recently</small></div><b>→</b></div><div class="preview-request"><i class="preview-icon peach">R</i><div><strong>Home repair support</strong><small>Nearby · Offers welcome</small></div><b>→</b></div></div></div></div><div class="live-ui-info"><div class="label">Live interface</div><h3>Marketplace experience</h3><p>The real product: requests, offers, trustability and delivery information.</p><a href="https://www.hatdu.de/" target="_blank" rel="noopener">Open live product ↗</a></div></article><article class="live-ui-card"><div class="live-ui-screen preview-detail" aria-label="Illustrative request detail interface preview"><div class="preview-browser"><span></span><span></span><span></span><small>hatdu.de / request</small></div><div class="preview-detail-app"><div class="preview-crumb">Requests&nbsp; / &nbsp;Details</div><div class="preview-detail-layout"><div class="preview-detail-main"><small class="preview-status">REQUEST DETAILS</small><h4>Garden maintenance</h4><p class="preview-detail-copy">Looking for reliable help with regular garden care and seasonal maintenance.</p><div class="preview-detail-box"><small>LOCATION</small><strong>Osnabrück, Germany</strong><div class="preview-skeleton"></div></div><div class="preview-detail-box"><small>DESCRIPTION</small><div class="preview-skeleton wide"></div><div class="preview-skeleton"></div></div><div class="preview-detail-button">View request information&nbsp; ↗</div></div><aside class="preview-detail-side"><small>REQUEST SUMMARY</small><strong>Garden care</strong><hr><small>STATUS</small><b class="preview-open">● Open for offers</b><hr><small>RESPONSE</small><strong>Providers can submit offers</strong></aside></div></div></div><div class="live-ui-info"><div class="label">Live interface</div><h3>Request detail experience</h3><p>A real request page showing the structured information users work with.</p><a href="https://www.hatdu.de/home/request/request20260606-085737" target="_blank" rel="noopener">Open request ↗</a></div></article></div>');
       }
 
       const socialLinks=document.createElement('aside');
