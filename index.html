@@ -423,6 +423,85 @@ a:focus-visible,button:focus-visible{outline:3px solid #8c9f00;outline-offset:4p
  .hero:after{background-position:center}
 }
 </style>
+
+<style id="eye-catching-design-pass-2026">
+/* A more memorable, art-directed portfolio — bold type, luminous lime and dimensional details */
+:root{--electric:#dfff00;--ink:#171815;--paper:#f4f0e7}
+html{scroll-behavior:smooth}
+body{background:var(--paper)}
+nav{backdrop-filter:blur(16px);background:rgba(244,240,231,.88);border-bottom:1px solid rgba(23,24,21,.12)}
+nav a{transition:color .2s ease,opacity .2s ease}
+nav a:hover{color:#6e7d00}
+.hero{isolation:isolate;overflow:hidden}
+.hero:before{animation:heroOrbitPulse 7s ease-in-out infinite}
+.hero:after{overflow:hidden;display:flex;align-items:flex-end;padding:clamp(22px,3vw,38px);font-size:clamp(9px,1vw,12px);font-weight:700;position:absolute;z-index:-1}
+.hero:after{background-image:
+ radial-gradient(circle at 72% 30%,rgba(223,255,0,.95) 0,rgba(223,255,0,.38) 7%,transparent 26%),
+ radial-gradient(circle at 32% 78%,rgba(116,137,63,.32),transparent 30%),
+ linear-gradient(135deg,transparent 0 48%,rgba(255,255,255,.16) 48.2% 48.5%,transparent 48.7%),
+ repeating-linear-gradient(0deg,rgba(255,255,255,.05) 0 1px,transparent 1px 28px),
+ repeating-linear-gradient(90deg,rgba(255,255,255,.05) 0 1px,transparent 1px 28px),
+ linear-gradient(145deg,#34362c,#171815 72%)}
+.hero-symbol{position:absolute;right:clamp(45px,12vw,170px);top:clamp(160px,20vw,250px);width:clamp(110px,15vw,190px);height:clamp(110px,15vw,190px);z-index:1;pointer-events:none;opacity:.9}
+.hero-symbol .orbit{border:1px solid rgba(223,255,0,.85);box-shadow:0 0 0 12px rgba(223,255,0,.06),0 0 50px rgba(223,255,0,.12)}
+.hero-symbol .spark{color:var(--electric);text-shadow:0 0 24px rgba(223,255,0,.6)}
+.hero h1{max-width:1000px;text-wrap:balance}
+.hero-ink{position:relative;display:inline;background:linear-gradient(transparent 73%,rgba(223,255,0,.82) 73% 91%,transparent 91%);-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.hero .eyebrow{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(23,24,21,.16);border-radius:999px;padding:9px 13px;background:rgba(255,255,255,.35)}
+.hero .eyebrow:before{content:"";width:7px;height:7px;border-radius:50%;background:#9cb400;box-shadow:0 0 0 4px rgba(223,255,0,.28)}
+.hero .btn{transition:transform .22s ease,box-shadow .22s ease,background .22s ease}
+.hero .btn:hover{transform:translateY(-3px);box-shadow:0 10px 25px rgba(23,24,21,.13)}
+.hero .btn:not(.alt){box-shadow:0 8px 22px rgba(159,181,0,.12)}
+.software-marquee{position:relative;overflow:hidden}
+.software-pill{transition:transform .2s ease,border-color .2s ease,background .2s ease}
+.software-pill:hover{transform:translateY(-3px);border-color:#171815}
+.signal{position:relative}
+.signal:not(:last-child):after{content:"";position:absolute;right:0;top:22%;height:56%;width:1px;background:rgba(255,255,255,.14)}
+.signal strong{color:#f7f5ed}
+.signal:first-child strong{color:var(--electric)}
+.sectionhead .label{display:flex;align-items:flex-start;gap:10px}
+.sectionhead .label:before{content:"";width:19px;height:1px;background:#9bab00;margin-top:6px;flex:none}
+.project{transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s ease;border-color:rgba(23,24,21,.15)}
+.project .visual{background:
+ radial-gradient(circle at 88% 12%,rgba(223,255,0,.35),transparent 23%),
+ linear-gradient(145deg,#e9e3d7,#dcd4c6)}
+.project .visual:after{content:"SELECTED WORK ↗";position:absolute;right:clamp(18px,3vw,34px);top:clamp(18px,3vw,34px);font-size:9px;letter-spacing:.16em;font-weight:700;color:#33342b}
+.project .info{position:relative}
+.project .info h3{transition:transform .25s ease}
+.project:hover .info h3{transform:translateX(4px)}
+.tile{position:relative;overflow:hidden;transition:transform .3s ease,border-radius .3s ease,background .3s ease}
+.tile:after{content:"↗";position:absolute;right:24px;top:20px;color:#8d9e00;font-size:20px;opacity:.8;transition:transform .25s ease}
+.tile:hover{transform:translateY(-5px);background:#f4efdf}
+.tile:hover:after{transform:translate(3px,-3px)}
+.step{transition:background .25s ease,transform .25s ease}
+.step:hover{background:#f5f0e6;transform:translateY(-3px);z-index:1}
+.interaction-panel{border:1px solid rgba(23,24,21,.15);box-shadow:0 16px 42px rgba(23,24,21,.045)}
+.interaction-choice{transition:background .2s ease,color .2s ease,transform .2s ease}
+.interaction-choice:hover{transform:translateY(-2px)}
+.cta{background-image:radial-gradient(circle at 90% 10%,rgba(223,255,0,.13),transparent 28%),linear-gradient(130deg,#171815,#23251d)}
+.cta h2{max-width:850px;text-wrap:balance}
+.cta .btn.alt{backdrop-filter:blur(8px)}
+footer a{transition:color .2s ease}
+@keyframes heroOrbitPulse{0%,100%{transform:scale(1);opacity:.95}50%{transform:scale(1.045);opacity:.7}}
+@media(max-width:900px){
+ .hero-symbol{right:5%;top:160px;width:105px;height:105px;opacity:.45}
+ .hero:after{z-index:-1}
+ .signal:not(:last-child):after{display:none}
+}
+@media(max-width:600px){
+ .hero-symbol{right:11%;top:115px;width:90px;height:90px;opacity:.28}
+ .hero:after{padding:24px;font-size:9px}
+ .hero-ink{background:linear-gradient(transparent 76%,rgba(223,255,0,.82) 76% 92%,transparent 92%)}
+ .project .visual:after{font-size:8px}
+ .signal{border-bottom:1px solid rgba(255,255,255,.1)}
+}
+@media(prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto}
+ .hero:before{animation:none}
+ .hero .btn,.software-pill,.project,.project .info h3,.tile,.tile:after,.step,.interaction-choice{transition:none!important}
+}
+</style>
+
 </head><body><div id="site-scroll-progress" aria-hidden="true"><span class="scroll-dot"></span><div class="scroll-line"><span class="scroll-fill"></span></div><span class="scroll-count">00%</span></div>
 <script id="site-scroll-progress-js">
 (()=>{const fill=document.querySelector('#site-scroll-progress .scroll-fill'),count=document.querySelector('#site-scroll-progress .scroll-count');const update=()=>{const max=document.documentElement.scrollHeight-innerHeight;const p=max?Math.min(1,Math.max(0,scrollY/max)):0;if(fill)fill.style.height=(p*100)+'%';if(count)count.textContent=Math.round(p*100)+'%'};addEventListener('scroll',update,{passive:true});addEventListener('resize',update);update()})();
