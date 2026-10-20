@@ -20,9 +20,14 @@ h1{font-size:42px;line-height:1.05;letter-spacing:-.04em;margin:10px 0 8px}h2{fo
 @media(max-width:650px){.sheet{margin:10px;padding:28px 22px}.toolbar{margin-top:12px;padding:0 12px}h1{font-size:34px}.skills{grid-template-columns:1fr;gap:2px}.skills strong{margin-top:8px}.date{white-space:normal}}
 @media print{@page{size:A4;margin:13mm}body{background:#fff;font-size:10pt;line-height:1.4}.toolbar{display:none}.sheet{max-width:none;margin:0;padding:0;box-shadow:none}h1{font-size:28pt}h2{font-size:12pt;margin:15px 0 8px}.intro{margin-top:15px}.job{margin-bottom:10px}.job li{margin:1px 0}.footer-note{margin-top:10px}}
 </style>
-</head>
+<style id="language-switcher-style">
+.gtranslate_wrapper{display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;min-width:64px;max-width:112px;margin-left:4px}
+.gtranslate_wrapper select,.gtranslate_wrapper .gt_selector{appearance:auto!important;-webkit-appearance:auto!important;max-width:112px!important;width:auto!important;min-height:36px;padding:7px 10px!important;border:1px solid rgba(23,23,23,.22)!important;border-radius:999px!important;background:rgba(250,248,243,.94)!important;color:#171717!important;font:700 12px/1.2 Inter,system-ui,sans-serif!important;cursor:pointer!important;box-shadow:none!important}
+.gtranslate_wrapper select:focus,.gtranslate_wrapper .gt_selector:focus{outline:2px solid #171717!important;outline-offset:2px}
+@media(max-width:800px){.gtranslate_wrapper{min-width:58px;max-width:90px;margin-left:0}.gtranslate_wrapper select,.gtranslate_wrapper .gt_selector{max-width:90px!important;min-height:34px;padding:6px 8px!important;font-size:11px!important}nav .gtranslate_wrapper{display:inline-flex!important}}
+</style></head>
 <body>
-<div class="toolbar"><a class="back" href="/">← Back to portfolio</a><button type="button" id="print">Print / Save as PDF ↓</button></div>
+<div class="toolbar"><div class="gtranslate_wrapper" aria-label="Choose language"></div><a class="back" href="/">← Back to portfolio</a><button type="button" id="print">Print / Save as PDF ↓</button></div>
 <main class="sheet">
 <div class="kicker">Curriculum Vitae</div>
 <h1>Adnan Khan</h1>
@@ -76,5 +81,5 @@ h1{font-size:42px;line-height:1.05;letter-spacing:-.04em;margin:10px 0 8px}h2{fo
 document.getElementById('print').addEventListener('click',function(){window.print()});
 if(new URLSearchParams(window.location.search).get('print')==='1'){window.addEventListener('load',function(){window.print()})}
 </script>
-</body>
+<script>window.gtranslateSettings={default_language:"en",languages:["en","de"],wrapper_selector:".gtranslate_wrapper",switcher_horizontal_position:"right",switcher_vertical_position:"top"};</script><script src="https://cdn.gtranslate.net/widgets/latest/dropdown.js" defer></script></body>
 </html>
