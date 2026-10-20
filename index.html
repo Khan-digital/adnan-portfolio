@@ -362,6 +362,67 @@ a:focus-visible,button:focus-visible{outline:3px solid #8c9f00;outline-offset:4p
  .project:hover,.tile:hover,.archive-card:hover,.btn:hover{transform:none}
 }
 </style>
+
+<style id="hero-visual-and-cta-contrast-fix">
+/* Replace the single-product hero image with an original abstract design composition */
+.hero:after{
+ content:"DESIGN / SYSTEMS / MOTION";
+ background-color:#1b1c19;
+ background-image:
+   radial-gradient(ellipse at 72% 22%,rgba(223,255,0,.78) 0%,rgba(223,255,0,.18) 15%,transparent 36%),
+   radial-gradient(ellipse at 28% 76%,rgba(223,255,255,.14) 0%,transparent 33%),
+   linear-gradient(135deg,transparent 0 39%,rgba(255,255,255,.10) 39.2% 39.5%,transparent 39.7% 100%),
+   linear-gradient(45deg,transparent 0 59%,rgba(255,255,255,.09) 59.2% 59.5%,transparent 59.7% 100%),
+   repeating-linear-gradient(0deg,rgba(255,255,255,.045) 0 1px,transparent 1px 30px),
+   repeating-linear-gradient(90deg,rgba(255,255,255,.045) 0 1px,transparent 1px 30px),
+   linear-gradient(145deg,#30312a,#171815 72%);
+ background-size:cover;
+ background-position:center;
+ border:1px solid rgba(23,23,20,.2);
+ color:#f5f2e9;
+ letter-spacing:.19em;
+ box-shadow:0 30px 80px rgba(39,31,19,.17);
+}
+.hero:before{
+ right:10%;
+ top:24%;
+ width:clamp(150px,20vw,260px);
+ height:clamp(150px,20vw,260px);
+ border-radius:50%;
+ background:transparent;
+ border:1px solid rgba(223,255,0,.7);
+ box-shadow:0 0 0 22px rgba(223,255,0,.045),0 0 0 48px rgba(223,255,0,.025);
+ z-index:1;
+ pointer-events:none;
+}
+.cta .btn.alt{
+ color:#fff!important;
+ border:1px solid #8c8b82!important;
+ background:rgba(255,255,255,.035)!important;
+}
+.cta .btn.alt:hover{
+ color:#171714!important;
+ border-color:#dfff00!important;
+ background:#dfff00!important;
+}
+.cta .btn:not(.alt){
+ color:#171714!important;
+ background:#dfff00!important;
+ border:1px solid #dfff00!important;
+}
+.cta .btn:not(.alt):hover{
+ background:#fff!important;
+ border-color:#fff!important;
+}
+.cta .btn:focus-visible{
+ outline:3px solid #dfff00;
+ outline-offset:4px;
+}
+@media(max-width:600px){
+ .hero:before{right:12%;top:8%;width:130px;height:130px}
+ .hero:after{background-position:center}
+}
+</style>
 </head><body><div id="site-scroll-progress" aria-hidden="true"><span class="scroll-dot"></span><div class="scroll-line"><span class="scroll-fill"></span></div><span class="scroll-count">00%</span></div>
 <script id="site-scroll-progress-js">
 (()=>{const fill=document.querySelector('#site-scroll-progress .scroll-fill'),count=document.querySelector('#site-scroll-progress .scroll-count');const update=()=>{const max=document.documentElement.scrollHeight-innerHeight;const p=max?Math.min(1,Math.max(0,scrollY/max)):0;if(fill)fill.style.height=(p*100)+'%';if(count)count.textContent=Math.round(p*100)+'%'};addEventListener('scroll',update,{passive:true});addEventListener('resize',update);update()})();
