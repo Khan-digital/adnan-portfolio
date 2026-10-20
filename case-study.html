@@ -206,7 +206,7 @@
     .product-proof a{display:inline-block;padding:10px 14px;border-radius:999px;background:#111;color:#fff;font-size:12px;font-weight:700;white-space:nowrap}
     .product-proof a:hover{background:var(--accent);color:#111}
     .video-frame{position:relative;aspect-ratio:16/9;border-radius:16px;overflow:hidden;background:#111}
-    .video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+    .video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}.video-consent{display:grid;place-items:center;background:linear-gradient(135deg,#f0efe9,#dfe4d4);padding:26px}.video-consent-card{max-width:470px;padding:28px;border:1px solid rgba(23,23,23,.15);border-radius:20px;background:rgba(255,255,255,.9);color:#171717}.video-consent-card h4{margin:12px 0 8px;font-size:23px;line-height:1.15}.video-consent-card p{font-size:14px;line-height:1.6;color:#4d4d48}.video-consent-button{border:0;border-radius:999px;padding:12px 18px;background:#171717;color:#fff;font-weight:700;cursor:pointer}.video-consent-button:focus-visible{outline:3px solid #a4b52d;outline-offset:3px}
     .live-ui-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:42px 0}
     .live-ui-card{border:1px solid var(--line);border-radius:22px;overflow:hidden;background:#fff}
     .live-ui-card .live-ui-screen{aspect-ratio:16/10;background:#f1f0e9;position:relative;overflow:hidden;color:#171717;padding:12px}
@@ -689,7 +689,7 @@ fetch('/content/projects.json?v=20261008', {cache:'no-store'})
       const communication = headings.find(function(h){ return h.textContent.trim() === 'Product communication'; });
       if(communication) communication.insertAdjacentElement('afterend',socialLinks);
       if(communication){
-        communication.insertAdjacentHTML('afterend','<div class="product-proof"><div class="product-proof-head"><div><div class="label">Product proof</div><h3>See how the product is explained in motion.</h3><p>HatDu publishes an official product explainer directly on the live platform. I use product demos, motion and visual communication to make the system easier to understand.</p></div><a href="https://www.youtube.com/watch?v=G-oVRRxped4" target="_blank" rel="noopener">Open on YouTube ↗</a></div><div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/G-oVRRxped4?rel=0" title="HatDu product explainer" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></div>');
+        communication.insertAdjacentHTML('afterend','<div class="product-proof"><div class="product-proof-head"><div><div class="label">Product proof</div><h3>See how the product is explained in motion.</h3><p>HatDu publishes an official product explainer directly on the live platform. I use product demos, motion and visual communication to make the system easier to understand.</p></div><a href="https://www.youtube.com/watch?v=G-oVRRxped4" target="_blank" rel="noopener">Open on YouTube ↗</a></div><div class="video-frame video-consent"><div class="video-consent-card"><span class="label">External video · YouTube</span><h4>Load the HatDu product explainer?</h4><p>Only after you choose to load the video will your browser connect to YouTube and share technical data such as your IP address.</p><button type="button" class="video-consent-button" data-load-youtube>Load video</button></div></div></div>');
       }
       const roles = headings.find(function(h){ return h.textContent.trim() === 'A product decision: one account, multiple roles'; });
       if(roles){
@@ -735,6 +735,17 @@ fetch('/content/projects.json?v=20261008', {cache:'no-store'})
       console.error(error);
     }
   });
+document.addEventListener('click', function(event){
+  const button = event.target.closest('[data-load-youtube]');
+  if (!button) return;
+  const frame = document.createElement('iframe');
+  frame.src = 'https://www.youtube-nocookie.com/embed/G-oVRRxped4?rel=0';
+  frame.title = 'HatDu product explainer';
+  frame.referrerPolicy = 'strict-origin-when-cross-origin';
+  frame.allow = 'accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+  frame.allowFullscreen = true;
+  button.closest('.video-frame').replaceChildren(frame);
+});
 </script>
 
 </body>
