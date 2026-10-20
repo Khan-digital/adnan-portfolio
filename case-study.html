@@ -422,7 +422,12 @@ const route=document.querySelector('.route-builder');if(route&&!route.dataset.ga
 document.addEventListener('DOMContentLoaded',()=>{const root=document.getElementById('case-study-content');if(!root)return;const observer=new MutationObserver(()=>{if(document.querySelector('.marketplace-flow')||document.querySelector('.route-builder')){observer.disconnect();init()}});observer.observe(root,{childList:true,subtree:true});if(document.querySelector('.marketplace-flow')||document.querySelector('.route-builder')){observer.disconnect();init()}});
 })();
 </script>
-</head>
+<style id="language-switcher-style">
+.gtranslate_wrapper{display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;min-width:64px;max-width:112px;margin-left:4px}
+.gtranslate_wrapper select,.gtranslate_wrapper .gt_selector{appearance:auto!important;-webkit-appearance:auto!important;max-width:112px!important;width:auto!important;min-height:36px;padding:7px 10px!important;border:1px solid rgba(23,23,23,.22)!important;border-radius:999px!important;background:rgba(250,248,243,.94)!important;color:#171717!important;font:700 12px/1.2 Inter,system-ui,sans-serif!important;cursor:pointer!important;box-shadow:none!important}
+.gtranslate_wrapper select:focus,.gtranslate_wrapper .gt_selector:focus{outline:2px solid #171717!important;outline-offset:2px}
+@media(max-width:800px){.gtranslate_wrapper{min-width:58px;max-width:90px;margin-left:0}.gtranslate_wrapper select,.gtranslate_wrapper .gt_selector{max-width:90px!important;min-height:34px;padding:6px 8px!important;font-size:11px!important}nav .gtranslate_wrapper{display:inline-flex!important}}
+</style></head>
 
 <body>
 <div id="world-progress" aria-hidden="true"><span class="world-dot"></span><div class="world-line"><span class="world-fill"></span></div><span class="world-count">01—07</span></div><div id="chapter-bar">01 · Enter</div>
@@ -445,6 +450,7 @@ document.addEventListener('DOMContentLoaded',()=>{const root=document.getElement
   <nav>
     <a class="brand" href="index.html">ADNAN KHAN</a>
     <a class="back" href="index.html#work">← Back to selected work</a>
+    <div class="gtranslate_wrapper" aria-label="Choose language"></div>
   </nav>
 
   <header class="hero">
@@ -748,5 +754,5 @@ document.addEventListener('click', function(event){
 });
 </script>
 
-</body>
+<script>window.gtranslateSettings={default_language:"en",languages:["en","de"],wrapper_selector:".gtranslate_wrapper",switcher_horizontal_position:"right",switcher_vertical_position:"top"};</script><script src="https://cdn.gtranslate.net/widgets/latest/dropdown.js" defer></script></body>
 </html>
