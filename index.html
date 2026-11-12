@@ -81,7 +81,7 @@ h2{font-size:clamp(40px,6.2vw,78px);line-height:.94;letter-spacing:-.07em;margin
 .build-intro .intro{color:#b7bbb5}
 .build-stage{display:grid;grid-template-columns:.8fr 1.2fr;gap:50px;align-items:start;padding-bottom:110px}
 .build-steps{display:grid;gap:0}
-.build-step{padding:24px 0;border-top:1px solid #3a3a36;opacity:.42;transition:opacity .4s}
+.build-step{min-height:56vh;padding:32px 0;border-top:1px solid #3a3a36;opacity:.42;transition:opacity .4s;display:flex;flex-direction:column;justify-content:center}
 .build-step:last-child{border-bottom:1px solid #3a3a36}
 .build-step.active{opacity:1}
 .build-step span{font-size:10px;color:#a5aaa3;letter-spacing:.15em}
@@ -98,13 +98,13 @@ h2{font-size:clamp(40px,6.2vw,78px);line-height:.94;letter-spacing:-.07em;margin
 .art-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:35px}
 .art-card{height:82px;background:#e4e4dc;border:1px solid #d4d5cc;opacity:.2;transform:translateY(12px);transition:opacity .5s,transform .5s}
 .art-card:nth-child(2){transition-delay:.08s}.art-card:nth-child(3){transition-delay:.16s}
-.build-art[data-step="2"] .art-cards .art-card,.build-art[data-step="3"] .art-cards .art-card,.build-art[data-step="4"] .art-cards .art-card{opacity:1;transform:translateY(0)}
+.build-art[data-step="2"] .art-cards .art-card,.build-art[data-step="3"] .art-cards .art-card,.build-art[data-step="4"] .art-cards .art-card,.build-art[data-step="5"] .art-cards .art-card,.build-art[data-step="6"] .art-cards .art-card{opacity:1;transform:translateY(0)}
 .art-flow{display:flex;gap:8px;margin-top:14px;opacity:0;transform:translateY(10px);transition:opacity .5s,transform .5s}
-.build-art[data-step="3"] .art-flow,.build-art[data-step="4"] .art-flow{opacity:1;transform:translateY(0)}
+.build-art[data-step="3"] .art-flow,.build-art[data-step="4"] .art-flow,.build-art[data-step="5"] .art-flow,.build-art[data-step="6"] .art-flow{opacity:1;transform:translateY(0)}
 .flow-node{flex:1;padding:10px 7px;background:#e6e7df;font-size:9px;text-align:center}
 .flow-node.hot{background:#f1d8d5;color:#8c1d19}
 .art-check{position:absolute;right:20px;bottom:18px;font-size:9px;color:#8c1d19;opacity:0;transition:opacity .5s}
-.build-art[data-step="4"] .art-check{opacity:1}
+.build-art[data-step="6"] .art-check{opacity:1}
 .build-caption{display:flex;justify-content:space-between;gap:12px;margin-top:18px;color:#9da39c;font-size:10px;letter-spacing:.1em;text-transform:uppercase}
 .experience{background:#e7e4db}
 .experience-card{display:grid;grid-template-columns:1fr 1.4fr;gap:45px;background:var(--green);color:#fff;padding:42px}
@@ -141,8 +141,8 @@ h2{font-size:clamp(40px,6.2vw,78px);line-height:.94;letter-spacing:-.07em;margin
 footer{background:#111;color:#aaa;padding:25px 0;font-size:11px}
 .footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 .footer-links{display:flex;gap:18px}
-@media(max-width:900px){.section{padding:82px 0}.section-head{grid-template-columns:1fr;gap:20px}.build-intro{padding:82px 0 42px}.build-stage{grid-template-columns:1fr;gap:30px}.build-art{position:relative;top:auto;min-height:460px;grid-row:1}.build-steps{grid-row:2}.process-grid{grid-template-columns:1fr 1fr}.process-step{border-bottom:1px solid var(--line)}.process-step:nth-child(2n){border-right:0}.experience-card{grid-template-columns:1fr}.archive-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:640px){.wrap{width:calc(100% - 36px)}header{top:8px;width:calc(100% - 16px);height:54px;padding:0 12px}.brand{font-size:12px}nav{gap:12px;font-size:10px}nav a:nth-child(2){display:none}.nav-cta{padding:8px 10px}.hero{min-height:94svh;padding:120px 0 65px}h1{font-size:clamp(55px,16vw,90px)}.hero-bottom{margin-top:32px}.hero-meta{width:100%}.project-grid{grid-template-columns:1fr}.project-visual{height:280px}.project-info{padding:23px}.build-art{padding:13px;min-height:420px}.art-window{padding:17px;min-height:345px;margin-top:18px}.art-title{margin-top:34px}.art-cards{margin-top:25px}.art-card{height:65px}.experience-card{padding:25px}.experience-facts{grid-template-columns:1fr}.fact{padding:17px}.process-grid{grid-template-columns:1fr}.process-step{min-height:150px;border-right:0;padding:18px}.process-step h3{margin:22px 0 7px}.about-grid{grid-template-columns:1fr;gap:25px}.archive-grid{grid-template-columns:1fr}.contact{padding:82px 0}.footer-inner{flex-direction:column}}
+@media(max-width:900px){.build-step{min-height:48vh}.section{padding:82px 0}.section-head{grid-template-columns:1fr;gap:20px}.build-intro{padding:82px 0 42px}.build-stage{grid-template-columns:1fr;gap:30px}.build-art{position:relative;top:auto;min-height:460px;grid-row:1}.build-steps{grid-row:2}.process-grid{grid-template-columns:1fr 1fr}.process-step{border-bottom:1px solid var(--line)}.process-step:nth-child(2n){border-right:0}.experience-card{grid-template-columns:1fr}.archive-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.build-step{min-height:0;padding:28px 0}.wrap{width:calc(100% - 36px)}header{top:8px;width:calc(100% - 16px);height:54px;padding:0 12px}.brand{font-size:12px}nav{gap:12px;font-size:10px}nav a:nth-child(2){display:none}.nav-cta{padding:8px 10px}.hero{min-height:94svh;padding:120px 0 65px}h1{font-size:clamp(55px,16vw,90px)}.hero-bottom{margin-top:32px}.hero-meta{width:100%}.project-grid{grid-template-columns:1fr}.project-visual{height:280px}.project-info{padding:23px}.build-art{padding:13px;min-height:420px}.art-window{padding:17px;min-height:345px;margin-top:18px}.art-title{margin-top:34px}.art-cards{margin-top:25px}.art-card{height:65px}.experience-card{padding:25px}.experience-facts{grid-template-columns:1fr}.fact{padding:17px}.process-grid{grid-template-columns:1fr}.process-step{min-height:150px;border-right:0;padding:18px}.process-step h3{margin:22px 0 7px}.about-grid{grid-template-columns:1fr;gap:25px}.archive-grid{grid-template-columns:1fr}.contact{padding:82px 0}.footer-inner{flex-direction:column}}
 
 /* Contrast and text-surface safeguards */
 .project-type,.project-number,.index,.archive-card small,.art-sub{color:#62615e}
@@ -186,7 +186,7 @@ h1 .accent{color:var(--red)}
 .mobility-ui{box-shadow:0 24px 60px rgba(32,32,30,.16)}
 .build-section{background:#e8eee7;color:#20201e}
 .build-intro .index,.build-intro .intro{color:#4e574f}
-.build-step{border-color:rgba(32,32,30,.18);opacity:.62}
+.build-step{border-color:rgba(32,32,30,.18);opacity:.48}
 .build-step:last-child{border-color:rgba(32,32,30,.18)}
 .build-step.active{opacity:1}
 .build-step span,.build-step p{color:#535b54}
@@ -273,7 +273,7 @@ footer{background:#20201e;color:#d1d0c9}
 <header>
   <a class="brand" href="#" aria-label="Adnan Khan home">ADNAN KHAN<span> /</span></a>
   <nav aria-label="Main navigation">
-    <a href="#work">Work</a><a href="#playground">Play</a><a href="#approach">Approach</a><a href="#about">About</a><a href="#contact" class="nav-cta">Let's talk ↗</a>
+    <a href="#work">Work</a><a href="#approach">Journey</a><a href="#approach">Approach</a><a href="#about">About</a><a href="#contact" class="nav-cta">Let's talk ↗</a>
   </nav>
 </header>
 <main>
@@ -329,68 +329,24 @@ footer{background:#20201e;color:#d1d0c9}
 </section>
 
 
-<section class="section playground" id="playground">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="index">02 / Try it yourself</div>
-      <div><h2>Don't just look. Play with the interface.</h2><p class="intro">A tiny product playground. Switch views, complete tasks and change the visual direction — the interface responds instantly.</p></div>
-    </div>
-    <div class="playground-shell" id="playground-app" data-accent="red" data-focus="false">
-      <div class="play-controls">
-        <div>
-          <div class="play-label">Your controls</div>
-          <h3>Make this workspace yours.</h3>
-          <p>Explore three ways to view the same workspace. Then complete a task or switch the accent colour.</p>
-        </div>
-        <div>
-          <div class="play-label" style="margin-bottom:10px">Choose a view</div>
-          <div class="play-tabs" role="group" aria-label="Workspace view">
-            <button class="play-tab" type="button" data-view="overview" aria-pressed="true">Overview <span>01</span></button>
-            <button class="play-tab" type="button" data-view="tasks" aria-pressed="false">My tasks <span>02</span></button>
-            <button class="play-tab" type="button" data-view="insights" aria-pressed="false">Insights <span>03</span></button>
-          </div>
-        </div>
-        <div>
-          <div class="play-label" style="margin-bottom:10px">Personalise</div>
-          <div class="actions">
-            <button class="preview-action" id="accent-toggle" type="button">Switch to sage ↗</button>
-            <button class="preview-action" id="focus-toggle" type="button" aria-pressed="false">Focus mode: off</button>
-          </div>
-        </div>
-        <div class="play-hint">Tip: tick a task in the preview to update your progress.</div>
-      </div>
-      <div class="play-preview" aria-live="polite">
-        <div class="preview-top"><div class="preview-brand"><span class="preview-mark">A</span><span>STUDIO / WORKSPACE</span></div><span class="preview-status" id="preview-status">OVERVIEW</span></div>
-        <div class="preview-heading"><div><h3 id="preview-title">Good morning, Adnan.</h3><p id="preview-description">Here’s what’s moving your work forward today.</p></div><div class="preview-date">YOUR<br>WORKSPACE</div></div>
-        <div class="preview-progress" aria-label="Task completion"><span id="preview-progress"></span></div>
-        <div class="preview-list" id="preview-list">
-          <label class="preview-task"><input type="checkbox" class="task-check" checked><span>Review the product flow</span></label>
-          <label class="preview-task"><input type="checkbox" class="task-check"><span>Refine the dashboard layout</span></label>
-          <label class="preview-task"><input type="checkbox" class="task-check"><span>Prepare responsive states</span></label>
-          <label class="preview-task"><input type="checkbox" class="task-check"><span>Share the prototype</span></label>
-        </div>
-        <div class="preview-bottom"><span id="preview-count">1 of 4 tasks complete</span><span>DESIGNED TO KEEP YOU MOVING</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section class="build-section" id="approach">
   <div class="wrap build-intro">
     <div class="section-head">
-      <div class="index">03 / Design in motion</div>
-      <div><h2>An idea becomes an experience.</h2><p class="intro">Scroll through the stages. The interface builds as the thinking becomes clearer — from structure to flow, visual design and a more complete experience.</p></div>
+      <div class="index">02 / The design journey</div>
+      <div><h2>An idea becomes an experience.</h2><p class="intro">Follow the work from the first question to the final product. As you scroll, each stage becomes active and the interface evolves with the design decisions.</p></div>
     </div>
   </div>
   <div class="wrap build-stage">
     <div class="build-steps" id="build-steps">
-      <article class="build-step active" data-step="1"><span>01 / Understand</span><h3>Start with the need.</h3><p>Clarify the user, the context and the job the product needs to do.</p></article>
-      <article class="build-step" data-step="2"><span>02 / Structure</span><h3>Give it a clear shape.</h3><p>Organise information and define the important parts of the experience.</p></article>
-      <article class="build-step" data-step="3"><span>03 / Design</span><h3>Make the interaction tangible.</h3><p>Bring the structure into an interface with clear hierarchy and responsive behaviour.</p></article>
-      <article class="build-step" data-step="4"><span>04 / Refine</span><h3>Connect the details.</h3><p>Review states, consistency and the small decisions that make an experience feel complete.</p></article>
+      <article class="build-step active" data-step="1"><span>01 / Discover</span><h3>Start with people, not pixels.</h3><p>Understand who the experience is for, what they need and where the real friction lives.</p></article>
+      <article class="build-step" data-step="2"><span>02 / Define</span><h3>Find the right problem to solve.</h3><p>Bring the findings together, set priorities and give the challenge a clear direction.</p></article>
+      <article class="build-step" data-step="3"><span>03 / Explore</span><h3>Make the journey make sense.</h3><p>Map the key steps, organise information and explore different ways through the experience.</p></article>
+      <article class="build-step" data-step="4"><span>04 / Design</span><h3>Turn structure into an interface.</h3><p>Build the visual language, hierarchy and responsive layouts around the user's goals.</p></article>
+      <article class="build-step" data-step="5"><span>05 / Prototype</span><h3>Let the experience move.</h3><p>Connect screens and states, test the interactions and refine the details that matter.</p></article>
+      <article class="build-step" data-step="6"><span>06 / Deliver</span><h3>Make it ready for the real world.</h3><p>Polish the system, prepare the handoff and bring the experience closer to launch.</p></article>
     </div>
     <div class="build-art" id="build-art" data-step="1">
-      <div class="art-head"><span>Product experience / 001</span><span id="build-count">01 — 04</span></div>
+      <div class="art-head"><span>Product experience / 001</span><span id="build-count">01 — 06</span></div>
       <div class="art-window">
         <div class="art-brand"><span>YOUR WORKSPACE</span><i></i></div>
         <div class="art-title">Make the next step feel simple.</div>
@@ -400,7 +356,7 @@ footer{background:#20201e;color:#d1d0c9}
         <div class="art-flow"><div class="flow-node">Discover</div><div class="flow-node hot">Choose</div><div class="flow-node">Continue</div></div>
         <div class="art-check">✓ DETAILS CONNECTED</div>
       </div>
-      <div class="build-caption"><span>Progressive interface study</span><span>Scroll to build ↓</span></div>
+      <div class="build-caption"><span>From first insight to final interface</span><span>Keep scrolling ↓</span></div>
     </div>
   </div>
 </section>
@@ -470,7 +426,7 @@ footer{background:#20201e;color:#d1d0c9}
 <footer><div class="wrap footer-inner"><span>© 2026 Adnan Khan · Digital Product Designer</span><div class="footer-links"><a href="/impressum.html">Impressum</a><a href="/privacy-policy.html">Privacy</a><a href="mailto:1digital1designer@gmail.com">Email</a></div></div></footer>
 <script>
 (()=>{const bar=document.getElementById('topline');const update=()=>{const max=document.documentElement.scrollHeight-innerHeight;bar.style.width=(max>0?scrollY/max*100:0)+'%'};addEventListener('scroll',update,{passive:true});addEventListener('resize',update);update()})();
-(()=>{const art=document.getElementById('build-art');const steps=[...document.querySelectorAll('.build-step')];const count=document.getElementById('build-count');if(!art||!steps.length)return;const activate=n=>{art.dataset.step=String(n);count.textContent=String(n).padStart(2,'0')+' — 04';steps.forEach((s,i)=>s.classList.toggle('active',i===n-1))};const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)activate(Number(e.target.dataset.step))})},{rootMargin:'-35% 0px -45% 0px',threshold:0});steps.forEach(s=>observer.observe(s));})();
+(()=>{const art=document.getElementById('build-art');const steps=[...document.querySelectorAll('.build-step')];const count=document.getElementById('build-count');if(!art||!steps.length)return;const activate=n=>{art.dataset.step=String(n);count.textContent=String(n).padStart(2,'0')+' — 06';steps.forEach((s,i)=>s.classList.toggle('active',i===n-1))};const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)activate(Number(e.target.dataset.step))})},{rootMargin:'-42% 0px -42% 0px',threshold:0});steps.forEach(s=>observer.observe(s));})();
 
 (()=>{const app=document.getElementById('playground-app');if(!app)return;const tabs=[...app.querySelectorAll('[data-view]')];const title=document.getElementById('preview-title');const desc=document.getElementById('preview-description');const status=document.getElementById('preview-status');const list=document.getElementById('preview-list');const progress=document.getElementById('preview-progress');const count=document.getElementById('preview-count');const accent=document.getElementById('accent-toggle');const focus=document.getElementById('focus-toggle');const copy={overview:['Good morning, Adnan.','Here’s what’s moving your work forward today.','OVERVIEW'],tasks:['Your next steps.','A clear list makes the next action easier.','MY TASKS'],insights:['Small steps add up.','A quick snapshot of your progress this week.','INSIGHTS']};const update=()=>{const checks=[...app.querySelectorAll('.task-check')];const done=checks.filter(x=>x.checked).length;progress.style.width=(done/checks.length*100)+'%';count.textContent=done+' of '+checks.length+' tasks complete';};tabs.forEach(tab=>tab.addEventListener('click',()=>{tabs.forEach(t=>t.setAttribute('aria-pressed',String(t===tab)));const c=copy[tab.dataset.view];title.textContent=c[0];desc.textContent=c[1];status.textContent=c[2];if(tab.dataset.view==='insights'){desc.textContent='You have completed '+app.querySelectorAll('.task-check:checked').length+' of 4 tasks. Keep the momentum going.';}}));list.addEventListener('change',e=>{if(e.target.matches('.task-check')){update();const active=tabs.find(t=>t.getAttribute('aria-pressed')==='true');if(active&&active.dataset.view==='insights')desc.textContent='You have completed '+app.querySelectorAll('.task-check:checked').length+' of 4 tasks. Keep the momentum going.';}});accent.addEventListener('click',()=>{const sage=app.dataset.accent!=='sage';app.dataset.accent=sage?'sage':'red';accent.textContent=sage?'Switch to red ↗':'Switch to sage ↗';});focus.addEventListener('click',()=>{const on=app.dataset.focus!=='true';app.dataset.focus=String(on);focus.setAttribute('aria-pressed',String(on));focus.textContent='Focus mode: '+(on?'on':'off');});update();})();
 
