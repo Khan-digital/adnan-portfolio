@@ -273,7 +273,7 @@ footer{background:#20201e;color:#d1d0c9}
 <header>
   <a class="brand" href="#" aria-label="Adnan Khan home">ADNAN KHAN<span> /</span></a>
   <nav aria-label="Main navigation">
-    <a href="#work">Work</a><a href="#experience">Experience</a><a href="#approach">Approach</a><a href="#about">About</a><a href="#contact" class="nav-cta">Let's talk ↗</a>
+    <a href="#work">Work</a><a href="#experience">Experience</a><a href="#about">About</a><a href="#contact" class="nav-cta">Let's talk ↗</a>
   </nav>
 </header>
 <main>
@@ -369,10 +369,6 @@ footer{background:#20201e;color:#d1d0c9}
 <footer><div class="wrap footer-inner"><span>© 2026 Adnan Khan · Digital Product Designer</span><div class="footer-links"><a href="/impressum.html">Impressum</a><a href="/privacy-policy.html">Privacy</a><a href="mailto:1digital1designer@gmail.com">Email</a></div></div></footer>
 <script>
 (()=>{const bar=document.getElementById('topline');const update=()=>{const max=document.documentElement.scrollHeight-innerHeight;bar.style.width=(max>0?scrollY/max*100:0)+'%'};addEventListener('scroll',update,{passive:true});addEventListener('resize',update);update()})();
-(()=>{const art=document.getElementById('build-art');const steps=[...document.querySelectorAll('.build-step')];const count=document.getElementById('build-count');if(!art||!steps.length)return;const activate=n=>{art.dataset.step=String(n);count.textContent=String(n).padStart(2,'0')+' — 06';steps.forEach((s,i)=>s.classList.toggle('active',i===n-1))};const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)activate(Number(e.target.dataset.step))})},{rootMargin:'-42% 0px -42% 0px',threshold:0});steps.forEach(s=>observer.observe(s));})();
-
-(()=>{const app=document.getElementById('playground-app');if(!app)return;const tabs=[...app.querySelectorAll('[data-view]')];const title=document.getElementById('preview-title');const desc=document.getElementById('preview-description');const status=document.getElementById('preview-status');const list=document.getElementById('preview-list');const progress=document.getElementById('preview-progress');const count=document.getElementById('preview-count');const accent=document.getElementById('accent-toggle');const focus=document.getElementById('focus-toggle');const copy={overview:['Good morning, Adnan.','Here’s what’s moving your work forward today.','OVERVIEW'],tasks:['Your next steps.','A clear list makes the next action easier.','MY TASKS'],insights:['Small steps add up.','A quick snapshot of your progress this week.','INSIGHTS']};const update=()=>{const checks=[...app.querySelectorAll('.task-check')];const done=checks.filter(x=>x.checked).length;progress.style.width=(done/checks.length*100)+'%';count.textContent=done+' of '+checks.length+' tasks complete';};tabs.forEach(tab=>tab.addEventListener('click',()=>{tabs.forEach(t=>t.setAttribute('aria-pressed',String(t===tab)));const c=copy[tab.dataset.view];title.textContent=c[0];desc.textContent=c[1];status.textContent=c[2];if(tab.dataset.view==='insights'){desc.textContent='You have completed '+app.querySelectorAll('.task-check:checked').length+' of 4 tasks. Keep the momentum going.';}}));list.addEventListener('change',e=>{if(e.target.matches('.task-check')){update();const active=tabs.find(t=>t.getAttribute('aria-pressed')==='true');if(active&&active.dataset.view==='insights')desc.textContent='You have completed '+app.querySelectorAll('.task-check:checked').length+' of 4 tasks. Keep the momentum going.';}});accent.addEventListener('click',()=>{const sage=app.dataset.accent!=='sage';app.dataset.accent=sage?'sage':'red';accent.textContent=sage?'Switch to red ↗':'Switch to sage ↗';});focus.addEventListener('click',()=>{const on=app.dataset.focus!=='true';app.dataset.focus=String(on);focus.setAttribute('aria-pressed',String(on));focus.textContent='Focus mode: '+(on?'on':'off');});update();})();
-
 </script>
 </body>
 </html>
