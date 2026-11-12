@@ -25,9 +25,9 @@ h1{font-size:42px;line-height:1.05;letter-spacing:-.04em;margin:10px 0 8px}h2{fo
 .gtranslate_wrapper select,.gtranslate_wrapper .gt_selector{appearance:auto!important;-webkit-appearance:auto!important;max-width:112px!important;width:auto!important;min-height:36px;padding:7px 10px!important;border:1px solid rgba(23,23,23,.22)!important;border-radius:999px!important;background:rgba(250,248,243,.94)!important;color:#171717!important;font:700 12px/1.2 Inter,system-ui,sans-serif!important;cursor:pointer!important;box-shadow:none!important}
 .gtranslate_wrapper select:focus,.gtranslate_wrapper .gt_selector:focus{outline:2px solid #171717!important;outline-offset:2px}
 @media(max-width:800px){.gtranslate_wrapper{min-width:58px;max-width:90px;margin-left:0}.gtranslate_wrapper select,.gtranslate_wrapper .gt_selector{max-width:90px!important;min-height:34px;padding:6px 8px!important;font-size:11px!important}nav .gtranslate_wrapper{display:inline-flex!important}}
-</style></head>
+</style><style>.language-control{display:inline-flex;align-items:center}.language-control select{appearance:auto;border:1px solid rgba(23,23,23,.22);border-radius:999px;background:#faf8f3;color:#171717;padding:7px 10px;font:700 12px/1.2 Arial,sans-serif;cursor:pointer;min-height:36px}.language-control select:focus{outline:2px solid #a31c1b;outline-offset:2px}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}</style></head>
 <body>
-<div class="toolbar"><div class="gtranslate_wrapper" aria-label="Choose language"></div><a class="back" href="/">← Back to portfolio</a><button type="button" id="print">Print / Save as PDF ↓</button></div>
+<div class="toolbar"><label class="language-control"><span class="sr-only">Sprache</span><select id="language-switcher" aria-label="Sprache wählen"><option value="en">EN</option><option value="de">DE</option></select></label><a class="back" href="/">← Back to portfolio</a><button type="button" id="print">Print / Save as PDF ↓</button></div>
 <main class="sheet">
 <div class="kicker">Curriculum Vitae</div>
 <h1>Adnan Khan</h1>
@@ -85,5 +85,55 @@ h1{font-size:42px;line-height:1.05;letter-spacing:-.04em;margin:10px 0 8px}h2{fo
 document.getElementById('print').addEventListener('click',function(){window.print()});
 if(new URLSearchParams(window.location.search).get('print')==='1'){window.addEventListener('load',function(){window.print()})}
 </script>
-<script>window.gtranslateSettings={default_language:"en",languages:["en","de"],wrapper_selector:".gtranslate_wrapper",switcher_horizontal_position:"right",switcher_vertical_position:"top"};</script><script src="https://cdn.gtranslate.net/widgets/latest/dropdown.js" defer></script></body>
+
+<script>
+(function(){
+ const params=new URLSearchParams(location.search),lang=params.get('lang')==='de'?'de':'en';
+ const picker=document.getElementById('language-switcher');
+ if(picker){picker.value=lang;picker.addEventListener('change',function(){const next=new URL(location.href);if(this.value==='de')next.searchParams.set('lang','de');else next.searchParams.delete('lang');location.href=next.toString();});}
+ const back=document.querySelector('.back'),print=document.getElementById('print');
+ if(lang==='de'){
+  document.documentElement.lang='de';if(back){back.textContent='← Zurück zum Portfolio';back.href='/?lang=de';}if(print)print.textContent='Drucken / Als PDF speichern ↓';
+  document.querySelector('.sheet').innerHTML=`
+  <div class="kicker">Lebenslauf</div>
+  <h1>Adnan Khan</h1>
+  <p class="subtitle">Product Designer | UX/UI | Digital Design | Motion &amp; Content</p>
+  <div class="contact"><span>Hilter am Teutoburger Wald, Deutschland</span><a href="tel:+4917682423064">+49 176 82423064</a><a href="mailto:1digital1designer@gmail.com">1digital1designer@gmail.com</a><a href="https://www.linkedin.com/in/adnankhandesign/" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://adnan-portfolio-4tz.pages.dev/?lang=de" target="_blank" rel="noopener noreferrer">Portfolio</a></div>
+  <p class="intro">Digital Designer mit mehr als 9 Jahren Erfahrung in UX/UI, Motion Graphics, Markenidentität und Social-Media-Inhalten. Seit 2022 gestalte und unterstütze ich digitale Produkte und Marketingmaßnahmen für Unternehmen in Deutschland. Ich verbinde praktische Interface-Gestaltung in Figma mit visuellem Storytelling, Videoproduktion und KI-gestützten Design-Workflows – von der Ideenentwicklung bis zur Umsetzung digitaler Erlebnisse.</p>
+  <h2>Kernkompetenzen</h2>
+  <div class="skills">
+  <strong>Product &amp; UX</strong><span>User Flows, Wireframes, Prototyping, Interface Design, responsives Webdesign und Interaktionsdesign.</span>
+  <strong>Visual Design</strong><span>Markenidentität, Typografie, Illustration sowie Print- und Digitalmedien.</span>
+  <strong>Motion &amp; Content</strong><span>Motion Graphics, Videoschnitt, Produktdemonstrationen und Social-Media-Kampagnen.</span>
+  <strong>KI-gestütztes Design</strong><span>KI-gestützte Designrecherche, Konzeptentwicklung, Content-Workflows und iterative Verbesserung digitaler Erlebnisse.</span>
+  <strong>Produktvalidierung &amp; QA</strong><span>Eigenständige explorative und funktionale Tests realer Produkte auf verschiedenen Geräten, Bildschirmgrößen, Browsern und Sprachen; rollenbasierte Szenarien für Administration, Anbieter und Käufer sowie Tests von Schaltflächen, Pop-ups, Benachrichtigungen und E-Mail-Abläufen.</span>
+  <strong>Zusammenarbeit</strong><span>Content-Management, Zielgruppenansprache, teamübergreifende Kommunikation und digitale Workflows.</span>
+  </div>
+  <h2>Berufserfahrung</h2>
+  <section class="job"><h3>Digital Designer – UI/UX, Motion &amp; Social Media</h3><div class="company">STG Media-Marketing GmbH · Hilter, Deutschland</div><div class="date">Januar 2022 – heute</div><ul>
+  <li>Entwicklung von UX/UI-Konzepten, User Flows und Figma-Prototypen für digitale Produkte, darunter hatDu.de und ein Mobilitäts-/Mitfahrkonzept.</li>
+  <li>Gestaltung visueller Inhalte, Icons, Illustrationen, Markenmaterialien, Produktdemonstrationen und Motion Graphics mit Adobe Creative Cloud.</li>
+  <li>Planung und Produktion von Social-Media-Inhalten, Videos und Kampagnen sowie Unterstützung der digitalen Präsenz und des Content-Managements.</li>
+  <li>Einbringen von Produktideen und Verbesserung digitaler Erlebnisse durch die Verbindung von Nutzerbedürfnissen, geschäftlichen Anforderungen und visueller Kommunikation.</li>
+  <li>Eigenständige Prüfung implementierter Live-Produkte auf verschiedenen Geräten, Bildschirmgrößen, Browsern und Sprachen; Validierung der Abläufe für Administration, Anbieter und Käufer sowie interaktiver Elemente, Pop-ups, Benachrichtigungen und E-Mail-Prozesse.</li>
+  <li>Prüfung vollständiger Nutzungsszenarien und Sonderfälle, Erkennen von Bedienungsproblemen, funktionalen Fehlern und Inkonsistenzen im Design sowie Überprüfung der Korrekturen.</li>
+  <li>Unterstützung von Ansprache und Nutzergewinnung durch Social-Media- und E-Mail-Kommunikation, einschließlich englischsprachiger Materialien und digitaler Content-Workflows.</li>
+  <li>Einsatz KI-gestützter Workflows für Designrecherche, Content-Entwicklung, Übersetzung und die iterative Weiterentwicklung digitaler Konzepte.</li>
+  </ul></section>
+  <section class="job"><h3>Social Media &amp; Video Editor (ehrenamtlich)</h3><div class="company">MGV Borgloh e.V. · Hilter, Deutschland</div><div class="date">Mai 2022 – heute</div><ul><li>Film- und Videoschnitt bei Veranstaltungen, Erstellung von Kurzvideos und Veröffentlichung auf YouTube und Social-Media-Kanälen.</li></ul></section>
+  <section class="job"><h3>UX/UI Designer (Remote)</h3><div class="company">Awwla · Remote</div><div class="date">Juni 2022 – August 2025</div><ul><li>Remote-Arbeit im UX/UI-Design für internationale Kunden; Übertragung von Briefings in klare Layouts und digitale Benutzeroberflächen.</li></ul></section>
+  <section class="job"><h3>Freelancer für Digital Marketing</h3><div class="company">Jama Digital · Remote</div><div class="date">August 2017 – Oktober 2022</div><ul><li>Erstellung von Digital-Marketing- und Designmaterialien zur Unterstützung der Online-Kommunikation und Kundenanforderungen.</li></ul></section>
+  <section class="job"><h3>Lehrkraft für Kunst und Design</h3><div class="company">The Creative Palace Schooling System · Haripur, Pakistan</div><div class="date">März 2020 – März 2021</div><ul><li>Vermittlung von Kunst- und Designkonzepten sowie Förderung der kreativen Entwicklung von Schülerinnen und Schülern durch praxisorientiertes Lernen.</li></ul></section>
+  <section class="job"><h3>Multimedia Artist</h3><div class="company">TacticalGears.pk · Islamabad, Pakistan</div><div class="date">März 2017 – Oktober 2019</div><ul><li>Produktion von Multimedia- und Grafikdesignmaterialien für digitale Kommunikation und Markenpräsentation.</li></ul></section>
+  <section class="job"><h3>Praktikant Grafikdesign</h3><div class="company">Read Foundation · Islamabad, Pakistan</div><div class="date">September 2015 – Januar 2016</div><ul><li>Unterstützung bei der Gestaltung und Produktion grafischer Kommunikationsmaterialien.</li></ul></section>
+  <h2>Ausbildung</h2>
+  <div class="edu-title">Bachelor (Hons.) Kunst &amp; Design – Grafikdesign</div><div class="company">University of Azad Jammu &amp; Kashmir · Muzaffarabad, Pakistan · November 2012 – Dezember 2016</div>
+  <h2>Design-Tools &amp; KI-Workflows</h2>
+  <div class="skills"><strong>UI/UX Design</strong><span>Figma</span><strong>Adobe Creative Cloud</strong><span>Illustrator, After Effects, Photoshop, Premiere Pro und InDesign</span><strong>Weitere Design-Tools</strong><span>Canva, Movavi</span><strong>Produkttests</strong><span>Validierung von Live-Produkten, geräte- und browserübergreifende Tests, mehrsprachige Tests, rollenbasierte User Journeys, exploratives Testen und UX-/Design-QA.</span><strong>KI-gestützte Workflows</strong><span>KI-gestützte Designrecherche, Content-Entwicklung, Konzeptiteration, Übersetzungsunterstützung und digitale Designprozesse.</span></div>
+  <h2>Sprachen</h2><p>Englisch – fließend · Hindi, Paschtu und Punjabi – Muttersprachen · Deutsch – Anfänger (A1)</p>
+  <h2>Weitere Erfahrungen</h2><p class="footer-note">Produktfotografie, Veranstaltungsdokumentation, Social-Content-Strategie, Print- und Großformatdesign sowie englischsprachige Kommunikation.</p>`;
+ }
+})();
+</script>
+</body>
 </html>
