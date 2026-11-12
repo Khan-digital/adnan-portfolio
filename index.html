@@ -595,10 +595,91 @@ footer a{transition:color .2s ease}
 .gtranslate_wrapper select,.gtranslate_wrapper .gt_selector{appearance:auto!important;-webkit-appearance:auto!important;max-width:112px!important;width:auto!important;min-height:36px;padding:7px 10px!important;border:1px solid rgba(23,23,23,.22)!important;border-radius:999px!important;background:rgba(250,248,243,.94)!important;color:#171717!important;font:700 12px/1.2 Inter,system-ui,sans-serif!important;cursor:pointer!important;box-shadow:none!important}
 .gtranslate_wrapper select:focus,.gtranslate_wrapper .gt_selector:focus{outline:2px solid #171717!important;outline-offset:2px}
 @media(max-width:800px){.gtranslate_wrapper{min-width:58px;max-width:90px;margin-left:0}.gtranslate_wrapper select,.gtranslate_wrapper .gt_selector{max-width:90px!important;min-height:34px;padding:6px 8px!important;font-size:11px!important}nav .gtranslate_wrapper{display:inline-flex!important}}
+</style>
+<style id="scroll-build-story-css">
+.scroll-build-story{height:270vh;position:relative;background:#111;color:#f5f5f2;isolation:isolate}
+.scroll-build-sticky{height:100svh;min-height:680px;position:sticky;top:0;overflow:hidden;display:grid;grid-template-columns:minmax(290px,.78fr) minmax(0,1.5fr);align-items:center;padding:92px clamp(24px,7vw,110px) 68px;gap:3vw;background:radial-gradient(ellipse at 76% 50%,rgba(223,255,0,.08),transparent 34%),#111}
+.build-topline,.build-bottomline{position:absolute;left:clamp(24px,7vw,110px);right:clamp(24px,7vw,110px);display:flex;justify-content:space-between;color:#777;font-size:9px;letter-spacing:.18em;font-weight:700}
+.build-topline{top:34px}.build-bottomline{bottom:26px}
+.build-copy{position:relative;z-index:3;max-width:440px;align-self:center}
+.build-kicker{font-size:10px;letter-spacing:.2em;color:#dfff00;font-weight:800}
+.build-heading{font-size:clamp(42px,5.3vw,78px);line-height:.91;letter-spacing:-.075em;margin:24px 0 20px;font-weight:800}
+.build-heading em{font-style:normal;color:#dfff00}
+.build-description{font-size:clamp(14px,1.35vw,18px);line-height:1.65;color:#aaa;max-width:350px}
+.build-steps{display:flex;flex-direction:column;gap:12px;margin-top:36px}
+.build-step{font-size:10px;letter-spacing:.13em;color:#555;transition:color .35s,transform .35s}
+.build-step.is-active{color:#dfff00;transform:translateX(8px)}
+.build-art{height:min(66vh,620px);min-height:420px;position:relative;display:flex;align-items:center;justify-content:center;perspective:1200px;--build:0}
+.build-window{position:relative;width:min(100%,760px);background:#f3f3ef;color:#171717;border-radius:17px;overflow:hidden;box-shadow:0 40px 120px #0009,0 0 0 1px #ffffff22;transform:translateY(calc((1 - var(--build))*90px)) rotateX(calc((1 - var(--build))*13deg)) rotateY(calc((1 - var(--build))*-9deg)) scale(calc(.78 + var(--build)*.22));transform-origin:center;opacity:calc(.18 + var(--build)*.82);transition:none;z-index:2}
+.build-window-bar{height:38px;background:#e7e7e2;display:flex;align-items:center;justify-content:space-between;padding:0 15px;font-size:8px;letter-spacing:.13em;color:#777}
+.build-window-dots{display:flex;gap:5px}.build-window-dots i{width:6px;height:6px;border-radius:50%;background:#aaa}.build-window-live{color:#667800;font-weight:800}
+.build-ui{display:grid;grid-template-columns:54px 1fr;min-height:360px}
+.build-sidebar{background:#191919;color:#fff;display:flex;align-items:center;flex-direction:column;gap:23px;padding:17px 0;position:relative}
+.build-symbol{font-size:19px;color:#dfff00;margin-bottom:16px}.build-sidebar>i{width:13px;height:13px;border:1px solid #777;border-radius:4px}.build-sidebar .side-active{width:26px;height:26px;border-radius:7px;background:#dfff00;box-shadow:0 0 18px #dfff0066}
+.side-avatar{position:absolute;bottom:17px;width:26px;height:26px;border-radius:50%;background:#353535;display:grid;place-items:center;font-size:8px}
+.build-main{padding:25px 28px 26px}
+.build-welcome{display:flex;justify-content:space-between;align-items:center}
+.build-welcome small,.metric-card small{font-size:8px;letter-spacing:.15em;color:#999;font-weight:800}
+.build-welcome h3{font-size:clamp(21px,2.2vw,30px);letter-spacing:-.06em;margin:5px 0}.build-welcome h3 span{color:#8ca900}
+.build-welcome p{font-size:10px;color:#888;margin:0}.build-profile{width:31px;height:31px;border-radius:50%;background:#dfff00;display:grid;place-items:center;font-size:9px;font-weight:800}
+.build-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:25px}
+.metric-card{background:#fff;border:1px solid #e6e6e1;border-radius:9px;padding:13px;min-height:91px;opacity:calc(.3 + var(--build)*.7);transform:translateY(calc((1 - var(--build))*24px))}
+.metric-card strong{display:block;font-size:26px;letter-spacing:-.06em;margin:6px 0 2px}.metric-card strong span{font-size:13px;color:#899f00}.metric-card>span{font-size:8px;color:#999}
+.metric-progress{height:4px;background:#e8e8e3;border-radius:5px;overflow:hidden;margin-top:9px}.metric-progress i{display:block;width:76%;height:100%;background:#a6c900;transform:scaleX(var(--build));transform-origin:left}
+.build-lower{display:grid;grid-template-columns:1.15fr .85fr;gap:10px;margin-top:11px}
+.build-map-card,.build-task-card{background:#fff;border:1px solid #e6e6e1;border-radius:9px;padding:13px;min-height:175px;opacity:calc(.12 + var(--build)*.88);transform:translateY(calc((1 - var(--build))*35px))}
+.build-card-head{display:flex;justify-content:space-between;align-items:center;font-size:10px}.build-card-head span{font-size:7px;color:#999;letter-spacing:.12em}
+.build-map-card svg{width:100%;height:110px;overflow:visible;margin-top:4px}.build-map-card svg path{fill:none;stroke-linecap:round;stroke-linejoin:round}.map-path-bg{stroke:#e4e7d6;stroke-width:12}.map-path{stroke:#a4c600;stroke-width:3;stroke-dasharray:500;stroke-dashoffset:calc(500 - var(--build)*500)}.build-map-card svg circle{fill:#a4c600;stroke:#fff;stroke-width:3}
+.map-legend{display:flex;justify-content:space-between;font-size:7px;letter-spacing:.12em;color:#aaa}
+.task-row{display:flex;align-items:center;gap:8px;border-bottom:1px solid #eee;padding:13px 0;font-size:8px;color:#666}.task-row i{width:9px;height:9px;border:1px solid #c9c9c2;border-radius:3px}.task-row b{margin-left:auto;color:#8ca900}
+.build-orbit{position:absolute;border:1px solid #dfff0026;border-radius:50%;width:90%;aspect-ratio:1;max-height:620px;transform:scale(calc(.45 + var(--build)*.55)) rotate(calc(var(--build)*22deg));opacity:calc(.15 + var(--build)*.5)}
+.orbit-b{width:110%;border-color:#ffffff12;transform:scale(calc(.6 + var(--build)*.4)) rotate(calc(var(--build)*-18deg))}
+.build-node{position:absolute;width:8px;height:8px;border-radius:50%;background:#dfff00;box-shadow:0 0 22px #dfff00;opacity:var(--build);z-index:3}.node-a{top:15%;left:17%}.node-b{bottom:16%;right:15%;background:#a4b1ff}.node-c{top:30%;right:8%;width:5px;height:5px}
+.build-floating-note{position:absolute;z-index:4;padding:10px 13px;border:1px solid #ffffff26;border-radius:8px;background:#171717;color:#bbb;font-size:8px;letter-spacing:.12em;box-shadow:0 12px 30px #0006;opacity:calc(var(--build)*.95);transform:translateY(calc((1 - var(--build))*30px))}
+.build-floating-note span{color:#dfff00;margin-right:7px}.note-one{top:13%;left:1%}.note-two{bottom:15%;right:0}
+.build-stamp{position:absolute;right:-2%;top:5%;font-size:9px;line-height:1.4;letter-spacing:.17em;color:#dfff00;text-align:right;opacity:calc(var(--build)*.8);transform:rotate(8deg)}
+@media(max-width:900px){.scroll-build-sticky{grid-template-columns:1fr;padding:78px 24px 55px;align-content:center;gap:10px}.build-copy{max-width:700px}.build-heading{font-size:clamp(38px,7vw,62px);margin:14px 0 10px}.build-description{font-size:13px;max-width:480px}.build-steps{flex-direction:row;flex-wrap:wrap;gap:12px;margin-top:18px}.build-art{height:42vh;min-height:300px}.build-ui{min-height:260px}.build-main{padding:17px}.build-lower{margin-top:8px}.build-map-card,.build-task-card{min-height:130px}.build-map-card svg{height:75px}.metric-card{min-height:75px;padding:9px}.metric-card strong{font-size:20px}}
+@media(max-width:560px){.scroll-build-story{height:230vh}.scroll-build-sticky{min-height:600px;padding:70px 17px 52px;gap:4px}.build-topline,.build-bottomline{left:17px;right:17px;font-size:7px}.build-topline{top:22px}.build-bottomline{bottom:17px}.build-heading{font-size:42px}.build-description{font-size:12px;line-height:1.45;max-width:320px}.build-steps{gap:8px 12px;margin-top:14px}.build-step{font-size:8px}.build-art{height:38vh;min-height:245px;margin:0 -7px}.build-window{width:100%;border-radius:11px}.build-window-bar{height:29px;padding:0 9px;font-size:6px}.build-ui{grid-template-columns:32px 1fr;min-height:205px}.build-sidebar{gap:13px;padding:11px 0}.build-symbol{font-size:14px;margin-bottom:6px}.build-sidebar>i{width:9px;height:9px}.build-sidebar .side-active{width:18px;height:18px}.side-avatar{width:18px;height:18px;font-size:6px;bottom:10px}.build-main{padding:11px 9px}.build-welcome small,.metric-card small{font-size:6px}.build-welcome h3{font-size:18px}.build-welcome p{font-size:7px}.build-profile{width:22px;height:22px;font-size:7px}.build-metrics{gap:5px;margin-top:13px}.metric-card{padding:7px;min-height:58px;border-radius:6px}.metric-card strong{font-size:17px;margin:3px 0}.metric-card>span{font-size:6px}.metric-progress{margin-top:5px;height:3px}.build-lower{gap:5px;margin-top:5px}.build-map-card,.build-task-card{padding:7px;min-height:108px;border-radius:6px}.build-card-head{font-size:7px}.build-card-head span{font-size:5px}.build-map-card svg{height:62px}.map-legend{font-size:5px}.task-row{font-size:6px;padding:8px 0;gap:4px}.task-row i{width:7px;height:7px}.build-floating-note{font-size:6px;padding:7px 8px}.note-one{top:2%;left:0}.note-two{bottom:2%;right:0}.build-stamp{font-size:6px;right:0;top:0}}
+@media(prefers-reduced-motion:reduce){.build-window,.build-orbit,.build-node,.metric-card,.build-map-card,.build-task-card,.build-floating-note,.build-stamp{transition:none!important;transform:none!important}.build-step{transition:none!important}}
 </style></head><body><div id="site-scroll-progress" aria-hidden="true"><span class="scroll-dot"></span><div class="scroll-line"><span class="scroll-fill"></span></div><span class="scroll-count">00%</span></div>
 <script id="site-scroll-progress-js">
 (()=>{const fill=document.querySelector('#site-scroll-progress .scroll-fill'),count=document.querySelector('#site-scroll-progress .scroll-count');const update=()=>{const max=document.documentElement.scrollHeight-innerHeight;const p=max?Math.min(1,Math.max(0,scrollY/max)):0;if(fill)fill.style.height=(p*100)+'%';if(count)count.textContent=Math.round(p*100)+'%'};addEventListener('scroll',update,{passive:true});addEventListener('resize',update);update()})();
-</script><a class="skip" href="#work">Skip to content</a><div class="wrap"><nav><a class="logo" href="#" aria-label="Adnan Khan home"><span class="brand-mark" aria-hidden="true"><i></i><b></b><em></em></span><span class="brand-word">ADNAN KHAN</span></a><div class="navlinks"><a href="#work">Work</a><a href="#process">Approach</a><a href="#about">About</a><a href="#contact">Contact</a><a href="/privacy-policy.html">Datenschutz</a> · <a href="/impressum.html">Impressum</a></div><div class="gtranslate_wrapper" aria-label="Choose language"></div><button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">+</button></nav><header class="hero"><div class="hero-symbol" aria-hidden="true"><span class="orbit"></span><span class="stroke s1"></span><span class="stroke s2"></span><span class="spark">✦</span></div><div class="eyebrow">Product Designer · UX/UI · Digital Design</div><h1>Designing digital products <span class="hero-ink">people can understand.</span></h1><p>I’m Adnan — a Product Designer with a visual design background. I combine UX, UI, motion and technology to turn complex requirements into clear, useful digital experiences.</p><div class="cv-actions"><a class="btn" href="/cv.html">View CV ↗</a><a class="btn alt" href="/cv.html?print=1" target="_blank" rel="noopener noreferrer">Save CV as PDF ↓</a><a class="btn alt" href="#work">View selected work ↓</a></div><div class="hero-note">Real products · real constraints · real design work</div><div class="hero-meta"><span><b>Based in</b> Germany</span><span><b>Focus</b> Product Design · UX/UI</span><span><b>Background</b> Visual · Motion · Digital</span></div></header><div class="software-marquee" aria-label="Design software and tools">
+</script><a class="skip" href="#work">Skip to content</a><div class="wrap"><nav><a class="logo" href="#" aria-label="Adnan Khan home"><span class="brand-mark" aria-hidden="true"><i></i><b></b><em></em></span><span class="brand-word">ADNAN KHAN</span></a><div class="navlinks"><a href="#work">Work</a><a href="#process">Approach</a><a href="#about">About</a><a href="#contact">Contact</a><a href="/privacy-policy.html">Datenschutz</a> · <a href="/impressum.html">Impressum</a></div><div class="gtranslate_wrapper" aria-label="Choose language"></div><button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">+</button></nav><header class="hero"><div class="hero-symbol" aria-hidden="true"><span class="orbit"></span><span class="stroke s1"></span><span class="stroke s2"></span><span class="spark">✦</span></div><div class="eyebrow">Product Designer · UX/UI · Digital Design</div><h1>Designing digital products <span class="hero-ink">people can understand.</span></h1><p>I’m Adnan — a Product Designer with a visual design background. I combine UX, UI, motion and technology to turn complex requirements into clear, useful digital experiences.</p><div class="cv-actions"><a class="btn" href="/cv.html">View CV ↗</a><a class="btn alt" href="/cv.html?print=1" target="_blank" rel="noopener noreferrer">Save CV as PDF ↓</a><a class="btn alt" href="#work">View selected work ↓</a></div><div class="hero-note">Real products · real constraints · real design work</div><div class="hero-meta"><span><b>Based in</b> Germany</span><span><b>Focus</b> Product Design · UX/UI</span><span><b>Background</b> Visual · Motion · Digital</span></div></header>
+<section class="scroll-build-story" id="scroll-build-story" aria-label="A digital product takes shape as you scroll">
+  <div class="scroll-build-sticky">
+    <div class="build-topline"><span>THE DESIGN PROCESS / IN MOTION</span><span class="build-counter">01 — 04</span></div>
+    <div class="build-copy">
+      <span class="build-kicker">SCROLL TO EXPLORE</span>
+      <h2 class="build-heading">An idea becomes<br><em>a product.</em></h2>
+      <p class="build-description">Good design is more than a finished screen. It is a system of decisions, connected into one clear experience.</p>
+      <div class="build-steps" aria-live="polite">
+        <span class="build-step is-active">01 / Structure</span><span class="build-step">02 / Flow</span><span class="build-step">03 / Interface</span><span class="build-step">04 / Experience</span>
+      </div>
+    </div>
+    <div class="build-art" aria-hidden="true">
+      <div class="build-orbit orbit-a"></div><div class="build-orbit orbit-b"></div>
+      <div class="build-node node-a"></div><div class="build-node node-b"></div><div class="build-node node-c"></div>
+      <div class="build-window">
+        <div class="build-window-bar"><span class="build-window-dots"><i></i><i></i><i></i></span><span>PRODUCT / OVERVIEW</span><span class="build-window-live">LIVE CONCEPT</span></div>
+        <div class="build-ui">
+          <aside class="build-sidebar"><b class="build-symbol">a.</b><span class="side-active"></span><i></i><i></i><i></i><i></i><div class="side-avatar">AK</div></aside>
+          <div class="build-main">
+            <div class="build-welcome"><div><small>YOUR WORKSPACE</small><h3>Good morning<span>.</span></h3><p>Everything connected. Everything clear.</p></div><div class="build-profile">AK</div></div>
+            <div class="build-metrics"><div class="metric-card"><small>PROJECTS</small><strong>08</strong><span>Across your workspace</span></div><div class="metric-card"><small>PROGRESS</small><strong>76<span>%</span></strong><div class="metric-progress"><i></i></div></div><div class="metric-card"><small>CONNECTIONS</small><strong>24</strong><span>Working together</span></div></div>
+            <div class="build-lower">
+              <div class="build-map-card"><div class="build-card-head"><b>Journey overview</b><span>THIS WEEK ↗</span></div><svg viewBox="0 0 420 170" role="presentation"><path class="map-path-bg" d="M14 130 C70 120 72 38 142 62 S218 140 268 91 S344 20 406 42"/><path class="map-path" d="M14 130 C70 120 72 38 142 62 S218 140 268 91 S344 20 406 42"/><circle cx="14" cy="130" r="5"/><circle cx="142" cy="62" r="5"/><circle cx="268" cy="91" r="5"/><circle cx="406" cy="42" r="6"/></svg><div class="map-legend"><span>START</span><span>DESTINATION</span></div></div>
+              <div class="build-task-card"><div class="build-card-head"><b>Next steps</b><span>03 ITEMS</span></div><div class="task-row"><i></i><span>Understand the user</span><b>✓</b></div><div class="task-row"><i></i><span>Shape the experience</span><b>✓</b></div><div class="task-row"><i></i><span>Refine the interface</span><b>↗</b></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="build-floating-note note-one"><span>✳</span> USER NEEDS</div><div class="build-floating-note note-two"><span>↗</span> CLEAR INTERACTIONS</div>
+      <div class="build-stamp">DESIGNED<br>WITH INTENT.</div>
+    </div>
+    <div class="build-bottomline"><span>FROM FIRST THOUGHT TO FINISHED EXPERIENCE</span><span class="build-progress-label">01 / 04</span></div>
+  </div>
+</section>
+<div class="software-marquee" aria-label="Design software and tools">
   <div class="software-marquee-head"><span>Tools behind the work</span><span>Design · Motion · Visual storytelling</span></div>
   <div class="software-track-wrap">
     <div class="software-track">
@@ -871,4 +952,7 @@ addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(()=>{update();
  }
 })();
 </script>
-<script>window.gtranslateSettings={default_language:"en",languages:["en","de"],wrapper_selector:".gtranslate_wrapper",switcher_horizontal_position:"right",switcher_vertical_position:"top"};</script><script src="https://cdn.gtranslate.net/widgets/latest/dropdown.js" defer></script></body></html>
+<script>window.gtranslateSettings={default_language:"en",languages:["en","de"],wrapper_selector:".gtranslate_wrapper",switcher_horizontal_position:"right",switcher_vertical_position:"top"};</script><script src="https://cdn.gtranslate.net/widgets/latest/dropdown.js" defer></script>
+<script id="scroll-build-story-js">
+(()=>{const section=document.getElementById('scroll-build-story');if(!section)return;const art=section.querySelector('.build-art');const steps=[...section.querySelectorAll('.build-step')];const counter=section.querySelector('.build-counter');const label=section.querySelector('.build-progress-label');const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;let raf=false;const update=()=>{const r=section.getBoundingClientRect();const range=Math.max(1,section.offsetHeight-innerHeight);const p=reduce?1:Math.max(0,Math.min(1,-r.top/range));art.style.setProperty('--build',p.toFixed(3));const n=Math.min(3,Math.floor(p*4));steps.forEach((s,i)=>s.classList.toggle('is-active',i===n));const v=String(n+1).padStart(2,'0');if(counter)counter.textContent=v+' — 04';if(label)label.textContent=v+' / 04'};const onScroll=()=>{if(!raf){requestAnimationFrame(()=>{update();raf=false});raf=true}};addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',update,{passive:true});update()})();
+</script></body></html>
