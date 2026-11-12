@@ -469,6 +469,8 @@ footer{padding:28px 0}
  if(picker){picker.value=lang;picker.addEventListener('change',function(){const next=new URL(location.href);if(this.value==='de')next.searchParams.set('lang','de');else next.searchParams.delete('lang');location.href=next.toString();});}
  if(lang!=='de')return;
  document.documentElement.lang='de';
+ document.title='Adnan Khan — Digital Product Designer';
+ const descriptionTag=document.querySelector('meta[name="description"]');if(descriptionTag)descriptionTag.content='Adnan Khan ist Product Designer in Deutschland mit Schwerpunkt UX/UI, responsiven Web-Erlebnissen, Interaktions- und Motion Design.';
  const set=(selector,value)=>{const el=document.querySelector(selector);if(el)el.textContent=value;};
  set('.skip','Direkt zu den Projekten');
  set('nav a:nth-child(1)','Projekte');set('nav a:nth-child(2)','Erfahrung');set('nav a:nth-child(3)','Über mich');set('.nav-cta','Kontakt ↗');
