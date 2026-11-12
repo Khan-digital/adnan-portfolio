@@ -670,6 +670,20 @@ a:hover{color:#00e676}
 .build-stamp,.build-final,.final-stamp{border-color:#ff3654!important;color:#ff526b!important}
 footer{background:#080a09!important;color:#a1aaa4!important;border-color:#26332b!important}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+</style>
+<style id="red-main-typography">
+/* High-contrast red typography for the black brand canvas */
+h1,h2,h3,h4,.hero-ink,.sectionhead h2,.project h3,.tile h3,.interaction-panel h3{
+ color:#ff526b!important;
+ text-shadow:0 0 18px rgba(255,82,107,.08);
+}
+body p,.hero p,.sectionhead p,.project p,.tile p,.interaction-panel p,.about-card p,.service p{
+ color:#ffb0ba!important;
+}
+nav a,.logo,.navlinks a,.btn.alt{color:#f4f7f4!important}
+.build-heading{color:#ff526b!important}
+.build-description{color:#ffb0ba!important}
+.build-window,.build-window h1,.build-window h2,.build-window h3,.build-window p{color:inherit}
 </style></head><body><div id="site-scroll-progress" aria-hidden="true"><span class="scroll-dot"></span><div class="scroll-line"><span class="scroll-fill"></span></div><span class="scroll-count">00%</span></div>
 <script id="site-scroll-progress-js">
 (()=>{const fill=document.querySelector('#site-scroll-progress .scroll-fill'),count=document.querySelector('#site-scroll-progress .scroll-count');const update=()=>{const max=document.documentElement.scrollHeight-innerHeight;const p=max?Math.min(1,Math.max(0,scrollY/max)):0;if(fill)fill.style.height=(p*100)+'%';if(count)count.textContent=Math.round(p*100)+'%'};addEventListener('scroll',update,{passive:true});addEventListener('resize',update);update()})();
