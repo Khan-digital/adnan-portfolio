@@ -684,6 +684,17 @@ nav a,.logo,.navlinks a,.btn.alt{color:#f4f7f4!important}
 .build-heading{color:#ff526b!important}
 .build-description{color:#ffb0ba!important}
 .build-window,.build-window h1,.build-window h2,.build-window h3,.build-window p{color:inherit}
+</style>
+<style id="force-red-main-hero-heading">
+/* Explicitly override the dark/black styling on the main hero headline */
+header.hero h1,
+header.hero h1 *,
+header.hero h1 .hero-ink,
+header.hero h1 span{
+  color:#ff526b!important;
+  -webkit-text-fill-color:#ff526b!important;
+  text-shadow:0 0 22px rgba(255,82,107,.14)!important;
+}
 </style></head><body><div id="site-scroll-progress" aria-hidden="true"><span class="scroll-dot"></span><div class="scroll-line"><span class="scroll-fill"></span></div><span class="scroll-count">00%</span></div>
 <script id="site-scroll-progress-js">
 (()=>{const fill=document.querySelector('#site-scroll-progress .scroll-fill'),count=document.querySelector('#site-scroll-progress .scroll-count');const update=()=>{const max=document.documentElement.scrollHeight-innerHeight;const p=max?Math.min(1,Math.max(0,scrollY/max)):0;if(fill)fill.style.height=(p*100)+'%';if(count)count.textContent=Math.round(p*100)+'%'};addEventListener('scroll',update,{passive:true});addEventListener('resize',update);update()})();
