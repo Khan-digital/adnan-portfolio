@@ -491,6 +491,9 @@ footer{padding:28px 0}
  set('.about-note .small','Wofür ich mich interessiere');set('.about-note h3','Klare Interfaces. Sinnvolle Produkte. Durchdachte Details.');
  set('.about-note p','Ich interessiere mich für Positionen im Product Design und UX/UI, in denen ich an realen Produkten mitarbeiten, im Team Ideen entwickeln und das Nutzererlebnis kontinuierlich verbessern kann.');
  set('.about-note .text-link','Auf LinkedIn vernetzen ↗');
+ const skillNames={'Product design':'Produktdesign','UX/UI':'UX/UI','Responsive web':'Responsives Webdesign','Interaction design':'Interaktionsdesign','Motion design':'Motion Design','AI-assisted workflows':'KI-gestützte Workflows','Visual design':'Visuelles Design','Marketplace':'Marktplatz','Product concept':'Produktkonzept','User journeys':'User Journeys','UI design':'UI Design','Responsive thinking':'Responsives Design','Product communication':'Produktkommunikation'};
+ document.querySelectorAll('.skill,.tag').forEach(el=>{const key=el.textContent.trim();if(skillNames[key])el.textContent=skillNames[key];});
+ set('.mobility-top span:first-child','ROUTE / ÜBERSICHT');
  set('#contact .index','04 / Kontakt');set('#contact h2','Lass uns etwas Sinnvolles gestalten.');
  set('#contact .intro','Ich suche eine Möglichkeit als Product Designer oder UX/UI Designer in Deutschland. Lass uns über das Produkt, das Team und meinen möglichen Beitrag sprechen.');
  set('#contact .contact-links .btn:first-child','Kontakt aufnehmen ↗');set('#contact .contact-links .btn:nth-child(4)','Lebenslauf ansehen ↗');
