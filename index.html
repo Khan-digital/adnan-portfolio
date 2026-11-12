@@ -143,6 +143,25 @@ footer{background:#111;color:#aaa;padding:25px 0;font-size:11px}
 .footer-links{display:flex;gap:18px}
 @media(max-width:900px){.section{padding:82px 0}.section-head{grid-template-columns:1fr;gap:20px}.build-intro{padding:82px 0 42px}.build-stage{grid-template-columns:1fr;gap:30px}.build-art{position:relative;top:auto;min-height:460px;grid-row:1}.build-steps{grid-row:2}.process-grid{grid-template-columns:1fr 1fr}.process-step{border-bottom:1px solid var(--line)}.process-step:nth-child(2n){border-right:0}.experience-card{grid-template-columns:1fr}.archive-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:640px){.wrap{width:calc(100% - 36px)}header{top:8px;width:calc(100% - 16px);height:54px;padding:0 12px}.brand{font-size:12px}nav{gap:12px;font-size:10px}nav a:nth-child(2){display:none}.nav-cta{padding:8px 10px}.hero{min-height:94svh;padding:120px 0 65px}h1{font-size:clamp(55px,16vw,90px)}.hero-bottom{margin-top:32px}.hero-meta{width:100%}.project-grid{grid-template-columns:1fr}.project-visual{height:280px}.project-info{padding:23px}.build-art{padding:13px;min-height:420px}.art-window{padding:17px;min-height:345px;margin-top:18px}.art-title{margin-top:34px}.art-cards{margin-top:25px}.art-card{height:65px}.experience-card{padding:25px}.experience-facts{grid-template-columns:1fr}.fact{padding:17px}.process-grid{grid-template-columns:1fr}.process-step{min-height:150px;border-right:0;padding:18px}.process-step h3{margin:22px 0 7px}.about-grid{grid-template-columns:1fr;gap:25px}.archive-grid{grid-template-columns:1fr}.contact{padding:82px 0}.footer-inner{flex-direction:column}}
+
+/* Contrast and text-surface safeguards */
+.project-type,.project-number,.index,.archive-card small,.art-sub{color:#62615e}
+.project-type,.project-number,.index,.archive-card small{font-weight:600}
+.project-info,.archive-card{color:#171717}
+.project-info h3,.archive-card h3,.section:not(.build-section):not(.contact) h2{color:#171717}
+.project-info p,.archive-card p,.intro,.process-step p,.about-copy{color:#4b504b}
+.tag{color:#454943}
+.art-sub{color:#62615e}
+.hero .kicker,.hero .hero-meta{color:#c5cec6}
+.hero-copy{color:#d5dbd6}
+.build-section .index{color:#c0c7c0}
+.build-section .intro{color:#c8cec8}
+.build-step span,.build-step p{color:#c0c7c0}
+.build-caption,.art-head{color:#c0c7c0}
+.contact .index,.contact .intro{color:#c8cec8}
+.experience-card .muted,.fact span{color:#c8cec8}
+.about-note .small,.about-note p{color:#c8cec8}
+
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
 </style>
 </head>
