@@ -93,7 +93,7 @@ if(new URLSearchParams(window.location.search).get('print')==='1'){window.addEve
  if(picker){picker.value=lang;picker.addEventListener('change',function(){const next=new URL(location.href);if(this.value==='de')next.searchParams.set('lang','de');else next.searchParams.delete('lang');location.href=next.toString();});}
  const back=document.querySelector('.back'),print=document.getElementById('print');
  if(lang==='de'){
-  document.documentElement.lang='de';if(back){back.textContent='← Zurück zum Portfolio';back.href='/?lang=de';}if(print)print.textContent='Drucken / Als PDF speichern ↓';
+  document.documentElement.lang='de';document.title='Adnan Khan — Lebenslauf';const desc=document.querySelector('meta[name="description"]');if(desc)desc.content='Lebenslauf von Adnan Khan – Product Designer mit Erfahrung in UX/UI, digitalem Design, Motion und Produktvalidierung.';if(back){back.textContent='← Zurück zum Portfolio';back.href='/?lang=de';}if(print)print.textContent='Drucken / Als PDF speichern ↓';
   document.querySelector('.sheet').innerHTML=`
   <div class="kicker">Lebenslauf</div>
   <h1>Adnan Khan</h1>
