@@ -45,7 +45,7 @@ h1 .accent{color:#d65b53}
 .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,.35)}
 .btn.ghost:hover{background:#fff;color:var(--black)}
 .hero-meta{font-size:11px;color:#aeb7b0;letter-spacing:.1em;text-transform:uppercase}
-.section{padding:112px 0;border-top:1px solid var(--line)}
+.section{padding:88px 0;border-top:1px solid var(--line)}
 .section-head{display:grid;grid-template-columns:.7fr 1.3fr;gap:36px;margin-bottom:54px;align-items:start}
 .index{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#777}
 h2{font-size:clamp(40px,6.2vw,78px);line-height:.94;letter-spacing:-.07em;margin:0;font-weight:820}
@@ -53,7 +53,7 @@ h2{font-size:clamp(40px,6.2vw,78px);line-height:.94;letter-spacing:-.07em;margin
 .work{background:var(--paper)}
 .project-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 .project{background:var(--white);border:1px solid var(--line);min-width:0}
-.project-visual{height:390px;background:#e4e1d8;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:26px}
+.project-visual{height:330px;background:#e4e1d8;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:26px}
 .project-visual img{display:block;width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply}
 .project-visual.mobility{background:var(--green);color:#fff;position:relative;overflow:hidden}
 .mobility-ui{width:min(420px,100%);background:#f6f5ef;color:var(--black);padding:20px;box-shadow:0 24px 60px #0005;transform:rotate(-3deg)}
@@ -107,9 +107,9 @@ h2{font-size:clamp(40px,6.2vw,78px);line-height:.94;letter-spacing:-.07em;margin
 .build-art[data-step="6"] .art-check{opacity:1}
 .build-caption{display:flex;justify-content:space-between;gap:12px;margin-top:18px;color:#9da39c;font-size:10px;letter-spacing:.1em;text-transform:uppercase}
 .experience{background:#e7e4db}
-.experience-card{display:grid;grid-template-columns:1fr 1.4fr;gap:45px;background:var(--green);color:#fff;padding:42px}
+.experience-card{display:grid;grid-template-columns:1fr 1.4fr;gap:45px;background:var(--green);color:#20201e;padding:34px}
 .experience-card .muted{color:#b8c0b8;font-size:14px}
-.experience-card h3{font-size:34px;letter-spacing:-.055em;line-height:1;margin:12px 0}
+.experience-card h3{font-size:30px;letter-spacing:-.055em;line-height:1;margin:12px 0}
 .experience-facts{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#38443b}
 .fact{padding:23px;background:var(--green)}
 .fact strong{display:block;font-size:13px;margin-bottom:7px}
@@ -273,18 +273,18 @@ footer{background:#20201e;color:#d1d0c9}
 <header>
   <a class="brand" href="#" aria-label="Adnan Khan home">ADNAN KHAN<span> /</span></a>
   <nav aria-label="Main navigation">
-    <a href="#work">Work</a><a href="#approach">Journey</a><a href="#approach">Approach</a><a href="#about">About</a><a href="#contact" class="nav-cta">Let's talk ↗</a>
+    <a href="#work">Work</a><a href="#experience">Experience</a><a href="#approach">Approach</a><a href="#about">About</a><a href="#contact" class="nav-cta">Let's talk ↗</a>
   </nav>
 </header>
 <main>
 <section class="hero">
   <div class="wrap hero-inner">
     <div class="kicker">Digital Product Designer · Germany</div>
-    <h1>I make digital experiences <span class="accent">clearer.</span></h1>
-    <p class="hero-copy">I bring together UX thinking, interface design and visual craft to make useful digital products easier to understand and use.</p>
+    <h1>Product design for <span class="accent">real people.</span></h1>
+    <p class="hero-copy">I’m a Product Designer based in Germany, with 9+ years in digital design. I combine UX/UI, visual design and hands-on product testing to make digital experiences clearer and easier to use.</p>
     <div class="hero-bottom">
       <div class="actions"><a class="btn" href="#work">Explore selected work ↓</a><a class="btn ghost" href="/cv.html">View CV ↗</a></div>
-      <div class="hero-meta">UX/UI · Responsive web · Interaction · Motion</div>
+      <div class="hero-meta">Product design · UX/UI · Figma · Digital experience</div>
     </div>
   </div>
 </section>
@@ -293,7 +293,7 @@ footer{background:#20201e;color:#d1d0c9}
   <div class="wrap">
     <div class="section-head">
       <div class="index">01 / Selected work</div>
-      <div><h2>Product work, not just screens.</h2><p class="intro">A closer look at digital experiences shaped around real needs, clear journeys and practical constraints.</p></div>
+      <div><h2>Product work, not just screens.</h2><p class="intro">Selected work from digital products and concepts I have contributed to. Open a project to see the thinking, interface and details.</p></div>
     </div>
     <div class="project-grid">
       <article class="project">
@@ -303,7 +303,7 @@ footer{background:#20201e;color:#d1d0c9}
           <h3>hatDu.de</h3>
           <p>A marketplace experience connecting people with local offers and services. My work brings together interface design, responsive web and visual communication.</p>
           <div class="tags"><span class="tag">UX/UI</span><span class="tag">Responsive web</span><span class="tag">Marketplace</span><span class="tag">Visual design</span></div>
-          <a class="text-link" href="https://www.hatdu.de/" target="_blank" rel="noopener noreferrer">Explore the live product ↗</a>
+          <a class="text-link" href="/case-study.html">Read the HatDu case study ↗</a>
         </div>
       </article>
       <article class="project">
@@ -329,46 +329,14 @@ footer{background:#20201e;color:#d1d0c9}
 </section>
 
 
-<section class="build-section" id="approach">
-  <div class="wrap build-intro">
-    <div class="section-head">
-      <div class="index">02 / The design journey</div>
-      <div><h2>An idea becomes an experience.</h2><p class="intro">Follow the work from the first question to the final product. As you scroll, each stage becomes active and the interface evolves with the design decisions.</p></div>
-    </div>
-  </div>
-  <div class="wrap build-stage">
-    <div class="build-steps" id="build-steps">
-      <article class="build-step active" data-step="1"><span>01 / Discover</span><h3>Start with people, not pixels.</h3><p>Understand who the experience is for, what they need and where the real friction lives.</p></article>
-      <article class="build-step" data-step="2"><span>02 / Define</span><h3>Find the right problem to solve.</h3><p>Bring the findings together, set priorities and give the challenge a clear direction.</p></article>
-      <article class="build-step" data-step="3"><span>03 / Explore</span><h3>Make the journey make sense.</h3><p>Map the key steps, organise information and explore different ways through the experience.</p></article>
-      <article class="build-step" data-step="4"><span>04 / Design</span><h3>Turn structure into an interface.</h3><p>Build the visual language, hierarchy and responsive layouts around the user's goals.</p></article>
-      <article class="build-step" data-step="5"><span>05 / Prototype</span><h3>Let the experience move.</h3><p>Connect screens and states, test the interactions and refine the details that matter.</p></article>
-      <article class="build-step" data-step="6"><span>06 / Deliver</span><h3>Make it ready for the real world.</h3><p>Polish the system, prepare the handoff and bring the experience closer to launch.</p></article>
-    </div>
-    <div class="build-art" id="build-art" data-step="1">
-      <div class="art-head"><span>Product experience / 001</span><span id="build-count">01 — 06</span></div>
-      <div class="art-window">
-        <div class="art-brand"><span>YOUR WORKSPACE</span><i></i></div>
-        <div class="art-title">Make the next step feel simple.</div>
-        <div class="art-sub">A connected experience starts with a clear purpose.</div>
-        <span class="art-action">Explore the experience ↗</span>
-        <div class="art-cards"><div class="art-card"></div><div class="art-card"></div><div class="art-card"></div></div>
-        <div class="art-flow"><div class="flow-node">Discover</div><div class="flow-node hot">Choose</div><div class="flow-node">Continue</div></div>
-        <div class="art-check">✓ DETAILS CONNECTED</div>
-      </div>
-      <div class="build-caption"><span>From first insight to final interface</span><span>Keep scrolling ↓</span></div>
-    </div>
-  </div>
-</section>
-
 <section class="section experience" id="experience">
   <div class="wrap">
     <div class="section-head">
-      <div class="index">04 / Experience</div>
-      <div><h2>Design across the full experience.</h2><p class="intro">My professional work connects interface design with visual communication, motion and the realities of digital delivery.</p></div>
+      <div class="index">02 / Experience</div>
+      <div><h2>Experience across product and digital design.</h2><p class="intro">At STG Media-Marketing GmbH in Germany, I work across UX/UI, responsive web, motion, digital content and product quality assurance.</p></div>
     </div>
     <div class="experience-card">
-      <div><div class="index" style="color:#b8c0b8">Current role · Since January 2022</div><h3>STG Media-Marketing GmbH</h3><p class="muted">Digital design work across UX/UI, responsive web, motion and digital communication in Germany.</p></div>
+      <div><div class="index" style="color:#777">PROFESSIONAL EXPERIENCE · SINCE JANUARY 2022</div><h3>STG Media-Marketing GmbH</h3><p class="muted">Digital design work across UX/UI, responsive web, motion and digital communication in Germany.</p></div>
       <div class="experience-facts">
         <div class="fact"><strong>Product & UX/UI</strong><span>User flows, interface concepts and responsive digital experiences.</span></div>
         <div class="fact"><strong>Visual & motion</strong><span>Motion design, visual storytelling and product communication.</span></div>
@@ -379,47 +347,22 @@ footer{background:#20201e;color:#d1d0c9}
   </div>
 </section>
 
-<section class="section" id="process">
-  <div class="wrap">
-    <div class="section-head"><div class="index">05 / Approach</div><div><h2>Thoughtful from first question to final detail.</h2><p class="intro">A practical design approach that keeps the user need, the product and the implementation connected.</p></div></div>
-    <div class="process-grid">
-      <div class="process-step"><b>01</b><h3>Understand</h3><p>Clarify the problem, context and constraints.</p></div>
-      <div class="process-step"><b>02</b><h3>Structure</h3><p>Map the flow, hierarchy and information.</p></div>
-      <div class="process-step"><b>03</b><h3>Design</h3><p>Create clear interfaces and interactions.</p></div>
-      <div class="process-step"><b>04</b><h3>Iterate</h3><p>Refine through review and feedback.</p></div>
-      <div class="process-step"><b>05</b><h3>Deliver</h3><p>Prepare design details for implementation.</p></div>
-    </div>
-  </div>
-</section>
-
 <section class="section" id="about">
   <div class="wrap">
-    <div class="section-head"><div class="index">06 / About</div><div><h2>Visual craft. Product thinking.</h2></div></div>
+    <div class="section-head"><div class="index">03 / About</div><div><h2>A designer with a broad digital foundation.</h2></div></div>
     <div class="about-grid">
-      <div><p class="about-copy">I’m Adnan, a designer based in Germany. My background spans Art & Design, digital media, visual design and motion. Today, I focus on digital product design — bringing visual clarity and practical thinking together to create useful experiences.</p><div class="skill-list"><span class="skill">Product design</span><span class="skill">UX/UI</span><span class="skill">Figma</span><span class="skill">Responsive web</span><span class="skill">Interaction design</span><span class="skill">Motion design</span><span class="skill">Adobe Creative Cloud</span><span class="skill">AI-assisted workflows</span></div></div>
-      <aside class="about-note"><div class="small">What I’m interested in</div><h3>Useful products. Clear systems. Better interactions.</h3><p>I’m especially interested in product teams building thoughtful SaaS, web and digital experiences where design is part of how the product works.</p><a class="text-link" href="https://www.linkedin.com/in/adnankhandesign/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn ↗</a></aside>
-    </div>
-  </div>
-</section>
-
-<section class="section archive">
-  <div class="wrap">
-    <div class="section-head"><div class="index">07 / Earlier work</div><div><h2>A wider design foundation.</h2><p class="intro">Selected earlier work stays as an archive. The focus of this portfolio remains my digital product-design work.</p></div></div>
-    <div class="archive-grid">
-      <a class="archive-card" href="https://www.facebook.com/jama.digi" target="_blank" rel="noopener noreferrer"><small>Academic project</small><h3>Jama Digi</h3><p>Earlier digital design work from my design education. ↗</p></a>
-      <a class="archive-card" href="https://www.facebook.com/fithaiyar" target="_blank" rel="noopener noreferrer"><small>Independent business</small><h3>Fit Hai Yar</h3><p>An earlier online-business project. ↗</p></a>
-      <a class="archive-card" href="https://www.facebook.com/MARJNITE/" target="_blank" rel="noopener noreferrer"><small>Illustration project</small><h3>MARJNITE</h3><p>Illustration-led work with a visual and character-driven direction. ↗</p></a>
-      <a class="archive-card" href="https://www.facebook.com/motidhagay" target="_blank" rel="noopener noreferrer"><small>Earlier design work</small><h3>Moti Dhagay</h3><p>Selected earlier visual and design work. ↗</p></a>
+      <div><p class="about-copy">I’m Adnan, a Product Designer based in Germany. My background spans Art & Design, UX/UI, digital media and motion. I work from early interface concepts through responsive design, prototyping and hands-on testing — bringing visual clarity and practical thinking together.</p><div class="skill-list"><span class="skill">Product design</span><span class="skill">UX/UI</span><span class="skill">Figma</span><span class="skill">Responsive web</span><span class="skill">Interaction design</span><span class="skill">Motion design</span><span class="skill">Adobe Creative Cloud</span><span class="skill">AI-assisted workflows</span></div></div>
+      <aside class="about-note"><div class="small">What I’m interested in</div><h3>Clear interfaces. Useful products. Thoughtful details.</h3><p>I’m interested in Product Designer and UX/UI roles where I can contribute to real products, collaborate with a team and keep improving the user experience.</p><a class="text-link" href="https://www.linkedin.com/in/adnankhandesign/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn ↗</a></aside>
     </div>
   </div>
 </section>
 
 <section class="contact" id="contact">
   <div class="wrap">
-    <div class="index" style="color:#b8c0b8">08 / Contact</div>
+    <div class="index" style="color:#b8c0b8">04 / Contact</div>
     <h2>Let’s make something useful.</h2>
-    <p class="intro">I’m open to Product Designer, Digital Product Designer and UX/UI opportunities in Germany — remote, hybrid or on-site.</p>
-    <div class="contact-links"><a class="btn" href="mailto:1digital1designer@gmail.com">Email me ↗</a><a class="btn ghost" href="https://www.linkedin.com/in/adnankhandesign/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a class="btn ghost" href="https://github.com/Khan-digital/adnan-portfolio" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a class="btn ghost" href="/cv.html">View CV ↗</a></div>
+    <p class="intro">Looking for a Product Designer or UX/UI opportunity in Germany. Let’s talk about the product, the team and how I can contribute.</p>
+    <div class="contact-links"><a class="btn" href="mailto:1digital1designer@gmail.com">Contact me ↗</a><a class="btn ghost" href="https://www.linkedin.com/in/adnankhandesign/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a class="btn ghost" href="https://github.com/Khan-digital/adnan-portfolio" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a class="btn ghost" href="/cv.html">View CV ↗</a></div>
   </div>
 </section>
 </main>
