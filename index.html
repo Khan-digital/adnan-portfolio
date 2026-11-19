@@ -386,6 +386,21 @@ footer{padding:28px 0}
 .language-control select:focus{outline:2px solid var(--red);outline-offset:2px}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 @media(max-width:640px){.language-control select{min-height:31px;padding:5px 6px;font-size:9px}}
+
+/* Portfolio refresh: lead with genuine project visuals and keep supporting copy concise */
+.project-gallery{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:22px;background:#e9e7df;align-items:stretch}
+.project-gallery img{min-width:0;height:100%;width:100%;object-fit:contain!important;mix-blend-mode:normal!important;background:#fffefa;border:1px solid rgba(32,32,30,.12);padding:10px;border-radius:3px}
+.project-gallery[aria-label*="Carpooling"]{background:#e8eee7}
+.project-info p{max-width:54ch;line-height:1.55}
+.project-info .tags{margin:17px 0}
+.project-info{padding:26px 30px 30px}
+.section-head{margin-bottom:34px}
+.experience-card{grid-template-columns:.8fr 1.2fr;gap:30px;padding:30px}
+.experience-card h3{font-size:26px}
+.experience-facts{grid-template-columns:1fr 1fr}
+.fact{padding:20px}
+.about-copy{line-height:1.6}
+@media(max-width:640px){.project-gallery{height:250px;padding:12px;gap:8px}.project-gallery img{padding:5px}.project-info{padding:22px}.experience-card{padding:22px;gap:20px}}
 </style>
   <meta name="google-site-verification" content="1fQ5klcvQhTEm7WsEvVTkYAuLZ_9c8VkeglMPF3e0is" />
 </head>
@@ -402,8 +417,8 @@ footer{padding:28px 0}
 <section class="hero">
   <div class="wrap hero-inner">
     <div class="kicker">Digital Product Designer · Germany</div>
-    <h1>Designing digital products people can use <span class="accent">with confidence.</span></h1>
-    <p class="hero-copy">I’m an AI-assisted Product Designer based in Germany, with 9+ years in digital design. I combine UX/UI and visual craft with hands-on web implementation — guiding AI-generated code, integrating features, debugging, testing and refining working products.</p>
+    <h1>Digital products, designed <span class="accent">with clarity.</span></h1>
+    <p class="hero-copy">I’m a Germany-based digital designer focused on UX/UI and product experiences. I turn ideas into clear user journeys, thoughtful interfaces and working prototypes — combining visual craft, Figma and hands-on product testing.</p>
     <div class="hero-bottom">
       <div class="actions"><a class="btn" href="#work">Explore selected work ↓</a><a class="btn ghost" href="/cv.html">View CV ↗</a></div>
       <div class="hero-meta">Product design · UX/UI · AI-assisted development · Web implementation</div>
@@ -415,33 +430,25 @@ footer{padding:28px 0}
   <div class="wrap">
     <div class="section-head">
       <div class="index">01 / Selected work</div>
-      <div><h2>Product work, not just screens.</h2><p class="intro">Selected work from digital products and concepts I have contributed to. Open a project to see the thinking, interface and details.</p></div>
+      <div><h2>Selected product work.</h2><p class="intro">Two product projects showing my approach to interface design, user journeys and practical implementation.</p></div>
     </div>
     <div class="project-grid">
       <article class="project">
-        <div class="project-visual"><img src="/images/home_Zeichenfl%C3%A4che%201%20Kopie%2018.jpg" alt="hatDu marketplace product interface"></div>
+        <div class="project-visual project-gallery" aria-label="HatDu marketplace interface examples"><img src="/images/home_Zeichenfl%C3%A4che%201%20Kopie%2018.jpg" alt="HatDu marketplace interface — primary screen"><img src="/images/home_Zeichenfl%C3%A4che%201%20Kopie%203.jpg" alt="HatDu marketplace interface — additional screen"></div>
         <div class="project-info">
           <div class="project-top"><span class="project-type">Marketplace · Digital product</span><span class="project-number">01</span></div>
           <h3>hatDu.de</h3>
-          <p>I plan page purpose and user journeys, design layouts in Illustrator, prototype in Figma, and plan social content. A full-stack developer handles platform development.</p>
-          <div class="tags"><span class="tag">Product planning</span><span class="tag">Illustrator</span><span class="tag">Figma</span><span class="tag">Social media</span></div>
+          <p>Marketplace experience shaped through page planning, user journeys, Illustrator layouts and Figma prototypes. Platform development is handled by a full-stack developer.</p>
+          <div class="tags"><span class="tag">User journeys</span><span class="tag">Illustrator</span><span class="tag">Figma</span><span class="tag">Marketplace UX</span></div>
           <a class="text-link" href="/case-study.html">Read the HatDu case study ↗</a>
         </div>
       </article>
       <article class="project">
-        <div class="project-visual mobility">
-          <div class="mobility-ui" aria-label="Illustrative mobility interface composition">
-            <div class="mobility-top"><span>ROUTE / OVERVIEW</span><span>AK ↗</span></div>
-            <div class="art-title">A better way to get there.</div>
-            <div class="art-sub">A mobility and carpooling experience built around a simple journey.</div>
-            <div class="mobility-map"><span class="route"></span><span class="map-pin one"></span><span class="map-pin two"></span></div>
-            <div class="mobility-row"><span class="mobility-chip"></span><span class="mobility-chip"></span><span class="mobility-chip"></span></div>
-          </div>
-        </div>
+        <div class="project-visual project-gallery" aria-label="Carpooling product interface and journey examples"><img src="/images/carpooling-route-planner.svg" alt="Carpooling route planner interface concept"><img src="/images/carpooling-survey-flow.svg" alt="Carpooling multi-step survey flow"></div>
         <div class="project-info">
           <div class="project-top"><span class="project-type">Mobility · Digital product</span><span class="project-number">02</span></div>
           <h3>Route-Based Carpooling Platform</h3>
-          <p>An independently designed and built carpooling prototype: Illustrator page designs, Figma interaction prototypes, AI-assisted implementation, code integration, debugging and testing.</p>
+          <p>An independently designed and built carpooling prototype, from Figma interaction flows and route planning to AI-assisted implementation, debugging and testing.</p>
           <div class="tags"><span class="tag">Illustrator → Figma</span><span class="tag">ChatGPT &amp; Claude</span><span class="tag">WordPress / PHP</span><span class="tag">Independent build</span></div>
           <a class="text-link" href="/route-based-carpooling.html">Read the product case study ↗</a>
         </div>
@@ -455,10 +462,10 @@ footer{padding:28px 0}
   <div class="wrap">
     <div class="section-head">
       <div class="index">02 / Experience</div>
-      <div><h2>Experience across product and digital design.</h2><p class="intro">At STG Media-Marketing GmbH in Germany, I work across UX/UI, responsive web, motion, digital content and product quality assurance.</p></div>
+      <div><h2>Design, implementation and validation.</h2><p class="intro">At STG Media-Marketing GmbH, my work spans UX/UI, responsive web, visual and motion design, plus hands-on testing of live product journeys.</p></div>
     </div>
     <div class="experience-card">
-      <div><div class="index" style="color:#777">PROFESSIONAL EXPERIENCE · SINCE FEBRUARY 2022</div><h3>STG Media-Marketing GmbH</h3><p class="muted">Digital design work across UX/UI, responsive web, motion and digital communication in Germany.</p></div>
+      <div><div class="index" style="color:#777">CURRENT ROLE · FEBRUARY 2022–PRESENT</div><h3>STG Media-Marketing GmbH</h3><p class="muted">Digital Designer — UX/UI, Motion & Social Media</p></div>
       <div class="experience-facts">
         <div class="fact"><strong>Product & UX/UI</strong><span>User flows, interface concepts and responsive digital experiences.</span></div>
         <div class="fact"><strong>Visual & motion</strong><span>Motion design, visual storytelling and product communication.</span></div>
@@ -471,10 +478,10 @@ footer{padding:28px 0}
 
 <section class="section" id="about">
   <div class="wrap">
-    <div class="section-head"><div class="index">03 / About</div><div><h2>A designer with a broad digital foundation.</h2></div></div>
+    <div class="section-head"><div class="index">03 / About</div><div><h2>A broad foundation in digital design.</h2></div></div>
     <div class="about-grid">
-      <div><p class="about-copy">I’m Adnan, a Product Designer based in Germany. My background spans Art & Design, UX/UI, digital media and motion. I work from early interface concepts through responsive design, AI-assisted implementation and hands-on testing — bringing visual clarity and practical product thinking together.</p><div class="skill-list"><span class="skill">Product design</span><span class="skill">UX/UI</span><span class="skill">Figma</span><span class="skill">Responsive web</span><span class="skill">Interaction design</span><span class="skill">Motion design</span><span class="skill">Adobe Creative Cloud</span><span class="skill">AI-assisted development</span><span class="skill">HTML / CSS / JavaScript</span><span class="skill">WordPress / PHP</span></div></div>
-      <aside class="about-note"><div class="small">What I’m interested in</div><h3>Clear interfaces. Useful products. Thoughtful details.</h3><p>I’m interested in Product Designer and UX/UI roles where I can contribute to real products, collaborate with a team and keep improving the user experience.</p><a class="text-link" href="https://www.linkedin.com/in/adnankhandesign/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn ↗</a></aside>
+      <div><p class="about-copy">I’m Adnan, a Germany-based digital designer with a background in Art & Design, UX/UI, visual communication and motion. I enjoy making complex information easier to use through clear interfaces, careful visual decisions and practical testing.</p><div class="skill-list"><span class="skill">Product design</span><span class="skill">UX/UI</span><span class="skill">Figma</span><span class="skill">Responsive web</span><span class="skill">Interaction design</span><span class="skill">Motion design</span><span class="skill">Adobe Creative Cloud</span><span class="skill">AI-assisted development</span><span class="skill">HTML / CSS / JavaScript</span><span class="skill">WordPress / PHP</span></div></div>
+      <aside class="about-note"><div class="small">What I’m interested in</div><h3>Clear interfaces. Useful products. Thoughtful details.</h3><p>I’m looking to contribute to a product team that values clear thinking, strong craft and useful digital experiences.</p><a class="text-link" href="https://www.linkedin.com/in/adnankhandesign/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn ↗</a></aside>
     </div>
   </div>
 </section>
@@ -483,7 +490,7 @@ footer{padding:28px 0}
   <div class="wrap">
     <div class="index" style="color:#b8c0b8">04 / Contact</div>
     <h2>Let’s make something useful.</h2>
-    <p class="intro">Looking for a Product Designer or UX/UI opportunity in Germany. Let’s talk about the product, the team and how I can contribute.</p>
+    <p class="intro">Open to Product Designer and UX/UI opportunities in Germany.</p>
     <div class="contact-links"><a class="btn" href="mailto:1digital1designer@gmail.com">Contact me ↗</a><a class="btn ghost" href="https://www.linkedin.com/in/adnankhandesign/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a class="btn ghost" href="https://github.com/Khan-digital/adnan-portfolio" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a class="btn ghost" href="/cv.html">View CV ↗</a></div>
   </div>
 </section>
